@@ -6,7 +6,10 @@ from datetime import datetime
 from datetime import date
 from datetime import timedelta
 
-from core.export_manager import save_articles_file
+from core.export_manager import (
+    build_export_download,
+    save_articles_file,
+)
 from core.news_collector import build_rss_query
 from core.settings import DEFAULT_QUERY
 from core.rss_fetcher import fetch_news
@@ -29,6 +32,9 @@ if "selected_df" not in st.session_state:
 if "generated_files" not in st.session_state:
     st.session_state.generated_files = []
 
+if "generated_download" not in st.session_state:
+    st.session_state.generated_download = None
+
 st.title("📰 디지털자산 뉴스 클리핑")
 
 # --------------------
@@ -49,9 +55,33 @@ def render_save_dialog(file_type):
 
     extension = "xlsx" if file_type == "excel" else "html"
 
-    st.caption(f"저장 경로: exports/{file_name}.{extension}")
+    save_mode = st.radio(
+        "저장 방식",
+        [
+            "브라우저로 다운로드",
+            "프로젝트 폴더에 저장",
+        ],
+        horizontal=True,
+        key=f"save_mode_{file_type}"
+    )
 
-    if st.button("완료", type="primary"):
+    output_dir = "exports"
+
+    if save_mode == "프로젝트 폴더에 저장":
+        output_dir = st.text_input(
+            "저장 폴더",
+            value="exports",
+            key=f"output_dir_{file_type}"
+        )
+
+        st.caption(f"저장 경로: {output_dir}/{file_name}.{extension}")
+    else:
+        st.caption(
+            "파일 생성 후 다운로드 버튼을 누르면 브라우저 기본 "
+            "다운로드 폴더에 저장됩니다."
+        )
+
+    if st.button("파일 생성", type="primary"):
 
         selected_df = st.session_state.selected_df.copy()
 
@@ -65,38 +95,66 @@ def render_save_dialog(file_type):
             st.warning("저장 파일명을 입력하세요.")
             return
 
+        output_dir = output_dir.strip()
+
+        if save_mode == "프로젝트 폴더에 저장" and not output_dir:
+            st.warning("저장 폴더를 입력하세요.")
+            return
+
         with st.status(
-            "파일 저장 중입니다.",
+            "파일 생성 중입니다.",
             expanded=True
         ) as status:
             st.write("원문 링크 확인 및 파일 생성 중...")
 
             try:
-                output_file = save_articles_file(
-                    selected_df,
-                    file_name=file_name,
-                    file_type=file_type
-                )
+                if save_mode == "브라우저로 다운로드":
+                    download = build_export_download(
+                        selected_df,
+                        file_name=file_name,
+                        file_type=file_type
+                    )
+                else:
+                    output_file = save_articles_file(
+                        selected_df,
+                        file_name=file_name,
+                        file_type=file_type,
+                        output_dir=output_dir
+                    )
             except Exception as error:
                 status.update(
-                    label="파일 저장 실패",
+                    label="파일 생성 실패",
                     state="error",
                     expanded=True
                 )
-                st.error(f"저장 중 오류가 발생했습니다: {error}")
+                st.error(f"파일 생성 중 오류가 발생했습니다: {error}")
                 return
 
             status.update(
-                label="파일 저장 완료",
+                label="파일 생성 완료",
                 state="complete",
                 expanded=False
             )
 
-        st.session_state.generated_files = [output_file]
+        if save_mode == "브라우저로 다운로드":
+            st.session_state.generated_download = download
+            st.session_state.generated_files = []
 
-        st.success(
-            f"{output_file} 저장 완료"
-        )
+            st.success("파일 생성 완료. 아래 다운로드 버튼을 눌러 저장하세요.")
+            st.download_button(
+                label=f"다운로드: {download['file_name']}",
+                data=download["data"],
+                file_name=download["file_name"],
+                mime=download["mime"],
+                key=f"download_{file_type}_{file_name}"
+            )
+        else:
+            st.session_state.generated_download = None
+            st.session_state.generated_files = [output_file]
+
+            st.success(
+                f"{output_file} 저장 완료"
+            )
 
 
 @st.dialog("엑셀 파일 저장")
@@ -276,6 +334,20 @@ if not st.session_state.news_df.empty:
 # --------------------
 # 다운로드 버튼
 # --------------------
+
+if st.session_state.generated_download:
+
+    download = st.session_state.generated_download
+
+    st.subheader("생성 파일 다운로드")
+
+    st.download_button(
+        label=f"다운로드: {download['file_name']}",
+        data=download["data"],
+        file_name=download["file_name"],
+        mime=download["mime"],
+        key="latest_generated_download"
+    )
 
 if st.session_state.generated_files:
 

@@ -4,7 +4,7 @@ AND
 (기업 OR 기관 OR 법인)
 """
 
-RSS_LOOKBACK_DAYS = 30
+RSS_LOOKBACK_DAYS = 10
 
 NEWS_ARCHIVE_FILE = "data/news_archive.csv"
 
