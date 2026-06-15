@@ -6,11 +6,10 @@ from datetime import datetime
 from datetime import date
 from datetime import timedelta
 
-from core.email_generator import generate_email_html
-from core.rss_fetcher import (
-    fetch_news,
-    get_original_url
-)
+from core.export_manager import save_articles_file
+from core.news_collector import build_rss_query
+from core.settings import DEFAULT_QUERY
+from core.rss_fetcher import fetch_news
 from core.history_manager import (
     save_history,
     load_history
@@ -20,36 +19,6 @@ st.set_page_config(
     page_title="디지털자산 뉴스 클리핑",
     layout="wide"
 )
-
-MEDIA_LIST = [
-    "연합뉴스",
-    "한국경제",
-    "매일경제",
-    "동아일보",
-    "조선일보",
-    "중앙일보",
-    "이데일리",
-    "전자신문",
-    "뉴스1",
-    "머니투데이",
-    "서울경제",
-    "아시아경제",
-    "파이낸셜뉴스",
-    "조선비즈",
-    "블록미디어",
-    "디지털애셋",
-    "코인데스크코리아",
-    "데일리안",
-    "뉴시스",
-    "헤럴드경제",
-    "디지털타임스"
-]
-
-DEFAULT_QUERY = """
-(디지털자산 OR 가상자산 OR 코인)
-AND
-(기업 OR 기관 OR 법인)
-"""
 
 if "news_df" not in st.session_state:
     st.session_state.news_df = pd.DataFrame()
@@ -66,8 +35,7 @@ st.title("📰 디지털자산 뉴스 클리핑")
 # 파일 저장 모달
 # --------------------
 
-@st.dialog("선택 기사 저장")
-def save_selected_articles_dialog():
+def render_save_dialog(file_type):
 
     default_file_name = (
         datetime.now().strftime("%Y%m%d")
@@ -79,22 +47,11 @@ def save_selected_articles_dialog():
         value=default_file_name
     )
 
-    output_options = st.multiselect(
-        "생성할 파일",
-        [
-            "Excel",
-            "HTML 이메일"
-        ],
-        default=[
-            "Excel",
-            "HTML 이메일"
-        ]
-    )
+    extension = "xlsx" if file_type == "excel" else "html"
 
-    st.caption(f"엑셀 저장 경로: exports/{file_name}.xlsx")
-    st.caption(f"HTML 저장 경로: exports/{file_name}.html")
+    st.caption(f"저장 경로: exports/{file_name}.{extension}")
 
-    if st.button("저장 실행"):
+    if st.button("완료", type="primary"):
 
         selected_df = st.session_state.selected_df.copy()
 
@@ -102,63 +59,56 @@ def save_selected_articles_dialog():
             st.warning("선택된 기사가 없습니다.")
             return
 
-        if not output_options:
-            st.warning("생성할 파일 형식을 선택하세요.")
+        file_name = file_name.strip()
+
+        if not file_name:
+            st.warning("저장 파일명을 입력하세요.")
             return
 
-        os.makedirs(
-            "exports",
-            exist_ok=True
-        )
+        with st.status(
+            "파일 저장 중입니다.",
+            expanded=True
+        ) as status:
+            st.write("원문 링크 확인 및 파일 생성 중...")
 
-        generated_files = []
+            try:
+                output_file = save_articles_file(
+                    selected_df,
+                    file_name=file_name,
+                    file_type=file_type
+                )
+            except Exception as error:
+                status.update(
+                    label="파일 저장 실패",
+                    state="error",
+                    expanded=True
+                )
+                st.error(f"저장 중 오류가 발생했습니다: {error}")
+                return
 
-        export_base_df = selected_df.copy()
-
-        export_base_df["링크"] = (
-            export_base_df["링크"]
-            .apply(get_original_url)
-        )
-
-        export_base_df = (
-            export_base_df
-            .astype(str)
-        )
-
-        if "Excel" in output_options:
-
-            excel_file = f"exports/{file_name}.xlsx"
-
-            export_base_df.to_excel(
-                excel_file,
-                index=False
+            status.update(
+                label="파일 저장 완료",
+                state="complete",
+                expanded=False
             )
 
-            generated_files.append(excel_file)
-
-        if "HTML 이메일" in output_options:
-
-            html_content = generate_email_html(
-                export_base_df,
-                datetime.now().strftime("%Y.%m.%d")
-            )
-
-            html_file = f"exports/{file_name}.html"
-
-            with open(
-                html_file,
-                "w",
-                encoding="utf-8"
-            ) as f:
-                f.write(html_content)
-
-            generated_files.append(html_file)
-
-        st.session_state.generated_files = generated_files
+        st.session_state.generated_files = [output_file]
 
         st.success(
-            f"{len(generated_files)}개 파일 생성 완료"
+            f"{output_file} 저장 완료"
         )
+
+
+@st.dialog("엑셀 파일 저장")
+def save_excel_dialog():
+
+    render_save_dialog("excel")
+
+
+@st.dialog("HTML 파일 저장")
+def save_html_dialog():
+
+    render_save_dialog("html")
 
 # --------------------
 # 사이드바
@@ -185,38 +135,6 @@ with st.expander(
 ):
     st.code(DEFAULT_QUERY)
 
-# --------------------
-# 언론사 선택
-# --------------------
-
-st.subheader("언론사 선택")
-
-selected_media = []
-
-media_cols = st.columns(4)
-
-for idx, media in enumerate(MEDIA_LIST):
-    with media_cols[idx % 4]:
-        if st.checkbox(
-            media,
-            value=media in [
-                "연합뉴스",
-                "한국경제",
-                "매일경제",
-                "동아일보",
-                "조선일보",
-                "중앙일보",
-                "이데일리",
-                "뉴스1"
-            ],
-            key=f"media_{media}"
-        ):
-            selected_media.append(media)
-
-# --------------------
-# 기간 설정
-# --------------------
-
 st.subheader("기간 설정")
 
 col1, col2 = st.columns(2)
@@ -233,14 +151,6 @@ with col2:
         value=date.today()
     )
 
-max_articles = st.number_input(
-    "최대 기사 수",
-    min_value=10,
-    max_value=150,
-    value=30,
-    step=10
-)
-
 # --------------------
 # 뉴스 수집
 # --------------------
@@ -249,7 +159,7 @@ if st.button("뉴스 수집"):
 
     with st.spinner("뉴스 수집 중..."):
 
-        rss_query = query + " when:30d"
+        rss_query = build_rss_query(query)
 
         news_df = fetch_news(rss_query)
 
@@ -273,13 +183,6 @@ if st.button("뉴스 수집"):
         news_df = news_df.drop(
             columns=["filter_date"]
         )
-
-        if selected_media:
-            news_df = news_df[
-                news_df["출처"].isin(selected_media)
-            ]
-
-        news_df = news_df.head(max_articles)
 
     news_df = news_df.copy()
 
@@ -356,8 +259,15 @@ if not st.session_state.news_df.empty:
 
     if len(selected_df):
 
-        if st.button("선택 기사 저장"):
-            save_selected_articles_dialog()
+        col_save_excel, col_save_html = st.columns(2)
+
+        with col_save_excel:
+            if st.button("엑셀로 저장하기"):
+                save_excel_dialog()
+
+        with col_save_html:
+            if st.button("HTML로 저장하기"):
+                save_html_dialog()
 
     else:
 
