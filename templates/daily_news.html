@@ -6,10 +6,17 @@
 <style>
 
 body{
+    display:flex;
+    flex-direction:column;
     font-family:'Malgun Gothic',sans-serif;
     font-size:16px;
     line-height:1.8;
     margin:30px;
+    min-height:calc(100vh - 60px);
+}
+
+.content{
+    flex:1;
 }
 
 .title{
@@ -72,6 +79,8 @@ a:hover{
 
 <body>
 
+<div class="content">
+
 <div class="title">
 {{ report_date }} 가상자산 법인 시장 동향
 </div>
@@ -99,6 +108,8 @@ a:hover{
 </div>
 
 {% endfor %}
+
+</div>
 
 <div class="footer">
 
