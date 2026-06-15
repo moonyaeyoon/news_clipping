@@ -11,6 +11,14 @@ from core.export_manager import (
     save_articles_file,
 )
 from core.news_collector import build_rss_query
+from core.selection_manager import (
+    ARTICLE_ID_COLUMN,
+    SELECTED_COLUMN,
+    apply_selection,
+    ensure_article_ids,
+    get_selected_article_ids,
+    get_selected_articles,
+)
 from core.settings import DEFAULT_QUERY
 from core.rss_fetcher import fetch_news
 from core.history_manager import (
@@ -28,6 +36,12 @@ if "news_df" not in st.session_state:
 
 if "selected_df" not in st.session_state:
     st.session_state.selected_df = pd.DataFrame()
+
+if "selected_article_ids" not in st.session_state:
+    st.session_state.selected_article_ids = set()
+
+if "news_editor_version" not in st.session_state:
+    st.session_state.news_editor_version = 0
 
 if "generated_files" not in st.session_state:
     st.session_state.generated_files = []
@@ -244,12 +258,14 @@ if st.button("뉴스 수집"):
 
     news_df = news_df.copy()
 
-    if "선택" not in news_df.columns:
-        news_df.insert(0, "선택", False)
+    news_df = ensure_article_ids(news_df)
 
     st.session_state.news_df = news_df
     st.session_state.selected_df = pd.DataFrame()
+    st.session_state.selected_article_ids = set()
+    st.session_state.news_editor_version += 1
     st.session_state.generated_files = []
+    st.session_state.generated_download = None
 
     save_history(
         {
@@ -272,44 +288,62 @@ if not st.session_state.news_df.empty:
 
     with col_select_all:
         if st.button("전체 선택"):
-            temp_df = st.session_state.news_df.copy()
-            temp_df["선택"] = True
-            st.session_state.news_df = temp_df
+            st.session_state.selected_article_ids = set(
+                st.session_state.news_df[ARTICLE_ID_COLUMN]
+                .astype(str)
+                .tolist()
+            )
+            st.session_state.news_editor_version += 1
             st.rerun()
 
     with col_unselect_all:
         if st.button("전체 해제"):
-            temp_df = st.session_state.news_df.copy()
-            temp_df["선택"] = False
-            st.session_state.news_df = temp_df
+            st.session_state.selected_article_ids = set()
+            st.session_state.news_editor_version += 1
             st.rerun()
 
-    edited_df = st.data_editor(
+    editor_df = apply_selection(
         st.session_state.news_df,
-        use_container_width=True,
-        hide_index=True,
-        column_config={
-            "선택": st.column_config.CheckboxColumn(
-                "선택",
-                help="엑셀 또는 이메일 템플릿에 포함할 기사를 선택하세요."
-            ),
-            "링크": st.column_config.LinkColumn("링크")
-        },
-        disabled=[
-            "날짜",
-            "제목",
-            "출처",
-            "링크"
-        ]
+        st.session_state.selected_article_ids
     )
 
-    st.session_state.news_df = edited_df
+    with st.form(
+        key=f"news_selection_form_{st.session_state.news_editor_version}"
+    ):
+        edited_df = st.data_editor(
+            editor_df,
+            use_container_width=True,
+            hide_index=True,
+            key=f"news_editor_{st.session_state.news_editor_version}",
+            column_config={
+                SELECTED_COLUMN: st.column_config.CheckboxColumn(
+                    "선택",
+                    help="엑셀 또는 이메일 템플릿에 포함할 기사를 선택하세요."
+                ),
+                "링크": st.column_config.LinkColumn("링크"),
+                ARTICLE_ID_COLUMN: None
+            },
+            disabled=[
+                "날짜",
+                "제목",
+                "출처",
+                "링크",
+                ARTICLE_ID_COLUMN
+            ]
+        )
 
-    selected_df = edited_df[
-        edited_df["선택"] == True
-    ].drop(
-        columns=["선택"]
-    )
+        selection_submitted = st.form_submit_button(
+            "선택 적용",
+            type="primary"
+        )
+
+    if selection_submitted:
+        st.session_state.selected_article_ids = get_selected_article_ids(
+            edited_df
+        )
+        selected_df = get_selected_articles(edited_df)
+    else:
+        selected_df = get_selected_articles(editor_df)
 
     st.session_state.selected_df = selected_df
 
