@@ -1,9 +1,30 @@
 from urllib.parse import quote
+from urllib.parse import urljoin
+from urllib.parse import urlparse
 
 import feedparser
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+
+
+def is_google_url(url):
+
+    host = urlparse(url).netloc.lower()
+
+    return (
+        "google." in host
+        or host.endswith("gstatic.com")
+        or host.endswith("googleusercontent.com")
+    )
+
+
+def is_http_url(url):
+
+    return urlparse(url).scheme in [
+        "http",
+        "https",
+    ]
 
 
 def fetch_news(query):
@@ -84,19 +105,29 @@ def fetch_news(query):
 
 
 def get_original_url(
-    google_url
+    google_url,
+    requester=requests.get
 ):
 
     try:
 
-        response = requests.get(
+        response = requester(
             google_url,
             timeout=10,
+            allow_redirects=True,
             headers={
                 "User-Agent":
                 "Mozilla/5.0"
             }
         )
+
+        if (
+            response.url
+            and is_http_url(response.url)
+            and not is_google_url(response.url)
+        ):
+
+            return response.url
 
         soup = BeautifulSoup(
             response.text,
@@ -110,9 +141,34 @@ def get_original_url(
 
         if canonical:
 
-            return canonical.get(
+            canonical_url = canonical.get(
                 "href"
             )
+
+            if (
+                canonical_url
+                and is_http_url(canonical_url)
+                and not is_google_url(canonical_url)
+            ):
+
+                return canonical_url
+
+        for link in soup.find_all(
+            "a",
+            href=True
+        ):
+
+            href = urljoin(
+                google_url,
+                link.get("href")
+            )
+
+            if (
+                is_http_url(href)
+                and not is_google_url(href)
+            ):
+
+                return href
 
     except Exception:
 

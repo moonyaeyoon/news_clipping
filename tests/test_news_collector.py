@@ -10,6 +10,7 @@ from core.news_collector import (
     append_news_archive,
     collect_news,
 )
+from core.settings import RSS_LOOKBACK_DAYS
 
 
 class NewsCollectorTest(unittest.TestCase):
@@ -124,7 +125,7 @@ class NewsCollectorTest(unittest.TestCase):
             self.assertEqual(1, len(result))
             self.assertEqual(1, len(requested_queries))
             self.assertIn(
-                "when:30d",
+                f"when:{RSS_LOOKBACK_DAYS}d",
                 requested_queries[0]
             )
             self.assertTrue(
