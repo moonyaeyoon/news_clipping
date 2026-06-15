@@ -15,6 +15,21 @@ class FakeResponse:
         self.url = url
 
 
+def build_google_news_page():
+
+    return """
+    <html>
+        <body>
+            <div
+                data-n-a-id="ARTICLE_ID"
+                data-n-a-ts="1781506943"
+                data-n-a-sg="SIGNATURE">
+            </div>
+        </body>
+    </html>
+    """
+
+
 class RssFetcherTest(unittest.TestCase):
 
     def test_get_original_url_prefers_non_google_canonical_url(self):
@@ -62,6 +77,30 @@ class RssFetcherTest(unittest.TestCase):
             get_original_url(
                 "https://news.google.com/rss/articles/example",
                 requester=fake_get
+            )
+        )
+
+    def test_get_original_url_decodes_google_news_article_tokens(self):
+
+        def fake_get(url, **kwargs):
+
+            return FakeResponse(
+                build_google_news_page()
+            )
+
+        def fake_post(url, **kwargs):
+
+            return FakeResponse(
+                """)]}'\n\n"""
+                + """[["wrb.fr","Fbv4je","[\\"garturlres\\",\\"https://example.com/article?id\\\\u003d1\\",1]",null,null,null,"generic"]]"""
+            )
+
+        self.assertEqual(
+            "https://example.com/article?id=1",
+            get_original_url(
+                "https://news.google.com/rss/articles/example",
+                requester=fake_get,
+                post_requester=fake_post
             )
         )
 

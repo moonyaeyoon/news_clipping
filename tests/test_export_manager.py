@@ -77,6 +77,13 @@ class ExportManagerTest(unittest.TestCase):
             self.assertTrue(excel_path.endswith(".xlsx"))
             self.assertTrue(html_path.endswith(".html"))
 
+            excel_df = pd.read_excel(excel_path)
+
+            self.assertEqual(
+                "https://example.com/article",
+                excel_df.loc[0, "링크"]
+            )
+
     def test_build_export_download_returns_file_data_without_writing_file(self):
 
         source_df = pd.DataFrame(
