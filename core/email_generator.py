@@ -8,7 +8,17 @@ from jinja2 import (
     FileSystemLoader
 )
 
-LOGO_IMAGE_FILE = "assets/bithumb_biz_logo.png"
+PROJECT_ROOT = os.path.abspath(
+    os.path.join(
+        os.path.dirname(__file__),
+        ".."
+    )
+)
+LOGO_IMAGE_FILE = os.path.join(
+    PROJECT_ROOT,
+    "assets",
+    "bithumb_biz_logo.png"
+)
 
 
 def get_logo_data_uri(

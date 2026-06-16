@@ -3,7 +3,10 @@ from io import BytesIO
 from datetime import datetime
 
 from core.email_generator import generate_email_html
-from core.rss_fetcher import get_original_url
+from core.rss_fetcher import (
+    get_original_url,
+    normalize_source,
+)
 
 
 EXPORT_TYPES = {
@@ -23,7 +26,8 @@ EXPORT_TYPES = {
 
 def prepare_export_df(
     selected_df,
-    url_resolver=get_original_url
+    url_resolver=get_original_url,
+    source_normalizer=normalize_source
 ):
 
     export_df = selected_df.copy()
@@ -32,6 +36,15 @@ def prepare_export_df(
         export_df["링크"]
         .apply(url_resolver)
     )
+
+    if "출처" in export_df.columns:
+        export_df["출처"] = export_df.apply(
+            lambda row: source_normalizer(
+                row["출처"],
+                row["링크"]
+            ),
+            axis=1
+        )
 
     return export_df.astype(str)
 

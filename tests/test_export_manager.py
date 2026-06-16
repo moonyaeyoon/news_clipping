@@ -43,6 +43,42 @@ class ExportManagerTest(unittest.TestCase):
             result["날짜"].dtype
         )
 
+    def test_prepare_export_df_normalizes_daum_source_after_link_resolution(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "기사",
+                    "출처": "v.daum.net",
+                    "링크": "https://news.google.com/example",
+                }
+            ]
+        )
+
+        def fake_source_normalizer(source, link):
+
+            if (
+                source == "v.daum.net"
+                and link == "https://v.daum.net/v/20260615000000000"
+            ):
+                return "매일경제"
+
+            return source
+
+        result = prepare_export_df(
+            source_df,
+            url_resolver=lambda url: (
+                "https://v.daum.net/v/20260615000000000"
+            ),
+            source_normalizer=fake_source_normalizer
+        )
+
+        self.assertEqual(
+            "매일경제",
+            result.loc[0, "출처"]
+        )
+
     def test_save_articles_file_writes_excel_or_html_file(self):
 
         source_df = pd.DataFrame(

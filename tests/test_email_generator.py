@@ -1,8 +1,13 @@
 import unittest
+import os
+import tempfile
 
 import pandas as pd
 
-from core.email_generator import generate_email_html
+from core.email_generator import (
+    generate_email_html,
+    get_logo_data_uri,
+)
 
 
 class EmailGeneratorTest(unittest.TestCase):
@@ -36,6 +41,23 @@ class EmailGeneratorTest(unittest.TestCase):
         self.assertNotIn(
             "6월 16일",
             html
+        )
+
+    def test_get_logo_data_uri_finds_logo_when_working_directory_changes(self):
+
+        original_cwd = os.getcwd()
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            try:
+                os.chdir(temp_dir)
+
+                logo_data_uri = get_logo_data_uri()
+
+            finally:
+                os.chdir(original_cwd)
+
+        self.assertTrue(
+            logo_data_uri.startswith("data:image/png;base64,")
         )
 
     def test_generate_email_html_keeps_footer_below_a_tall_body(self):
