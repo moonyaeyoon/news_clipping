@@ -168,15 +168,16 @@ a{
     text-decoration:underline;
 }
 
-.article-link{
+.article-title-link{
     color:#252525;
-    font-size:clamp(14px, 1.15vw, 20px);
-    font-weight:400;
+    display:inline;
+    font-size:inherit;
+    font-weight:inherit;
     line-height:1.35;
-    text-decoration:underline;
+    text-decoration:none;
 }
 
-a:hover{
+.article-title-link:hover{
     text-decoration:underline;
 }
 
@@ -276,16 +277,12 @@ a:hover{
 </div>
 
 <div class="article-title">
-{{ article.title }}
-</div>
-
-<div>
 <a
-    class="article-link"
+    class="article-title-link"
     href="{{ article.link }}"
     target="_blank"
 >
-본문 보러가기
+{{ article.title }}
 </a>
 </div>
 

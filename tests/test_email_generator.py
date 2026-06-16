@@ -176,6 +176,41 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
 
+    def test_generate_email_html_links_article_title_directly(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": "클릭할 기사 제목",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        html = generate_email_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertNotIn(
+            "본문 보러가기",
+            html
+        )
+        self.assertIn(
+            'class="article-title-link"',
+            html
+        )
+        self.assertIn(
+            'href="https://example.com/article"',
+            html
+        )
+        self.assertIn(
+            "클릭할 기사 제목",
+            html
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
