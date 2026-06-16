@@ -2,7 +2,9 @@ import os
 from io import BytesIO
 from datetime import datetime
 
-from core.email_generator import generate_email_html
+from core.email_generator import (
+    generate_email_body_html,
+)
 from core.rss_fetcher import (
     get_original_url,
     normalize_source,
@@ -85,7 +87,7 @@ def build_export_download(
         data = buffer.getvalue()
 
     elif file_type == "html":
-        html_content = generate_email_html(
+        html_content = generate_email_body_html(
             export_df,
             datetime.now().strftime("%Y.%m.%d")
         )

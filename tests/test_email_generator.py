@@ -5,6 +5,7 @@ import tempfile
 import pandas as pd
 
 from core.email_generator import (
+    generate_email_body_html,
     generate_email_html,
     get_logo_data_uri,
 )
@@ -202,12 +203,111 @@ class EmailGeneratorTest(unittest.TestCase):
             'class="article-title-link"',
             html
         )
+        self.assertNotIn(
+            'class="article-external-link"',
+            html
+        )
+        self.assertNotIn(
+            "<svg",
+            html
+        )
         self.assertIn(
             'href="https://example.com/article"',
             html
         )
         self.assertIn(
             "클릭할 기사 제목",
+            html
+        )
+
+    def test_generate_email_body_html_uses_email_client_friendly_markup(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": "메일용 기사 제목",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        html = generate_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"',
+            html
+        )
+        self.assertIn(
+            'http-equiv="Content-Type"',
+            html
+        )
+        self.assertIn(
+            'width="680"',
+            html
+        )
+        self.assertIn(
+            '<table',
+            html
+        )
+        self.assertIn(
+            "border-collapse:collapse",
+            html
+        )
+        self.assertIn(
+            "[6/16]",
+            html
+        )
+        self.assertIn(
+            "메일용 기사 제목",
+            html
+        )
+        self.assertIn(
+            "기사 원문 열기",
+            html
+        )
+        self.assertNotIn(
+            "↗",
+            html
+        )
+        self.assertNotIn(
+            "class=",
+            html
+        )
+        self.assertNotIn(
+            "<div",
+            html
+        )
+        self.assertNotIn(
+            "<p",
+            html
+        )
+        self.assertNotIn(
+            "<span",
+            html
+        )
+        self.assertNotIn(
+            "<style",
+            html
+        )
+        self.assertNotIn(
+            "<script",
+            html
+        )
+        self.assertNotIn(
+            "<link",
+            html
+        )
+        self.assertNotIn(
+            "display:flex",
+            html
+        )
+        self.assertNotIn(
+            "<svg",
             html
         )
 

@@ -120,6 +120,51 @@ class ExportManagerTest(unittest.TestCase):
                 excel_df.loc[0, "링크"]
             )
 
+    def test_build_export_download_returns_email_template_html_file_data(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "메일용 기사",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        download = build_export_download(
+            source_df,
+            file_name="daily_news",
+            file_type="html",
+            url_resolver=lambda url: url
+        )
+
+        self.assertEqual(
+            "daily_news.html",
+            download["file_name"]
+        )
+        self.assertEqual(
+            "text/html",
+            download["mime"]
+        )
+        self.assertIn(
+            b"border-collapse:collapse",
+            download["data"]
+        )
+        self.assertIn(
+            "메일용 기사".encode("utf-8"),
+            download["data"]
+        )
+        self.assertNotIn(
+            b"display:flex",
+            download["data"]
+        )
+        self.assertNotIn(
+            b"class=",
+            download["data"]
+        )
+
     def test_build_export_download_returns_file_data_without_writing_file(self):
 
         source_df = pd.DataFrame(
@@ -139,13 +184,6 @@ class ExportManagerTest(unittest.TestCase):
             file_type="excel",
             url_resolver=lambda url: url
         )
-        html_download = build_export_download(
-            source_df,
-            file_name="daily_news",
-            file_type="html",
-            url_resolver=lambda url: url
-        )
-
         self.assertEqual(
             "daily_news.xlsx",
             excel_download["file_name"]
@@ -156,19 +194,6 @@ class ExportManagerTest(unittest.TestCase):
         )
         self.assertTrue(
             excel_download["data"].startswith(b"PK")
-        )
-
-        self.assertEqual(
-            "daily_news.html",
-            html_download["file_name"]
-        )
-        self.assertEqual(
-            "text/html",
-            html_download["mime"]
-        )
-        self.assertIn(
-            "기사".encode("utf-8"),
-            html_download["data"]
         )
 
 

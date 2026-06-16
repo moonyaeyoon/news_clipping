@@ -19,6 +19,10 @@ LOGO_IMAGE_FILE = os.path.join(
     "assets",
     "bithumb_biz_logo.png"
 )
+TEMPLATE_DIR = os.path.join(
+    PROJECT_ROOT,
+    "templates"
+)
 
 
 def get_logo_data_uri(
@@ -81,20 +85,7 @@ def format_report_date(
     )
 
 
-def generate_email_html(
-    news_df,
-    report_date
-):
-
-    env = Environment(
-        loader=FileSystemLoader(
-            "templates"
-        )
-    )
-
-    template = env.get_template(
-        "daily_news.html"
-    )
+def build_articles(news_df):
 
     articles = []
 
@@ -109,12 +100,55 @@ def generate_email_html(
             }
         )
 
+    return articles
+
+
+def render_news_template(
+    template_name,
+    news_df,
+    report_date
+):
+
+    env = Environment(
+        loader=FileSystemLoader(
+            TEMPLATE_DIR
+        )
+    )
+
+    template = env.get_template(
+        template_name
+    )
+
     html = template.render(
         report_date=format_report_date(
             report_date
         ),
         logo_data_uri=get_logo_data_uri(),
-        articles=articles
+        articles=build_articles(news_df)
     )
 
     return html
+
+
+def generate_email_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news.html",
+        news_df,
+        report_date
+    )
+
+
+def generate_email_body_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news_email.html",
+        news_df,
+        report_date
+    )

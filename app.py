@@ -59,7 +59,7 @@ def render_save_dialog(file_type):
 
     default_file_name = (
         datetime.now().strftime("%Y%m%d")
-        + "_daily_news"
+        + "_daily_news_email"
     )
 
     file_name = st.text_input(
@@ -67,7 +67,7 @@ def render_save_dialog(file_type):
         value=default_file_name
     )
 
-    extension = "xlsx" if file_type == "excel" else "html"
+    extension = "html"
 
     save_mode = st.radio(
         "저장 방식",
@@ -171,13 +171,7 @@ def render_save_dialog(file_type):
             )
 
 
-@st.dialog("엑셀 파일 저장")
-def save_excel_dialog():
-
-    render_save_dialog("excel")
-
-
-@st.dialog("HTML 파일 저장")
+@st.dialog("이메일 템플릿 저장")
 def save_html_dialog():
 
     render_save_dialog("html")
@@ -351,15 +345,8 @@ if not st.session_state.news_df.empty:
 
     if len(selected_df):
 
-        col_save_excel, col_save_html = st.columns(2)
-
-        with col_save_excel:
-            if st.button("엑셀로 저장하기"):
-                save_excel_dialog()
-
-        with col_save_html:
-            if st.button("HTML로 저장하기"):
-                save_html_dialog()
+        if st.button("이메일 템플릿 생성"):
+            save_html_dialog()
 
     else:
 
