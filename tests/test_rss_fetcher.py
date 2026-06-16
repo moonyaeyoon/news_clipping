@@ -1,6 +1,9 @@
 import unittest
 
-from core.rss_fetcher import get_original_url
+from core.rss_fetcher import (
+    get_original_url,
+    normalize_source,
+)
 
 
 class FakeResponse:
@@ -32,6 +35,17 @@ def build_google_news_page():
 
 class RssFetcherTest(unittest.TestCase):
 
+    def test_normalize_source_removes_known_section_suffix(self):
+
+        self.assertEqual(
+            "매일경제",
+            normalize_source("매일경제 마켓")
+        )
+        self.assertEqual(
+            "한국경제",
+            normalize_source("한국경제 증권")
+        )
+
     def test_get_original_url_prefers_non_google_canonical_url(self):
 
         def fake_get(url, **kwargs):
@@ -51,6 +65,36 @@ class RssFetcherTest(unittest.TestCase):
             "https://example.com/original-article",
             get_original_url(
                 "https://news.google.com/rss/articles/example",
+                requester=fake_get
+            )
+        )
+
+    def test_normalize_source_resolves_daum_publisher_from_article_meta(self):
+
+        def fake_original_url_resolver(url):
+
+            return "https://v.daum.net/v/20260616090000000"
+
+        def fake_get(url, **kwargs):
+
+            return FakeResponse(
+                """
+                <html>
+                    <head>
+                        <meta property="og:article:author"
+                              content="매일경제">
+                    </head>
+                </html>
+                """,
+                url="https://v.daum.net/v/20260616090000000"
+            )
+
+        self.assertEqual(
+            "매일경제",
+            normalize_source(
+                "v.daum.net",
+                link="https://news.google.com/rss/articles/example",
+                original_url_resolver=fake_original_url_resolver,
                 requester=fake_get
             )
         )

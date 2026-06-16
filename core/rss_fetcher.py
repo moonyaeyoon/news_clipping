@@ -9,6 +9,38 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+KNOWN_MEDIA_NAMES = [
+    "연합뉴스",
+    "한국경제",
+    "매일경제",
+    "동아일보",
+    "조선일보",
+    "중앙일보",
+    "이데일리",
+    "전자신문",
+    "뉴스1",
+    "머니투데이",
+    "서울경제",
+    "아시아경제",
+    "파이낸셜뉴스",
+    "조선비즈",
+    "블록미디어",
+    "디지털애셋",
+    "코인데스크코리아",
+    "데일리안",
+    "뉴시스",
+    "헤럴드경제",
+    "디지털타임스",
+    "매경이코노미",
+]
+
+DAUM_SOURCES = {
+    "v.daum.net",
+    "daum.net",
+    "Daum",
+    "다음뉴스",
+}
+
 
 def is_google_url(url):
 
@@ -27,6 +59,144 @@ def is_http_url(url):
         "http",
         "https",
     ]
+
+
+def clean_source_name(source):
+
+    return str(source or "").strip()
+
+
+def normalize_known_media_source(source):
+
+    cleaned_source = clean_source_name(source)
+
+    for media_name in KNOWN_MEDIA_NAMES:
+        if (
+            cleaned_source == media_name
+            or cleaned_source.startswith(f"{media_name} ")
+        ):
+            return media_name
+
+    return cleaned_source
+
+
+def extract_publisher_from_html(html):
+
+    soup = BeautifulSoup(
+        html,
+        "html.parser"
+    )
+
+    meta_selectors = [
+        {
+            "property": "og:article:author",
+        },
+        {
+            "name": "article:author",
+        },
+        {
+            "property": "dable:item_id",
+        },
+        {
+            "property": "og:site_name",
+        },
+    ]
+
+    for selector in meta_selectors:
+        meta = soup.find(
+            "meta",
+            attrs=selector
+        )
+
+        if (
+            meta
+            and meta.get("content")
+        ):
+            publisher = normalize_known_media_source(
+                meta.get("content")
+            )
+
+            if publisher and publisher not in DAUM_SOURCES:
+                return publisher
+
+    for selector in [
+        ".info_cp",
+        ".txt_cp",
+        ".link_cp",
+        ".cp_name",
+    ]:
+        node = soup.select_one(selector)
+
+        if node:
+            publisher = normalize_known_media_source(
+                node.get_text(
+                    " ",
+                    strip=True
+                )
+            )
+
+            if publisher and publisher not in DAUM_SOURCES:
+                return publisher
+
+    return ""
+
+
+def resolve_daum_source(
+    link,
+    original_url_resolver=None,
+    requester=requests.get
+):
+
+    if not link:
+        return ""
+
+    if original_url_resolver is None:
+        original_url_resolver = get_original_url
+
+    original_url = original_url_resolver(link)
+
+    try:
+        response = requester(
+            original_url,
+            timeout=10,
+            headers={
+                "User-Agent":
+                "Mozilla/5.0"
+            }
+        )
+
+        return extract_publisher_from_html(
+            response.text
+        )
+
+    except Exception:
+        return ""
+
+
+def normalize_source(
+    source,
+    link="",
+    original_url_resolver=None,
+    requester=requests.get
+):
+
+    normalized_source = normalize_known_media_source(
+        source
+    )
+
+    if normalized_source not in DAUM_SOURCES:
+        return normalized_source
+
+    daum_source = resolve_daum_source(
+        link,
+        original_url_resolver=original_url_resolver,
+        requester=requester
+    )
+
+    if daum_source:
+        return daum_source
+
+    return normalized_source
 
 
 def extract_google_news_tokens(soup, html):
@@ -248,7 +418,10 @@ def fetch_news(query):
             {
                 "날짜": published,
                 "제목": title,
-                "출처": source,
+                "출처": normalize_source(
+                    source,
+                    link=item.link
+                ),
                 "링크": item.link,
             }
         )

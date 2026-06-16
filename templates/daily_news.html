@@ -5,72 +5,225 @@
 
 <style>
 
+html{
+    height:100%;
+}
+
 body{
-    display:flex;
-    flex-direction:column;
-    font-family:'Malgun Gothic',sans-serif;
+    background:#fff;
+    display:block;
+    font-family:'Spoqa Han Sans Neo','Spoqa Han Sans','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
     font-size:16px;
     line-height:1.8;
-    margin:30px;
-    min-height:calc(100vh - 60px);
+    margin:0;
+    min-height:100vh;
+}
+
+.newsletter{
+    --page-x:clamp(40px, 7vw, 144px);
+    background:#fff;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction:column;
+    max-width:none;
+    min-height:100vh;
+    width:100%;
 }
 
 .content{
+    box-sizing:border-box;
+    flex:0 0 auto;
+    min-height:calc(100vh + 120px);
+    padding:34px var(--page-x) 64px;
+}
+
+.header{
+    background:#fff;
+    box-sizing:border-box;
+    flex-shrink:0;
+    padding:clamp(42px, 5vw, 72px) var(--page-x) 0;
+}
+
+.header-main{
+    align-items:center;
+    border-bottom:1px solid #949494;
+    box-sizing:border-box;
+    display:flex;
+    gap:clamp(24px, 2vw, 38px);
+    min-height:clamp(96px, 9vw, 132px);
+}
+
+.header-logo{
+    flex-shrink:0;
+    width:clamp(150px, 11vw, 212px);
+}
+
+.header-logo img{
+    display:block;
+    height:auto;
+    width:100%;
+}
+
+.header-title{
+    color:#252525;
     flex:1;
+    font-family:'Spoqa Han Sans Neo','Spoqa Han Sans','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    font-size:clamp(36px, 4vw, 64px);
+    font-weight:800;
+    letter-spacing:0;
+    line-height:1.15;
+    text-align:left;
+    white-space:nowrap;
 }
 
-.title{
-    font-size:28px;
-    font-weight:bold;
-    border-bottom:2px solid #333;
-    padding-bottom:10px;
-    margin-bottom:20px;
+.header-date-row{
+    align-items:center;
+    border-bottom:1px solid #949494;
+    box-sizing:border-box;
+    display:flex;
+    min-height:clamp(70px, 6.5vw, 96px);
 }
 
-.section{
-    font-size:20px;
-    font-weight:bold;
-    margin-top:25px;
-    margin-bottom:10px;
+.report-date{
+    color:#252525;
+    font-size:clamp(32px, 3vw, 48px);
+    font-weight:800;
+    line-height:1.2;
 }
 
 .article{
-    margin-bottom:15px;
+    border-bottom:1px solid #949494;
+    box-sizing:border-box;
+    margin:0 0 30px;
+    min-height:112px;
+    padding:12px 0 20px;
+}
+
+.article-content{
+    box-sizing:border-box;
+    max-width:1280px;
+}
+
+.article-meta-line{
+    align-items:center;
+    color:#252525;
+    display:flex;
+    font-size:clamp(16px, 1.35vw, 24px);
+    gap:clamp(24px, 2.4vw, 46px);
+    line-height:1.5;
+    margin-bottom:10px;
+}
+
+.article-source{
+    font-weight:800;
+}
+
+.article-date{
+    font-weight:400;
 }
 
 .article-title{
-    font-weight:bold;
-}
-
-.article-meta{
-    color:#666;
+    color:#252525;
+    font-size:clamp(22px, 1.8vw, 34px);
+    font-weight:800;
+    line-height:1.35;
+    margin-bottom:4px;
 }
 
 .footer{
-    border-top:1px solid #ddd;
-    color:#555;
-    font-size:13px;
+    background:#151515;
+    box-sizing:border-box;
+    color:#cfcfcf;
+    display:flex;
+    flex-direction:column;
+    font-family:'Spoqa Han Sans Neo','Spoqa Han Sans','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+    flex-shrink:0;
+    font-size:14px;
+    justify-content:center;
     line-height:1.7;
-    margin-top:35px;
-    padding-top:16px;
+    margin-top:0;
+    min-height:171px;
+    padding:24px var(--page-x);
+}
+
+.footer-inner{
+    max-width:1280px;
 }
 
 .footer p{
-    margin:0 0 10px 0;
+    margin:0 0 6px 0;
 }
 
 .footer-contact{
+    color:#d8d8d8;
     margin-top:8px;
 }
 
+.footer-contact div{
+    margin-top:4px;
+}
+
 a{
-    color:#0066cc;
-    text-decoration:none;
-    font-weight:bold;
+    color:#000;
+    text-decoration:underline;
+}
+
+.article-link{
+    color:#252525;
+    font-size:clamp(14px, 1.15vw, 20px);
+    font-weight:400;
+    line-height:1.35;
+    text-decoration:underline;
 }
 
 a:hover{
     text-decoration:underline;
+}
+
+@media (max-width: 860px){
+    .header{
+        min-height:0;
+        padding:28px var(--page-x) 0;
+    }
+
+    .header-main{
+        gap:18px;
+        min-height:86px;
+    }
+
+    .header-logo{
+        width:120px;
+    }
+
+    .header-title{
+        font-size:clamp(28px, 6.6vw, 38px);
+        text-align:left;
+        white-space:normal;
+    }
+
+    .header-date-row{
+        min-height:56px;
+    }
+
+    .footer{
+        font-size:13px;
+        justify-content:center;
+        line-height:1.75;
+        min-height:171px;
+        padding:24px var(--page-x);
+    }
+
+    .content{
+        padding:26px var(--page-x) 44px;
+    }
+
+    .report-date{
+        font-size:30px;
+    }
+
+    .article-title{
+        font-size:22px;
+    }
 }
 
 </style>
@@ -79,25 +232,56 @@ a:hover{
 
 <body>
 
-<div class="content">
+<div class="newsletter">
 
-<div class="title">
-{{ report_date }} 가상자산 법인 시장 동향
+<div class="header">
+<div class="header-main">
+<div class="header-logo">
+{% if logo_data_uri %}
+<img
+    src="{{ logo_data_uri }}"
+    alt="빗썸 biz"
+>
+{% else %}
+빗썸 biz
+{% endif %}
 </div>
+<div class="header-title">
+가상자산 법인 시장 동향
+</div>
+</div>
+
+<div class="header-date-row">
+<div class="report-date">
+{{ report_date }}
+</div>
+</div>
+</div>
+
+<div class="content">
 
 {% for article in articles %}
 
 <div class="article">
 
-<div class="article-title">
-▲ {{ article.title }}
-<span class="article-meta">
-({{ article.source }} {{ article.date }})
+<div class="article-content">
+
+<div class="article-meta-line">
+<span class="article-source">
+{{ article.source }}
 </span>
+<span class="article-date">
+{{ article.date }}
+</span>
+</div>
+
+<div class="article-title">
+{{ article.title }}
 </div>
 
 <div>
 <a
+    class="article-link"
     href="{{ article.link }}"
     target="_blank"
 >
@@ -107,11 +291,14 @@ a:hover{
 
 </div>
 
+</div>
+
 {% endfor %}
 
 </div>
 
 <div class="footer">
+<div class="footer-inner">
 
 <p>
 본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며,
@@ -124,8 +311,12 @@ a:hover{
 </p>
 
 <div class="footer-contact">
-📞 문의하기: 02-xxxx-xxxx (빗썸 법인영업실)<br>
-📧 이메일: biz@bithumbcorp.com
+<div>📞 문의하기: 02-xxxx-xxxx (빗썸 법인영업실)</div>
+<div>📧 이메일: biz@bithumbcorp.com</div>
+</div>
+
+</div>
+
 </div>
 
 </div>
