@@ -6,6 +6,11 @@ from datetime import datetime
 from datetime import date
 from datetime import timedelta
 
+try:
+    from streamlit_sortables import sort_items
+except ImportError:
+    sort_items = None
+
 from core.export_manager import (
     build_export_download,
     normalize_article_upload_df,
@@ -41,6 +46,9 @@ if "selected_df" not in st.session_state:
 if "selected_article_ids" not in st.session_state:
     st.session_state.selected_article_ids = set()
 
+if "selected_article_order" not in st.session_state:
+    st.session_state.selected_article_order = []
+
 if "news_editor_version" not in st.session_state:
     st.session_state.news_editor_version = 0
 
@@ -54,6 +62,148 @@ if "manual_email_download" not in st.session_state:
     st.session_state.manual_email_download = None
 
 st.title("📰 디지털자산 뉴스 클리핑")
+
+
+def sync_selected_article_order(
+    selected_article_ids,
+    selected_rows
+):
+
+    selected_article_ids = {
+        str(article_id)
+        for article_id in selected_article_ids
+    }
+    current_order = [
+        str(article_id)
+        for article_id in st.session_state.selected_article_order
+        if str(article_id) in selected_article_ids
+    ]
+    ordered_ids = set(current_order)
+
+    for article_id in (
+        selected_rows[ARTICLE_ID_COLUMN]
+        .astype(str)
+        .tolist()
+    ):
+        if (
+            article_id in selected_article_ids
+            and article_id not in ordered_ids
+        ):
+            current_order.append(article_id)
+            ordered_ids.add(article_id)
+
+    return current_order
+
+
+def build_order_label(row):
+
+    title = str(row.get("제목", ""))
+
+    if len(title) > 72:
+        title = title[:69] + "..."
+
+    return (
+        f"{row.get('출처', '')} | "
+        f"{title} | "
+        f"{row.get('날짜', '')} | "
+        f"{str(row.get(ARTICLE_ID_COLUMN, ''))[:8]}"
+    )
+
+
+def render_selected_article_order(selected_rows):
+
+    st.subheader("이메일 기사 순서")
+
+    ordered_rows = selected_rows.copy()
+    ordered_rows["_order_label"] = ordered_rows.apply(
+        build_order_label,
+        axis=1
+    )
+    label_by_id = dict(
+        zip(
+            ordered_rows[ARTICLE_ID_COLUMN].astype(str),
+            ordered_rows["_order_label"]
+        )
+    )
+    id_by_label = {
+        label: article_id
+        for article_id, label in label_by_id.items()
+    }
+    order_labels = [
+        label_by_id[article_id]
+        for article_id in st.session_state.selected_article_order
+        if article_id in label_by_id
+    ]
+
+    if sort_items:
+        sorted_labels = sort_items(
+            order_labels,
+            direction="vertical",
+            key="selected_article_order_sort"
+        )
+        sorted_article_ids = [
+            id_by_label[label]
+            for label in sorted_labels
+            if label in id_by_label
+        ]
+    else:
+        st.caption(
+            "드래그 정렬 컴포넌트가 설치되면 이 영역에서 "
+            "기사를 드래그해 순서를 바꿀 수 있습니다."
+        )
+        fallback_df = ordered_rows[
+            [
+                ARTICLE_ID_COLUMN,
+                "출처",
+                "제목",
+                "날짜",
+            ]
+        ].copy()
+        fallback_df.insert(
+            0,
+            "순서",
+            range(
+                1,
+                len(fallback_df) + 1
+            )
+        )
+        edited_order_df = st.data_editor(
+            fallback_df,
+            use_container_width=True,
+            hide_index=True,
+            column_config={
+                "순서": st.column_config.NumberColumn(
+                    "순서",
+                    min_value=1,
+                    step=1
+                ),
+                ARTICLE_ID_COLUMN: None
+            },
+            disabled=[
+                "출처",
+                "제목",
+                "날짜",
+                ARTICLE_ID_COLUMN
+            ],
+            key="selected_article_order_editor"
+        )
+        sorted_article_ids = (
+            edited_order_df
+            .sort_values(
+                "순서",
+                kind="stable"
+            )[ARTICLE_ID_COLUMN]
+            .astype(str)
+            .tolist()
+        )
+
+    if sorted_article_ids != st.session_state.selected_article_order:
+        st.session_state.selected_article_order = sorted_article_ids
+        st.session_state.generated_files = []
+        st.session_state.generated_download = None
+        st.session_state.manual_email_download = None
+
+    return st.session_state.selected_article_order
 
 # --------------------
 # 파일 저장 모달
@@ -285,6 +435,7 @@ with manual_tab:
         st.session_state.news_df = news_df
         st.session_state.selected_df = pd.DataFrame()
         st.session_state.selected_article_ids = set()
+        st.session_state.selected_article_order = []
         st.session_state.news_editor_version += 1
         st.session_state.generated_files = []
         st.session_state.generated_download = None
@@ -316,6 +467,11 @@ with manual_tab:
                     .astype(str)
                     .tolist()
                 )
+                st.session_state.selected_article_order = (
+                    st.session_state.news_df[ARTICLE_ID_COLUMN]
+                    .astype(str)
+                    .tolist()
+                )
                 st.session_state.news_editor_version += 1
                 st.session_state.generated_files = []
                 st.session_state.generated_download = None
@@ -325,6 +481,7 @@ with manual_tab:
         with col_unselect_all:
             if st.button("전체 해제"):
                 st.session_state.selected_article_ids = set()
+                st.session_state.selected_article_order = []
                 st.session_state.news_editor_version += 1
                 st.session_state.generated_files = []
                 st.session_state.generated_download = None
@@ -370,12 +527,35 @@ with manual_tab:
             st.session_state.selected_article_ids = get_selected_article_ids(
                 edited_df
             )
-            selected_df = get_selected_articles(edited_df)
             st.session_state.generated_files = []
             st.session_state.generated_download = None
             st.session_state.manual_email_download = None
+            selected_source_df = edited_df
         else:
-            selected_df = get_selected_articles(editor_df)
+            selected_source_df = editor_df
+
+        selected_rows = selected_source_df[
+            selected_source_df[SELECTED_COLUMN] == True
+        ].copy()
+        st.session_state.selected_article_order = sync_selected_article_order(
+            st.session_state.selected_article_ids,
+            selected_rows
+        )
+
+        if len(selected_rows) > 1:
+            ordered_article_ids = render_selected_article_order(
+                selected_rows
+            )
+        else:
+            ordered_article_ids = st.session_state.selected_article_order
+
+        selected_df = get_selected_articles(
+            selected_source_df,
+            ordered_article_ids=ordered_article_ids
+        )
+
+        if selected_df.empty:
+            st.session_state.selected_article_order = []
 
         st.session_state.selected_df = selected_df
 

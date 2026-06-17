@@ -75,16 +75,36 @@ def get_selected_article_ids(edited_df):
     )
 
 
-def get_selected_articles(edited_df):
+def get_selected_articles(
+    edited_df,
+    ordered_article_ids=None
+):
 
     selected_df = edited_df[
         edited_df[SELECTED_COLUMN] == True
     ].copy()
 
+    if ordered_article_ids:
+        order_map = {
+            str(article_id): index
+            for index, article_id in enumerate(ordered_article_ids)
+        }
+        selected_df["_selection_order"] = (
+            selected_df[ARTICLE_ID_COLUMN]
+            .astype(str)
+            .map(order_map)
+            .fillna(len(order_map))
+        )
+        selected_df = selected_df.sort_values(
+            "_selection_order",
+            kind="stable"
+        )
+
     return selected_df.drop(
         columns=[
             SELECTED_COLUMN,
             ARTICLE_ID_COLUMN,
+            "_selection_order",
         ],
         errors="ignore"
     )

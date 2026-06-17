@@ -189,6 +189,84 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
 
+    def test_generate_email_body_html_keeps_header_on_one_row(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": "메일용 기사 제목",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        html = generate_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            'width="108"',
+            html
+        )
+        self.assertIn(
+            'width="370"',
+            html
+        )
+        self.assertIn(
+            'width="172"',
+            html
+        )
+        self.assertIn(
+            'width="18"',
+            html
+        )
+        self.assertIn(
+            'width="12"',
+            html
+        )
+        self.assertIn(
+            "font-size:28px",
+            html
+        )
+        self.assertIn(
+            "font-size:20px",
+            html
+        )
+        self.assertIn(
+            "white-space:nowrap",
+            html
+        )
+
+    def test_generate_email_body_html_styles_article_date_lighter(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": "메일용 기사 제목",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        html = generate_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            "font-size:18px; line-height:26px; color:#252525; font-weight:bold",
+            html
+        )
+        self.assertIn(
+            "font-size:16px; line-height:24px; color:#8a8a8a",
+            html
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

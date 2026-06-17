@@ -133,6 +133,51 @@ class SelectionManagerTest(unittest.TestCase):
             get_selected_article_ids(selected_df)
         )
 
+    def test_get_selected_articles_uses_requested_order(self):
+
+        news_df = ensure_article_ids(
+            pd.DataFrame(
+                [
+                    {
+                        "날짜": "2026-06-15",
+                        "제목": "첫 기사",
+                        "출처": "언론A",
+                        "링크": "https://example.com/a",
+                    },
+                    {
+                        "날짜": "2026-06-15",
+                        "제목": "두번째 기사",
+                        "출처": "언론B",
+                        "링크": "https://example.com/b",
+                    },
+                ]
+            )
+        )
+        selected_df = apply_selection(
+            news_df,
+            set(
+                news_df[ARTICLE_ID_COLUMN]
+                .astype(str)
+                .tolist()
+            )
+        )
+
+        selected_articles = get_selected_articles(
+            selected_df,
+            ordered_article_ids=[
+                news_df.loc[1, ARTICLE_ID_COLUMN],
+                news_df.loc[0, ARTICLE_ID_COLUMN],
+            ]
+        )
+
+        self.assertEqual(
+            [
+                "두번째 기사",
+                "첫 기사",
+            ],
+            selected_articles["제목"].tolist()
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -35,57 +35,59 @@
 <td
     align="left"
     valign="middle"
-    style="border-bottom:1px solid #949494; padding-top:0; padding-right:0; padding-bottom:28px; padding-left:0;"
+    style="border-bottom:1px solid #949494; padding-top:0; padding-right:0; padding-bottom:24px; padding-left:0;"
 >
 <table
     border="0"
     cellpadding="0"
     cellspacing="0"
-    style="border-collapse:collapse;"
+    width="680"
+    style="border-collapse:collapse; width:680px;"
 >
 <tr>
 <td
     align="left"
     valign="middle"
-    width="176"
-    style="padding-top:0; padding-right:26px; padding-bottom:0; padding-left:0;"
+    width="108"
+    style="width:108px; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
 >
 {% if logo_data_uri %}
 <img
     src="{{ logo_data_uri }}"
     alt="빗썸 biz"
-    width="150"
-    style="border:0; outline:none; text-decoration:none; display:block; width:150px; height:auto;"
+    width="108"
+    style="border:0; outline:none; text-decoration:none; display:block; width:108px; height:auto;"
 />
 {% else %}
 <font
     face="Arial, sans-serif"
     color="#252525"
-    style="font-size:28px; font-weight:bold;"
+    style="font-size:20px; font-weight:bold; line-height:24px;"
 >
 빗썸 biz
 </font>
 {% endif %}
 </td>
+<td width="18" style="width:18px; font-size:0; line-height:0;">&nbsp;</td>
 <td
     align="left"
     valign="middle"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:36px; font-weight:bold; line-height:42px; color:#252525; white-space:nowrap;"
+    width="370"
+    style="width:370px; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:28px; font-weight:bold; line-height:34px; color:#252525; white-space:nowrap; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
 >
 가상자산 법인 시장 동향
 </td>
-</tr>
-</table>
-</td>
-</tr>
-
-<tr>
+<td width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>
 <td
-    align="left"
+    align="right"
     valign="middle"
-    style="border-bottom:1px solid #949494; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:34px; font-weight:bold; line-height:40px; color:#252525; padding-top:22px; padding-right:0; padding-bottom:22px; padding-left:0;"
+    width="172"
+    style="width:172px; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:20px; font-weight:bold; line-height:26px; color:#252525; white-space:nowrap; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
 >
 {{ report_date }}
+</td>
+</tr>
+</table>
 </td>
 </tr>
 
@@ -107,9 +109,31 @@
 <td
     align="left"
     valign="top"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:18px; line-height:26px; color:#252525; padding-top:0; padding-right:0; padding-bottom:10px; padding-left:0;"
+    style="padding-top:0; padding-right:0; padding-bottom:10px; padding-left:0;"
 >
-<b>{{ article.source }}</b>&nbsp;&nbsp;&nbsp;&nbsp;{{ article.date }}
+<table
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    style="border-collapse:collapse;"
+>
+<tr>
+<td
+    align="left"
+    valign="middle"
+    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:18px; line-height:26px; color:#252525; font-weight:bold; padding-top:0; padding-right:24px; padding-bottom:0; padding-left:0;"
+>
+{{ article.source }}
+</td>
+<td
+    align="left"
+    valign="middle"
+    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:16px; line-height:24px; color:#8a8a8a; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
+>
+{{ article.date }}
+</td>
+</tr>
+</table>
 </td>
 </tr>
 <tr>
