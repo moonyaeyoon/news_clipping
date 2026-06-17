@@ -40,6 +40,10 @@ DAUM_SOURCES = {
     "Daum",
     "다음뉴스",
 }
+SOURCE_NAME_OVERRIDES = {
+    "2news.co.kr": "에너지 뉴스",
+    "www.2news.co.kr": "에너지 뉴스",
+}
 
 
 def is_google_url(url):
@@ -69,6 +73,12 @@ def clean_source_name(source):
 def normalize_known_media_source(source):
 
     cleaned_source = clean_source_name(source)
+    override_source = SOURCE_NAME_OVERRIDES.get(
+        cleaned_source.lower()
+    )
+
+    if override_source:
+        return override_source
 
     for media_name in KNOWN_MEDIA_NAMES:
         if (
@@ -183,6 +193,12 @@ def normalize_source(
     normalized_source = normalize_known_media_source(
         source
     )
+    link_host = urlparse(
+        str(link or "")
+    ).netloc.lower()
+
+    if link_host in SOURCE_NAME_OVERRIDES:
+        return SOURCE_NAME_OVERRIDES[link_host]
 
     if normalized_source not in DAUM_SOURCES:
         return normalized_source

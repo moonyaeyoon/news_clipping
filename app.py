@@ -8,6 +8,7 @@ from datetime import timedelta
 
 from core.export_manager import (
     build_export_download,
+    normalize_article_upload_df,
     save_articles_file,
 )
 from core.news_collector import build_rss_query
@@ -49,6 +50,9 @@ if "generated_files" not in st.session_state:
 if "generated_download" not in st.session_state:
     st.session_state.generated_download = None
 
+if "manual_email_download" not in st.session_state:
+    st.session_state.manual_email_download = None
+
 st.title("📰 디지털자산 뉴스 클리핑")
 
 # --------------------
@@ -57,9 +61,18 @@ st.title("📰 디지털자산 뉴스 클리핑")
 
 def render_save_dialog(file_type):
 
+    extension_by_type = {
+        "excel": "xlsx",
+        "html": "html",
+    }
+    suffix_by_type = {
+        "excel": "_daily_news",
+        "html": "_daily_news_email",
+    }
+
     default_file_name = (
         datetime.now().strftime("%Y%m%d")
-        + "_daily_news_email"
+        + suffix_by_type[file_type]
     )
 
     file_name = st.text_input(
@@ -67,7 +80,7 @@ def render_save_dialog(file_type):
         value=default_file_name
     )
 
-    extension = "html"
+    extension = extension_by_type[file_type]
 
     save_mode = st.radio(
         "저장 방식",
@@ -176,6 +189,12 @@ def save_html_dialog():
 
     render_save_dialog("html")
 
+
+@st.dialog("엑셀 파일 저장")
+def save_excel_dialog():
+
+    render_save_dialog("excel")
+
 # --------------------
 # 사이드바
 # --------------------
@@ -189,200 +208,331 @@ for item in history:
     st.sidebar.write(item["title"])
     st.sidebar.divider()
 
+manual_tab, upload_tab = st.tabs(
+    [
+        "뉴스 수집",
+        "엑셀로 이메일 HTML 만들기",
+    ]
+)
+
 # --------------------
 # 검색 조건
 # --------------------
 
-query = DEFAULT_QUERY
+with manual_tab:
 
-with st.expander(
-    "현재 검색 조건",
-    expanded=False
-):
-    st.code(DEFAULT_QUERY)
+    query = DEFAULT_QUERY
 
-st.subheader("기간 설정")
-
-col1, col2 = st.columns(2)
-
-with col1:
-    start_date = st.date_input(
-        "시작일",
-        value=date.today() - timedelta(days=7)
-    )
-
-with col2:
-    end_date = st.date_input(
-        "종료일",
-        value=date.today()
-    )
-
-# --------------------
-# 뉴스 수집
-# --------------------
-
-if st.button("뉴스 수집"):
-
-    with st.spinner("뉴스 수집 중..."):
-
-        rss_query = build_rss_query(query)
-
-        news_df = fetch_news(rss_query)
-
-    if len(news_df):
-
-        news_df["filter_date"] = pd.to_datetime(
-            news_df["날짜"],
-            errors="coerce"
-        )
-
-        news_df = news_df[
-            (
-                news_df["filter_date"].dt.date >= start_date
-            )
-            &
-            (
-                news_df["filter_date"].dt.date <= end_date
-            )
-        ]
-
-        news_df = news_df.drop(
-            columns=["filter_date"]
-        )
-
-    news_df = news_df.copy()
-
-    news_df = ensure_article_ids(news_df)
-
-    st.session_state.news_df = news_df
-    st.session_state.selected_df = pd.DataFrame()
-    st.session_state.selected_article_ids = set()
-    st.session_state.news_editor_version += 1
-    st.session_state.generated_files = []
-    st.session_state.generated_download = None
-
-    save_history(
-        {
-            "time": datetime.now().strftime("%Y-%m-%d %H:%M"),
-            "title": f"{len(news_df)}건 수집"
-        }
-    )
-
-    st.success(f"{len(news_df)}건 수집")
-
-# --------------------
-# 수집 결과 선택
-# --------------------
-
-if not st.session_state.news_df.empty:
-
-    st.subheader("수집 기사 선택")
-
-    col_select_all, col_unselect_all = st.columns(2)
-
-    with col_select_all:
-        if st.button("전체 선택"):
-            st.session_state.selected_article_ids = set(
-                st.session_state.news_df[ARTICLE_ID_COLUMN]
-                .astype(str)
-                .tolist()
-            )
-            st.session_state.news_editor_version += 1
-            st.rerun()
-
-    with col_unselect_all:
-        if st.button("전체 해제"):
-            st.session_state.selected_article_ids = set()
-            st.session_state.news_editor_version += 1
-            st.rerun()
-
-    editor_df = apply_selection(
-        st.session_state.news_df,
-        st.session_state.selected_article_ids
-    )
-
-    with st.form(
-        key=f"news_selection_form_{st.session_state.news_editor_version}"
+    with st.expander(
+        "현재 검색 조건",
+        expanded=False
     ):
-        edited_df = st.data_editor(
-            editor_df,
-            use_container_width=True,
-            hide_index=True,
-            key=f"news_editor_{st.session_state.news_editor_version}",
-            column_config={
-                SELECTED_COLUMN: st.column_config.CheckboxColumn(
-                    "선택",
-                    help="엑셀 또는 이메일 템플릿에 포함할 기사를 선택하세요."
-                ),
-                "링크": st.column_config.LinkColumn("링크"),
-                ARTICLE_ID_COLUMN: None
-            },
-            disabled=[
-                "날짜",
-                "제목",
-                "출처",
-                "링크",
-                ARTICLE_ID_COLUMN
+        st.code(DEFAULT_QUERY)
+
+    st.subheader("기간 설정")
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        start_date = st.date_input(
+            "시작일",
+            value=date.today() - timedelta(days=7)
+        )
+
+    with col2:
+        end_date = st.date_input(
+            "종료일",
+            value=date.today()
+        )
+
+    # --------------------
+    # 뉴스 수집
+    # --------------------
+
+    if st.button("뉴스 수집"):
+
+        with st.spinner("뉴스 수집 중..."):
+
+            rss_query = build_rss_query(query)
+
+            news_df = fetch_news(rss_query)
+
+        if len(news_df):
+
+            news_df["filter_date"] = pd.to_datetime(
+                news_df["날짜"],
+                errors="coerce"
+            )
+
+            news_df = news_df[
+                (
+                    news_df["filter_date"].dt.date >= start_date
+                )
+                &
+                (
+                    news_df["filter_date"].dt.date <= end_date
+                )
             ]
+
+            news_df = news_df.drop(
+                columns=["filter_date"]
+            )
+
+        news_df = news_df.copy()
+
+        news_df = ensure_article_ids(news_df)
+
+        st.session_state.news_df = news_df
+        st.session_state.selected_df = pd.DataFrame()
+        st.session_state.selected_article_ids = set()
+        st.session_state.news_editor_version += 1
+        st.session_state.generated_files = []
+        st.session_state.generated_download = None
+        st.session_state.manual_email_download = None
+
+        save_history(
+            {
+                "time": datetime.now().strftime("%Y-%m-%d %H:%M"),
+                "title": f"{len(news_df)}건 수집"
+            }
         )
 
-        selection_submitted = st.form_submit_button(
-            "선택 적용",
-            type="primary"
+        st.success(f"{len(news_df)}건 수집")
+
+    # --------------------
+    # 수집 결과 선택
+    # --------------------
+
+    if not st.session_state.news_df.empty:
+
+        st.subheader("수집 기사 선택")
+
+        col_select_all, col_unselect_all = st.columns(2)
+
+        with col_select_all:
+            if st.button("전체 선택"):
+                st.session_state.selected_article_ids = set(
+                    st.session_state.news_df[ARTICLE_ID_COLUMN]
+                    .astype(str)
+                    .tolist()
+                )
+                st.session_state.news_editor_version += 1
+                st.session_state.generated_files = []
+                st.session_state.generated_download = None
+                st.session_state.manual_email_download = None
+                st.rerun()
+
+        with col_unselect_all:
+            if st.button("전체 해제"):
+                st.session_state.selected_article_ids = set()
+                st.session_state.news_editor_version += 1
+                st.session_state.generated_files = []
+                st.session_state.generated_download = None
+                st.session_state.manual_email_download = None
+                st.rerun()
+
+        editor_df = apply_selection(
+            st.session_state.news_df,
+            st.session_state.selected_article_ids
         )
 
-    if selection_submitted:
-        st.session_state.selected_article_ids = get_selected_article_ids(
-            edited_df
+        with st.form(
+            key=f"news_selection_form_{st.session_state.news_editor_version}"
+        ):
+            edited_df = st.data_editor(
+                editor_df,
+                use_container_width=True,
+                hide_index=True,
+                key=f"news_editor_{st.session_state.news_editor_version}",
+                column_config={
+                    SELECTED_COLUMN: st.column_config.CheckboxColumn(
+                        "선택",
+                        help="엑셀 또는 이메일 템플릿에 포함할 기사를 선택하세요."
+                    ),
+                    "링크": st.column_config.LinkColumn("링크"),
+                    ARTICLE_ID_COLUMN: None
+                },
+                disabled=[
+                    "날짜",
+                    "제목",
+                    "출처",
+                    "링크",
+                    ARTICLE_ID_COLUMN
+                ]
+            )
+
+            selection_submitted = st.form_submit_button(
+                "선택 적용",
+                type="primary"
+            )
+
+        if selection_submitted:
+            st.session_state.selected_article_ids = get_selected_article_ids(
+                edited_df
+            )
+            selected_df = get_selected_articles(edited_df)
+            st.session_state.generated_files = []
+            st.session_state.generated_download = None
+            st.session_state.manual_email_download = None
+        else:
+            selected_df = get_selected_articles(editor_df)
+
+        st.session_state.selected_df = selected_df
+
+        st.info(f"선택된 기사 수: {len(selected_df)}건")
+
+        if len(selected_df):
+
+            if st.button("이메일 템플릿 만들기", type="primary"):
+                st.session_state.generated_files = []
+                st.session_state.generated_download = None
+
+                with st.status(
+                    "이메일 템플릿 생성 중입니다.",
+                    expanded=True
+                ) as status:
+                    st.write("원문 링크 확인 및 HTML 생성 중...")
+
+                    try:
+                        st.session_state.manual_email_download = (
+                            build_export_download(
+                                selected_df,
+                                file_name=(
+                                    datetime.now().strftime("%Y%m%d")
+                                    + "_daily_news_email"
+                                ),
+                                file_type="html"
+                            )
+                        )
+                    except Exception as error:
+                        status.update(
+                            label="이메일 템플릿 생성 실패",
+                            state="error",
+                            expanded=True
+                        )
+                        st.error(
+                            "이메일 템플릿 생성 중 오류가 발생했습니다: "
+                            f"{error}"
+                        )
+                    else:
+                        status.update(
+                            label="이메일 템플릿 생성 완료",
+                            state="complete",
+                            expanded=False
+                        )
+
+            if st.session_state.manual_email_download:
+                email_download = st.session_state.manual_email_download
+                html_code = email_download["data"].decode("utf-8")
+
+                st.code(
+                    html_code,
+                    language="html"
+                )
+
+                col_save_html, col_save_excel = st.columns(2)
+
+                with col_save_html:
+                    st.download_button(
+                        label="html로 저장하기",
+                        data=email_download["data"],
+                        file_name=email_download["file_name"],
+                        mime=email_download["mime"],
+                        key="manual_email_html_download"
+                    )
+
+                with col_save_excel:
+                    if st.button("엑셀로 저장하기"):
+                        save_excel_dialog()
+
+        else:
+
+            st.warning("엑셀 또는 템플릿으로 뽑을 기사를 체크하세요.")
+
+    # --------------------
+    # 다운로드 버튼
+    # --------------------
+
+    if st.session_state.generated_download:
+
+        download = st.session_state.generated_download
+
+        st.subheader("생성 파일 다운로드")
+
+        st.download_button(
+            label=f"다운로드: {download['file_name']}",
+            data=download["data"],
+            file_name=download["file_name"],
+            mime=download["mime"],
+            key="latest_generated_download"
         )
-        selected_df = get_selected_articles(edited_df)
-    else:
-        selected_df = get_selected_articles(editor_df)
 
-    st.session_state.selected_df = selected_df
+    if st.session_state.generated_files:
 
-    st.info(f"선택된 기사 수: {len(selected_df)}건")
+        st.subheader("생성 파일 다운로드")
 
-    if len(selected_df):
+        for file_path in st.session_state.generated_files:
 
-        if st.button("이메일 템플릿 생성"):
-            save_html_dialog()
+            with open(
+                file_path,
+                "rb"
+            ) as f:
 
-    else:
+                st.download_button(
+                    label=f"다운로드: {os.path.basename(file_path)}",
+                    data=f.read(),
+                    file_name=os.path.basename(file_path)
+                )
 
-        st.warning("엑셀 또는 템플릿으로 뽑을 기사를 체크하세요.")
+with upload_tab:
 
-# --------------------
-# 다운로드 버튼
-# --------------------
-
-if st.session_state.generated_download:
-
-    download = st.session_state.generated_download
-
-    st.subheader("생성 파일 다운로드")
-
-    st.download_button(
-        label=f"다운로드: {download['file_name']}",
-        data=download["data"],
-        file_name=download["file_name"],
-        mime=download["mime"],
-        key="latest_generated_download"
+    uploaded_file = st.file_uploader(
+        "엑셀 파일 업로드",
+        type=["xlsx"]
     )
 
-if st.session_state.generated_files:
+    upload_file_name = st.text_input(
+        "HTML 파일명",
+        value=datetime.now().strftime("%Y%m%d") + "_daily_news_email",
+        key="upload_html_file_name"
+    )
 
-    st.subheader("생성 파일 다운로드")
+    if uploaded_file:
 
-    for file_path in st.session_state.generated_files:
+        try:
+            upload_file_name = upload_file_name.strip()
 
-        with open(
-            file_path,
-            "rb"
-        ) as f:
+            if not upload_file_name:
+                raise ValueError("HTML 파일명을 입력하세요.")
+
+            uploaded_df = pd.read_excel(
+                uploaded_file
+            )
+            article_df = normalize_article_upload_df(
+                uploaded_df
+            )
+            download = build_export_download(
+                article_df,
+                file_name=upload_file_name,
+                file_type="html",
+                url_resolver=lambda url: url
+            )
+        except Exception as error:
+            st.error(f"엑셀 파일을 변환할 수 없습니다: {error}")
+        else:
+            html_code = download["data"].decode("utf-8")
+
+            st.success(f"{len(article_df)}건을 이메일 HTML로 변환했습니다.")
+
+            st.code(
+                html_code,
+                language="html"
+            )
 
             st.download_button(
-                label=f"다운로드: {os.path.basename(file_path)}",
-                data=f.read(),
-                file_name=os.path.basename(file_path)
+                label="html로 저장하기",
+                data=download["data"],
+                file_name=download["file_name"],
+                mime=download["mime"],
+                key="uploaded_excel_html_download"
             )

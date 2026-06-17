@@ -24,6 +24,60 @@ EXPORT_TYPES = {
         "mime": "text/html",
     },
 }
+REQUIRED_ARTICLE_COLUMNS = [
+    "날짜",
+    "제목",
+    "출처",
+    "링크",
+]
+
+
+def normalize_article_upload_df(uploaded_df):
+
+    article_df = uploaded_df.copy()
+    article_df.columns = [
+        str(column).strip()
+        for column in article_df.columns
+    ]
+
+    missing_columns = [
+        column
+        for column in REQUIRED_ARTICLE_COLUMNS
+        if column not in article_df.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(
+            "엑셀에 필요한 컬럼이 없습니다: "
+            + ", ".join(missing_columns)
+        )
+
+    article_df = (
+        article_df[REQUIRED_ARTICLE_COLUMNS]
+        .dropna(how="all")
+        .copy()
+    )
+
+    if article_df.empty:
+        raise ValueError("변환할 기사가 없습니다.")
+
+    article_df = article_df.fillna("")
+
+    required_value_columns = [
+        "제목",
+        "링크",
+    ]
+    empty_required_values = (
+        article_df[required_value_columns]
+        .astype(str)
+        .apply(lambda column: column.str.strip() == "")
+        .any(axis=1)
+    )
+
+    if empty_required_values.any():
+        raise ValueError("제목 또는 링크가 비어 있는 행이 있습니다.")
+
+    return article_df.astype(str)
 
 
 def prepare_export_df(

@@ -6,43 +6,11 @@ import pandas as pd
 
 from core.email_generator import (
     generate_email_body_html,
-    generate_email_html,
     get_logo_data_uri,
 )
 
 
 class EmailGeneratorTest(unittest.TestCase):
-
-    def test_generate_email_html_formats_report_date_for_newsletter_body(self):
-
-        news_df = pd.DataFrame(
-            [
-                {
-                    "날짜": "2026-06-16",
-                    "제목": "기사 제목",
-                    "출처": "언론A",
-                    "링크": "https://example.com/article",
-                }
-            ]
-        )
-
-        html = generate_email_html(
-            news_df,
-            "2026.06.16"
-        )
-
-        self.assertIn(
-            "[6/16]",
-            html
-        )
-        self.assertNotIn(
-            "2026.06.16",
-            html
-        )
-        self.assertNotIn(
-            "6월 16일",
-            html
-        )
 
     def test_get_logo_data_uri_finds_logo_when_working_directory_changes(self):
 
@@ -61,124 +29,42 @@ class EmailGeneratorTest(unittest.TestCase):
             logo_data_uri.startswith("data:image/png;base64,")
         )
 
-    def test_generate_email_html_keeps_footer_below_a_tall_body(self):
-
-        news_df = pd.DataFrame(
-            columns=[
-                "날짜",
-                "제목",
-                "출처",
-                "링크",
-            ]
-        )
-
-        html = generate_email_html(
-            news_df,
-            "2026.06.16"
-        )
-
-        self.assertIn(
-            "min-height:calc(100vh + 120px)",
-            html
-        )
-        self.assertIn(
-            "flex:0 0 auto",
-            html
-        )
-
-    def test_generate_email_html_uses_full_width_web_layout(self):
-
-        news_df = pd.DataFrame(
-            columns=[
-                "날짜",
-                "제목",
-                "출처",
-                "링크",
-            ]
-        )
-
-        html = generate_email_html(
-            news_df,
-            "2026.06.16"
-        )
-
-        expected_styles = [
-            "--page-x:clamp(40px, 7vw, 144px)",
-            "max-width:none",
-            "padding:clamp(42px, 5vw, 72px) var(--page-x) 0",
-            "width:clamp(150px, 11vw, 212px)",
-            "font-size:clamp(36px, 4vw, 64px)",
-            "padding:34px var(--page-x) 64px",
-        ]
-
-        for expected_style in expected_styles:
-            self.assertIn(
-                expected_style,
-                html
-            )
-
-    def test_generate_email_html_vertically_centers_footer_content(self):
-
-        news_df = pd.DataFrame(
-            columns=[
-                "날짜",
-                "제목",
-                "출처",
-                "링크",
-            ]
-        )
-
-        html = generate_email_html(
-            news_df,
-            "2026.06.16"
-        )
-
-        self.assertIn(
-            "justify-content:center",
-            html
-        )
-        self.assertIn(
-            "padding:24px var(--page-x)",
-            html
-        )
-
-    def test_generate_email_html_omits_figma_placeholder_shapes(self):
+    def test_generate_email_body_html_formats_report_date_with_korean_weekday(self):
 
         news_df = pd.DataFrame(
             [
                 {
                     "날짜": "2026-06-16",
-                    "제목": "뉴스 기사 제목",
+                    "제목": "기사 제목",
                     "출처": "언론A",
                     "링크": "https://example.com/article",
                 }
             ]
         )
 
-        html = generate_email_html(
+        html = generate_email_body_html(
             news_df,
             "2026.06.16"
         )
 
-        self.assertNotIn(
-            "▲",
-            html
-        )
-        self.assertNotIn(
-            "date-pill",
-            html
-        )
-        self.assertNotIn(
-            "article-marker",
-            html
-        )
         self.assertIn(
-            "article-meta-line",
+            "2026.6.16(화)",
+            html
+        )
+        self.assertNotIn(
+            "2026.06.16",
+            html
+        )
+        self.assertNotIn(
+            "[6/16]",
+            html
+        )
+        self.assertNotIn(
+            "6월 16일",
             html
         )
 
-    def test_generate_email_html_links_article_title_directly(self):
-
+    def test_generate_email_body_html_links_article_title_directly(self):
         news_df = pd.DataFrame(
             [
                 {
@@ -190,21 +76,13 @@ class EmailGeneratorTest(unittest.TestCase):
             ]
         )
 
-        html = generate_email_html(
+        html = generate_email_body_html(
             news_df,
             "2026.06.16"
         )
 
         self.assertNotIn(
             "본문 보러가기",
-            html
-        )
-        self.assertIn(
-            'class="article-title-link"',
-            html
-        )
-        self.assertNotIn(
-            'class="article-external-link"',
             html
         )
         self.assertNotIn(
@@ -259,7 +137,7 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertIn(
-            "[6/16]",
+            "2026.6.16(화)",
             html
         )
         self.assertIn(

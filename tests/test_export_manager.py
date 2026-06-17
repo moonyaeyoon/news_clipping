@@ -6,12 +6,66 @@ import pandas as pd
 
 from core.export_manager import (
     build_export_download,
+    normalize_article_upload_df,
     prepare_export_df,
     save_articles_file,
 )
 
 
 class ExportManagerTest(unittest.TestCase):
+
+    def test_normalize_article_upload_df_keeps_export_columns_in_order(self):
+
+        uploaded_df = pd.DataFrame(
+            [
+                {
+                    "제목": "업로드 기사",
+                    "날짜": "2026-06-17",
+                    "링크": "https://example.com/article",
+                    "출처": "언론A",
+                    "메모": "제외",
+                }
+            ]
+        )
+
+        result = normalize_article_upload_df(uploaded_df)
+
+        self.assertEqual(
+            [
+                "날짜",
+                "제목",
+                "출처",
+                "링크",
+            ],
+            result.columns.tolist()
+        )
+        self.assertEqual(
+            "업로드 기사",
+            result.loc[0, "제목"]
+        )
+
+    def test_normalize_article_upload_df_requires_article_columns(self):
+
+        uploaded_df = pd.DataFrame(
+            [
+                {
+                    "제목": "업로드 기사",
+                    "날짜": "2026-06-17",
+                }
+            ]
+        )
+
+        with self.assertRaises(ValueError) as context:
+            normalize_article_upload_df(uploaded_df)
+
+        self.assertIn(
+            "출처",
+            str(context.exception)
+        )
+        self.assertIn(
+            "링크",
+            str(context.exception)
+        )
 
     def test_prepare_export_df_resolves_links_and_converts_values_to_text(self):
 

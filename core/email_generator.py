@@ -23,6 +23,15 @@ TEMPLATE_DIR = os.path.join(
     PROJECT_ROOT,
     "templates"
 )
+KOREAN_WEEKDAYS = [
+    "월",
+    "화",
+    "수",
+    "목",
+    "금",
+    "토",
+    "일",
+]
 
 
 def get_logo_data_uri(
@@ -80,8 +89,10 @@ def format_report_date(
         return report_date
 
     return (
-        f"[{parsed_date.month}/"
-        f"{parsed_date.day}]"
+        f"{parsed_date.year}."
+        f"{parsed_date.month}."
+        f"{parsed_date.day}"
+        f"({KOREAN_WEEKDAYS[parsed_date.weekday()]})"
     )
 
 
@@ -128,18 +139,6 @@ def render_news_template(
     )
 
     return html
-
-
-def generate_email_html(
-    news_df,
-    report_date
-):
-
-    return render_news_template(
-        "daily_news.html",
-        news_df,
-        report_date
-    )
 
 
 def generate_email_body_html(

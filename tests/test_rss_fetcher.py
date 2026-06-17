@@ -46,6 +46,20 @@ class RssFetcherTest(unittest.TestCase):
             normalize_source("한국경제 증권")
         )
 
+    def test_normalize_source_renames_2news_domain(self):
+
+        self.assertEqual(
+            "에너지 뉴스",
+            normalize_source("2news.co.kr")
+        )
+        self.assertEqual(
+            "에너지 뉴스",
+            normalize_source(
+                "",
+                link="https://www.2news.co.kr/news/article.html"
+            )
+        )
+
     def test_get_original_url_prefers_non_google_canonical_url(self):
 
         def fake_get(url, **kwargs):
