@@ -5,8 +5,37 @@ import tempfile
 import pandas as pd
 
 from core.email_generator import (
+    BIZ_BUTTON_IMAGE_URL,
+    BITHUMB_BIZ_URL,
+    FOOTER_IMAGE_URL,
+    HEADER_IMAGE_URL,
     generate_email_body_html,
     get_logo_data_uri,
+)
+
+OLD_HEADER_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781742248/header_et3xsa.svg"
+)
+OLD_HEADER_IMAGE_URL_2 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781742563/header_blue_bi5huo.svg"
+)
+OLD_FOOTER_BUILDING_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781742442/newsletter_footer_building_l1kag5.png"
+)
+OLD_FOOTER_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781744219/footer_ldydod.svg"
+)
+OLD_FOOTER_IMAGE_URL_2 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781748226/footer_oqhuia.svg"
+)
+OLD_FOOTER_IMAGE_URL_3 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781749139/footer_b9lbxk.svg"
 )
 
 
@@ -48,7 +77,7 @@ class EmailGeneratorTest(unittest.TestCase):
         )
 
         self.assertIn(
-            "2026.6.16(화)",
+            "26.6.16 (화)",
             html
         )
         self.assertNotIn(
@@ -57,6 +86,10 @@ class EmailGeneratorTest(unittest.TestCase):
         )
         self.assertNotIn(
             "[6/16]",
+            html
+        )
+        self.assertNotIn(
+            "2026.6.16(화)",
             html
         )
         self.assertNotIn(
@@ -137,11 +170,19 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertIn(
-            "2026.6.16(화)",
+            "26.6.16 (화)",
             html
         )
         self.assertIn(
             "메일용 기사 제목",
+            html
+        )
+        self.assertIn(
+            "(6/16)",
+            html
+        )
+        self.assertNotIn(
+            "2026-06-16",
             html
         )
         self.assertIn(
@@ -169,15 +210,7 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertNotIn(
-            "<style",
-            html
-        )
-        self.assertNotIn(
             "<script",
-            html
-        )
-        self.assertNotIn(
-            "<link",
             html
         )
         self.assertNotIn(
@@ -189,7 +222,7 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
 
-    def test_generate_email_body_html_keeps_header_on_one_row(self):
+    def test_generate_email_body_html_uses_figma_header_layout(self):
 
         news_df = pd.DataFrame(
             [
@@ -208,39 +241,63 @@ class EmailGeneratorTest(unittest.TestCase):
         )
 
         self.assertIn(
-            'width="108"',
+            "cdn.jsdelivr.net/gh/sun-typeface/SUIT",
             html
         )
         self.assertIn(
-            'width="370"',
+            "cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream",
             html
         )
         self.assertIn(
-            'width="172"',
+            "법인 디지털자산 시장 동향",
             html
         )
         self.assertIn(
-            'width="18"',
+            'height="100"',
             html
         )
         self.assertIn(
-            'width="12"',
+            HEADER_IMAGE_URL,
             html
         )
         self.assertIn(
-            "font-size:28px",
+            "background-color:#ffffff; background-image",
             html
         )
         self.assertIn(
-            "font-size:20px",
+            "background-size:680px 102px",
+            html
+        )
+        self.assertNotIn(
+            "background-color:#242424",
+            html
+        )
+        self.assertNotIn(
+            OLD_HEADER_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            OLD_HEADER_IMAGE_URL_2,
+            html
+        )
+        self.assertNotIn(
+            "data:image/png;base64",
             html
         )
         self.assertIn(
-            "white-space:nowrap",
+            "font-size:18px; font-weight:500",
+            html
+        )
+        self.assertNotIn(
+            "font-size:38px",
+            html
+        )
+        self.assertIn(
+            "26.6.16 (화)",
             html
         )
 
-    def test_generate_email_body_html_styles_article_date_lighter(self):
+    def test_generate_email_body_html_uses_figma_body_spacing_and_cta(self):
 
         news_df = pd.DataFrame(
             [
@@ -259,11 +316,71 @@ class EmailGeneratorTest(unittest.TestCase):
         )
 
         self.assertIn(
-            "font-size:18px; line-height:26px; color:#252525; font-weight:bold",
+            'width="520"',
             html
         )
         self.assertIn(
-            "font-size:16px; line-height:24px; color:#8a8a8a",
+            "font-size:12px; font-weight:400; line-height:18px; color:#777777",
+            html
+        )
+        self.assertIn(
+            "언론A&nbsp;&nbsp;(6/16)",
+            html
+        )
+        self.assertIn(
+            "font-family:'SUIT',sans-serif; font-size:18px; font-weight:500; line-height:26px",
+            html
+        )
+        self.assertNotIn(
+            "font-weight:600; line-height:26px",
+            html
+        )
+        self.assertIn(
+            "빗썸 BIZ 바로가기",
+            html
+        )
+        self.assertIn(
+            f'href="{BITHUMB_BIZ_URL}"',
+            html
+        )
+        self.assertIn(
+            BIZ_BUTTON_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            'alt="빗썸 BIZ 바로가기"',
+            html
+        )
+        self.assertIn(
+            'width="110"',
+            html
+        )
+        self.assertIn(
+            'height="38"',
+            html
+        )
+        self.assertIn(
+            'alt="빗썸 BIZ 안내 푸터"',
+            html
+        )
+        self.assertIn(
+            FOOTER_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_BUILDING_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL_2,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL_3,
             html
         )
 

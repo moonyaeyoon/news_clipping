@@ -19,6 +19,19 @@ LOGO_IMAGE_FILE = os.path.join(
     "assets",
     "bithumb_biz_logo.png"
 )
+HEADER_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781750322/header_blue_oguscv.svg"
+)
+FOOTER_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781749398/footer_cz81co.png"
+)
+BIZ_BUTTON_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781742268/BizButton_k7fsjr.png"
+)
+BITHUMB_BIZ_URL = "https://www.bithumb.com/react/biz/intro"
 TEMPLATE_DIR = os.path.join(
     PROJECT_ROOT,
     "templates"
@@ -50,6 +63,35 @@ def get_logo_data_uri(
         ).decode("ascii")
 
     return f"data:image/png;base64,{encoded_logo}"
+
+
+def get_image_data_uri(
+    image_file
+):
+
+    if not os.path.exists(image_file):
+        return ""
+
+    extension = os.path.splitext(
+        image_file
+    )[1].lower()
+    mime_type = "image/png"
+
+    if extension in [
+        ".jpg",
+        ".jpeg",
+    ]:
+        mime_type = "image/jpeg"
+
+    with open(
+        image_file,
+        "rb"
+    ) as f:
+        encoded_image = base64.b64encode(
+            f.read()
+        ).decode("ascii")
+
+    return f"data:{mime_type};base64,{encoded_image}"
 
 
 def format_report_date(
@@ -89,10 +131,59 @@ def format_report_date(
         return report_date
 
     return (
-        f"{parsed_date.year}."
+        f"{str(parsed_date.year)[-2:]}."
         f"{parsed_date.month}."
         f"{parsed_date.day}"
-        f"({KOREAN_WEEKDAYS[parsed_date.weekday()]})"
+        f" ({KOREAN_WEEKDAYS[parsed_date.weekday()]})"
+    )
+
+
+def parse_date_value(
+    date_value
+):
+
+    if isinstance(
+        date_value,
+        datetime
+    ):
+        return date_value.date()
+
+    if isinstance(
+        date_value,
+        date
+    ):
+        return date_value
+
+    for date_format in [
+        "%Y.%m.%d",
+        "%Y-%m-%d",
+        "%Y/%m/%d",
+    ]:
+        try:
+            return datetime.strptime(
+                str(date_value),
+                date_format
+            ).date()
+        except ValueError:
+            pass
+
+    return None
+
+
+def format_article_date(
+    article_date
+):
+
+    parsed_date = parse_date_value(
+        article_date
+    )
+
+    if parsed_date is None:
+        return article_date
+
+    return (
+        f"({parsed_date.month}/"
+        f"{parsed_date.day})"
     )
 
 
@@ -106,7 +197,9 @@ def build_articles(news_df):
             {
                 "title": row["제목"],
                 "source": row["출처"],
-                "date": row["날짜"],
+                "date": format_article_date(
+                    row["날짜"]
+                ),
                 "link": row["링크"]
             }
         )
@@ -135,6 +228,10 @@ def render_news_template(
             report_date
         ),
         logo_data_uri=get_logo_data_uri(),
+        header_image_url=HEADER_IMAGE_URL,
+        footer_image_url=FOOTER_IMAGE_URL,
+        biz_button_image_url=BIZ_BUTTON_IMAGE_URL,
+        bithumb_biz_url=BITHUMB_BIZ_URL,
         articles=build_articles(news_df)
     )
 

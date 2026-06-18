@@ -3,9 +3,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>가상자산 법인 시장 동향</title>
+<title>법인 디지털자산 시장 동향</title>
+<link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-face.css" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream/font-family.css" />
+<style type="text/css">
+body, table, td, a {
+    font-family:'SUIT','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif;
+}
+@font-face {
+    font-family:'EstablishRetrosans';
+    src:local('EstablishRetrosans');
+    font-weight:normal;
+    font-style:normal;
+}
+</style>
 </head>
-<body bgcolor="#ffffff">
+<body bgcolor="#ffffff" style="margin:0; padding:0; background-color:#ffffff;">
 
 <table
     id="bodyTable"
@@ -14,7 +28,7 @@
     cellspacing="0"
     width="100%"
     bgcolor="#ffffff"
-    style="border-collapse:collapse; width:100%; background-color:#ffffff;"
+    style="border-collapse:collapse; width:100%; background-color:#ffffff; margin:0; padding:0;"
 >
 <tr>
 <td align="center" valign="top" bgcolor="#ffffff">
@@ -28,139 +42,99 @@
     style="border-collapse:collapse; width:680px; background-color:#ffffff;"
 >
 <tr>
-<td height="44" style="font-size:0; line-height:0;">&nbsp;</td>
-</tr>
-
-<tr>
 <td
-    align="left"
-    valign="middle"
-    style="border-bottom:1px solid #949494; padding-top:0; padding-right:0; padding-bottom:24px; padding-left:0;"
+    align="right"
+    valign="bottom"
+    width="680"
+    height="100"
+    bgcolor="#ffffff"
+    background="{{ header_image_url }}"
+    style="width:680px; height:100px; background-color:#ffffff; background-image:url('{{ header_image_url }}'); background-repeat:no-repeat; background-position:center top; background-size:680px 102px;"
 >
 <table
     border="0"
     cellpadding="0"
     cellspacing="0"
     width="680"
-    style="border-collapse:collapse; width:680px;"
+    height="100"
+    style="border-collapse:collapse; width:680px; height:100px;"
 >
 <tr>
 <td
-    align="left"
-    valign="middle"
-    width="108"
-    style="width:108px; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
->
-<a
-    href="https://www.bithumb.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-    style="display:inline-block; vertical-align:top;"
->
-<img
-    src="https://static.bithumb.com/banner/bithumb_logo.png"
-    alt="bithumb"
-    width="108"
-    style="border:0; outline:none; text-decoration:none; display:block; width:108px; height:auto;"
-/>
-</a>
-{% comment %} {% if logo_data_uri %}
-<img
-    src="{{ logo_data_uri }}"
-    alt="빗썸 biz"
-    width="108"
-    style="border:0; outline:none; text-decoration:none; display:block; width:108px; height:auto;"
-/>
-{% else %}
-<font
-    face="Arial, sans-serif"
-    color="#252525"
-    style="font-size:20px; font-weight:bold; line-height:24px;"
->
-빗썸 biz
-</font>
-{% endif %} {% endcomment %}
-</td>
-<td width="18" style="width:18px; font-size:0; line-height:0;">&nbsp;</td>
-<td
-    align="left"
-    valign="middle"
-    width="370"
-    style="width:370px; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:28px; font-weight:bold; line-height:34px; color:#252525; white-space:nowrap; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
->
-가상자산 법인 시장 동향
-</td>
-<td width="12" style="width:12px; font-size:0; line-height:0;">&nbsp;</td>
-<td
     align="right"
-    valign="middle"
-    width="172"
-    style="width:172px; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:20px; font-weight:bold; line-height:26px; color:#252525; white-space:nowrap; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
+    valign="bottom"
+    width="680"
+    height="100"
+    style="width:680px; height:100px; padding-top:0; padding-right:16px; padding-bottom:9px; padding-left:0;"
+>
+<font
+    face="S-Core Dream, SUIT, Apple SD Gothic Neo, Malgun Gothic, Arial, sans-serif"
+    color="#ffffff"
+    style="font-family:'S-Core Dream','SUIT','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:18px; font-weight:500; line-height:22px; color:#ffffff; letter-spacing:0; text-shadow:0 1px 2px rgba(0,0,0,0.28);"
 >
 {{ report_date }}
+</font>
 </td>
 </tr>
 </table>
 </td>
 </tr>
 
+<tr>
+<td
+    align="center"
+    valign="top"
+    bgcolor="#ffffff"
+    style="background-color:#ffffff; padding-top:28px; padding-right:0; padding-bottom:34px; padding-left:0;"
+>
+<table
+    border="0"
+    cellpadding="0"
+    cellspacing="0"
+    width="520"
+    style="border-collapse:collapse; width:520px;"
+>
 {% for article in articles %}
 <tr>
 <td
     align="left"
     valign="top"
-    style="border-bottom:1px solid #949494; padding-top:28px; padding-right:0; padding-bottom:30px; padding-left:0;"
+    style="border-bottom:1px solid #d8d8d8; padding-top:13px; padding-right:0; padding-bottom:13px; padding-left:0;"
 >
 <table
     border="0"
     cellpadding="0"
     cellspacing="0"
-    width="100%"
-    style="border-collapse:collapse; width:100%;"
->
-<tr>
-<td
-    align="left"
-    valign="top"
-    style="padding-top:0; padding-right:0; padding-bottom:10px; padding-left:0;"
->
-<table
-    border="0"
-    cellpadding="0"
-    cellspacing="0"
-    style="border-collapse:collapse;"
+    width="520"
+    style="border-collapse:collapse; width:520px;"
 >
 <tr>
 <td
     align="left"
     valign="middle"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:18px; line-height:26px; color:#252525; font-weight:bold; padding-top:0; padding-right:24px; padding-bottom:0; padding-left:0;"
+    style="padding-top:0; padding-right:0; padding-bottom:5px; padding-left:0;"
 >
-{{ article.source }}
-</td>
-<td
-    align="left"
-    valign="middle"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:16px; line-height:24px; color:#8a8a8a; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
+<font
+    face="SUIT, Apple SD Gothic Neo, Malgun Gothic, Arial, sans-serif"
+    color="#777777"
+    style="font-family:'SUIT','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:12px; font-weight:400; line-height:18px; color:#777777;"
 >
-{{ article.date }}
-</td>
-</tr>
-</table>
+{{ article.source }}&nbsp;&nbsp;{{ article.date }}
+</font>
 </td>
 </tr>
 <tr>
 <td
     align="left"
-    valign="top"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:24px; font-weight:bold; line-height:32px; color:#252525; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
+    valign="middle"
+    style="padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
 >
 <a
     href="{{ article.link }}"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="기사 원문 열기"
-    style="color:#252525; font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:24px; font-weight:bold; line-height:32px; text-decoration:none;"
+    style="color:#252525; font-family:'SUIT',sans-serif; font-size:18px; font-weight:500; line-height:26px; text-decoration:none;"
 ><font color="#252525">{{ article.title }}</font></a>
 </td>
 </tr>
@@ -170,47 +144,44 @@
 {% endfor %}
 
 <tr>
-<td height="64" style="font-size:0; line-height:0;">&nbsp;</td>
-</tr>
-</table>
-
-<table
-    border="0"
-    cellpadding="0"
-    cellspacing="0"
-    width="100%"
-    bgcolor="#151515"
-    style="border-collapse:collapse; width:100%; background-color:#151515;"
->
-<tr>
-<td align="center" valign="top" bgcolor="#151515">
-<table
-    border="0"
-    cellpadding="0"
-    cellspacing="0"
-    width="680"
-    bgcolor="#151515"
-    style="border-collapse:collapse; width:680px; background-color:#151515;"
->
-<tr>
 <td
-    align="left"
-    valign="top"
-    bgcolor="#151515"
-    style="font-family:'Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:13px; line-height:22px; color:#cfcfcf; padding-top:28px; padding-right:0; padding-bottom:28px; padding-left:0;"
+    align="center"
+    valign="middle"
+    style="padding-top:30px; padding-right:0; padding-bottom:0; padding-left:0;"
 >
-본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며,
-어떠한 경우에도 투자 조언이나 법률적/세무적 자문을 구성하지 않습니다.
-투자 결정에 따른 책임은 투자자 본인에게 있습니다.
-<br />
-빗썸 BIZ에서 전문적인 인사이트와 최적화된 솔루션을 제공해 드리겠습니다.
-<br />
-📞 문의하기: 02-xxxx-xxxx (빗썸 법인영업실)
-<br />
-📧 이메일: biz@bithumbcorp.com
+<a
+    href="{{ bithumb_biz_url }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="빗썸 BIZ 바로가기"
+    style="text-decoration:none;"
+><img
+    src="{{ biz_button_image_url }}"
+    alt="빗썸 BIZ 바로가기"
+    width="110"
+    height="38"
+    style="border:0; outline:none; text-decoration:none; display:block; width:110px; height:38px;"
+/></a>
 </td>
 </tr>
 </table>
+</td>
+</tr>
+
+<tr>
+<td
+    align="center"
+    valign="top"
+    bgcolor="#eaf6ff"
+    style="background-color:#eaf6ff; padding-top:0; padding-right:0; padding-bottom:0; padding-left:0;"
+>
+<img
+    src="{{ footer_image_url }}"
+    alt="빗썸 BIZ 안내 푸터"
+    width="680"
+    height="93"
+    style="border:0; outline:none; text-decoration:none; display:block; width:680px; height:93px;"
+/>
 </td>
 </tr>
 </table>
