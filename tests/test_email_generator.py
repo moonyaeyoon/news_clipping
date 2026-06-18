@@ -37,6 +37,22 @@ OLD_FOOTER_IMAGE_URL_3 = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
     "v1781749139/footer_b9lbxk.svg"
 )
+OLD_FOOTER_IMAGE_URL_4 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781749398/footer_cz81co.png"
+)
+OLD_FOOTER_IMAGE_URL_5 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781751590/footer_ver1.2_qimxow.png"
+)
+OLD_FOOTER_IMAGE_URL_6 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781758835/footer_ver1.2_3_gsrovb.png"
+)
+OLD_BIZ_BUTTON_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781742268/BizButton_k7fsjr.png"
+)
 
 
 class EmailGeneratorTest(unittest.TestCase):
@@ -77,7 +93,7 @@ class EmailGeneratorTest(unittest.TestCase):
         )
 
         self.assertIn(
-            "26.6.16 (화)",
+            "2026.6.16 (화)",
             html
         )
         self.assertNotIn(
@@ -90,6 +106,10 @@ class EmailGeneratorTest(unittest.TestCase):
         )
         self.assertNotIn(
             "2026.6.16(화)",
+            html
+        )
+        self.assertNotIn(
+            "\n26.6.16 (화)\n",
             html
         )
         self.assertNotIn(
@@ -170,7 +190,7 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertIn(
-            "26.6.16 (화)",
+            "2026.6.16 (화)",
             html
         )
         self.assertIn(
@@ -245,10 +265,6 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertIn(
-            "cdn.jsdelivr.net/gh/ungveloper/web-fonts/SCoreDream",
-            html
-        )
-        self.assertIn(
             "법인 디지털자산 시장 동향",
             html
         )
@@ -285,15 +301,51 @@ class EmailGeneratorTest(unittest.TestCase):
             html
         )
         self.assertIn(
-            "font-size:18px; font-weight:500",
-            html
-        )
-        self.assertNotIn(
-            "font-size:38px",
+            'height="76"',
             html
         )
         self.assertIn(
-            "26.6.16 (화)",
+            "height:76px; font-size:0; line-height:0",
+            html
+        )
+        self.assertIn(
+            "height:17px; padding-top:0; padding-right:16px; padding-bottom:0; padding-left:0",
+            html
+        )
+        self.assertIn(
+            'height="7"',
+            html
+        )
+        self.assertIn(
+            "height:7px; font-size:0; line-height:0",
+            html
+        )
+        self.assertNotIn(
+            "height:100px; padding-top:0; padding-right:16px; padding-bottom:15px; padding-left:0",
+            html
+        )
+        self.assertIn(
+            "font-family:'SUIT',sans-serif; font-size:13px; font-weight:600; line-height:15px",
+            html
+        )
+        self.assertNotIn(
+            "Apple SD Gothic Neo",
+            html
+        )
+        self.assertNotIn(
+            "Malgun Gothic",
+            html
+        )
+        self.assertNotIn(
+            "Arial",
+            html
+        )
+        self.assertNotIn(
+            "font-family:'S-Core Dream','SUIT','Apple SD Gothic Neo','Malgun Gothic',Arial,sans-serif; font-size:18px; font-weight:500",
+            html
+        )
+        self.assertIn(
+            "2026.6.16 (화)",
             html
         )
 
@@ -347,6 +399,10 @@ class EmailGeneratorTest(unittest.TestCase):
             BIZ_BUTTON_IMAGE_URL,
             html
         )
+        self.assertNotIn(
+            OLD_BIZ_BUTTON_IMAGE_URL,
+            html
+        )
         self.assertIn(
             'alt="빗썸 BIZ 바로가기"',
             html
@@ -359,12 +415,56 @@ class EmailGeneratorTest(unittest.TestCase):
             'height="38"',
             html
         )
+        self.assertNotIn(
+            "본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며",
+            html
+        )
         self.assertIn(
-            'alt="빗썸 BIZ 안내 푸터"',
+            "1661-5566 (2번, 법인 전용 상담 창구)",
+            html
+        )
+        self.assertIn(
+            "biz@bithumbcorp.com",
+            html
+        )
+        self.assertIn(
+            'height="77"',
+            html
+        )
+        self.assertIn(
+            "background-size:680px 77px",
+            html
+        )
+        self.assertIn(
+            "width:489px; padding-top:43.5px; padding-right:0; padding-bottom:0; padding-left:86px",
+            html
+        )
+        self.assertIn(
+            "font-family:'SUIT',sans-serif; font-size:8px; font-weight:400; line-height:10px; color:#7c7c7c",
+            html
+        )
+        self.assertIn(
+            "padding-top:1px; padding-right:0; padding-bottom:0; padding-left:0; font-family:'SUIT',sans-serif; font-size:8px; font-weight:400; line-height:10px; color:#7c7c7c",
+            html
+        )
+        self.assertNotIn(
+            "font-family:'SUIT',sans-serif; font-size:13px; font-weight:400; line-height:20px",
+            html
+        )
+        self.assertNotIn(
+            "line-height:11px; color:#7c7c7c",
             html
         )
         self.assertIn(
             FOOTER_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            f'background="{FOOTER_IMAGE_URL}"',
+            html
+        )
+        self.assertNotIn(
+            'alt="빗썸 BIZ 안내 푸터"',
             html
         )
         self.assertNotIn(
@@ -381,6 +481,18 @@ class EmailGeneratorTest(unittest.TestCase):
         )
         self.assertNotIn(
             OLD_FOOTER_IMAGE_URL_3,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL_4,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL_5,
+            html
+        )
+        self.assertNotIn(
+            OLD_FOOTER_IMAGE_URL_6,
             html
         )
 

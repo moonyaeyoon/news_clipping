@@ -25,11 +25,11 @@ HEADER_IMAGE_URL = (
 )
 FOOTER_IMAGE_URL = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
-    "v1781749398/footer_cz81co.png"
+    "v1781763779/footer_ver1.4_vual7u.png"
 )
 BIZ_BUTTON_IMAGE_URL = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
-    "v1781742268/BizButton_k7fsjr.png"
+    "v1781758969/BIZ-Btn_scm0dh.png"
 )
 BITHUMB_BIZ_URL = "https://www.bithumb.com/react/biz/intro"
 TEMPLATE_DIR = os.path.join(
@@ -131,7 +131,7 @@ def format_report_date(
         return report_date
 
     return (
-        f"{str(parsed_date.year)[-2:]}."
+        f"{parsed_date.year}."
         f"{parsed_date.month}."
         f"{parsed_date.day}"
         f" ({KOREAN_WEEKDAYS[parsed_date.weekday()]})"
