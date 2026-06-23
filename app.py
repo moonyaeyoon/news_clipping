@@ -18,9 +18,11 @@ from core.export_manager import (
 )
 from core.news_collector import build_rss_query
 from core.selection_manager import (
+    ARTICLE_SORTABLE_STYLE,
     ARTICLE_ID_COLUMN,
     SELECTED_COLUMN,
     apply_selection,
+    build_article_order_label,
     ensure_article_ids,
     get_selected_article_ids,
     get_selected_articles,
@@ -36,6 +38,34 @@ st.set_page_config(
     page_title="디지털자산 뉴스 클리핑",
     layout="wide"
 )
+
+EMAIL_TEMPLATE_OPTIONS = {
+    "기본 템플릿 (680px)": {
+        "value": "default",
+        "suffix": "_daily_news_email",
+        "upload_suffix": "",
+    },
+    "기본 템플릿 (860px)": {
+        "value": "large",
+        "suffix": "_daily_news_email_large",
+        "upload_suffix": "_large",
+    },
+    "오렌지 템플릿 (사이드바 O)": {
+        "value": "orange_sidebar",
+        "suffix": "_daily_news_email_orange_sidebar",
+        "upload_suffix": "_orange_sidebar",
+    },
+    "오렌지 템플릿 (사이드바 X)": {
+        "value": "orange_no_sidebar",
+        "suffix": "_daily_news_email_orange_no_sidebar",
+        "upload_suffix": "_orange_no_sidebar",
+    },
+    "오렌지 카드 템플릿": {
+        "value": "orange_card",
+        "suffix": "_daily_news_email_orange_card",
+        "upload_suffix": "_orange_card",
+    },
+}
 
 if "news_df" not in st.session_state:
     st.session_state.news_df = pd.DataFrame()
@@ -61,7 +91,16 @@ if "generated_download" not in st.session_state:
 if "manual_email_download" not in st.session_state:
     st.session_state.manual_email_download = None
 
+if "manual_excel_download" not in st.session_state:
+    st.session_state.manual_excel_download = None
+
 st.title("📰 디지털자산 뉴스 클리핑")
+
+
+def clear_manual_email_download():
+
+    st.session_state.manual_email_download = None
+    st.session_state.manual_excel_download = None
 
 
 def sync_selected_article_order(
@@ -95,28 +134,13 @@ def sync_selected_article_order(
     return current_order
 
 
-def build_order_label(row):
-
-    title = str(row.get("제목", ""))
-
-    if len(title) > 72:
-        title = title[:69] + "..."
-
-    return (
-        f"{row.get('출처', '')} | "
-        f"{title} | "
-        f"{row.get('날짜', '')} | "
-        f"{str(row.get(ARTICLE_ID_COLUMN, ''))[:8]}"
-    )
-
-
 def render_selected_article_order(selected_rows):
 
     st.subheader("이메일 기사 순서")
 
     ordered_rows = selected_rows.copy()
     ordered_rows["_order_label"] = ordered_rows.apply(
-        build_order_label,
+        build_article_order_label,
         axis=1
     )
     label_by_id = dict(
@@ -139,6 +163,7 @@ def render_selected_article_order(selected_rows):
         sorted_labels = sort_items(
             order_labels,
             direction="vertical",
+            custom_style=ARTICLE_SORTABLE_STYLE,
             key="selected_article_order_sort"
         )
         sorted_article_ids = [
@@ -202,6 +227,7 @@ def render_selected_article_order(selected_rows):
         st.session_state.generated_files = []
         st.session_state.generated_download = None
         st.session_state.manual_email_download = None
+        st.session_state.manual_excel_download = None
 
     return st.session_state.selected_article_order
 
@@ -440,6 +466,7 @@ with manual_tab:
         st.session_state.generated_files = []
         st.session_state.generated_download = None
         st.session_state.manual_email_download = None
+        st.session_state.manual_excel_download = None
 
         save_history(
             {
@@ -458,35 +485,42 @@ with manual_tab:
 
         st.subheader("수집 기사 선택")
 
-        col_select_all, col_unselect_all = st.columns(2)
+        all_article_ids = (
+            st.session_state.news_df[ARTICLE_ID_COLUMN]
+            .astype(str)
+            .tolist()
+        )
+        all_selected = (
+            bool(all_article_ids)
+            and set(all_article_ids).issubset(
+                st.session_state.selected_article_ids
+            )
+        )
+        select_toggle_label = (
+            "전체 해제"
+            if all_selected
+            else "전체 선택"
+        )
 
-        with col_select_all:
-            if st.button("전체 선택"):
-                st.session_state.selected_article_ids = set(
-                    st.session_state.news_df[ARTICLE_ID_COLUMN]
-                    .astype(str)
-                    .tolist()
-                )
-                st.session_state.selected_article_order = (
-                    st.session_state.news_df[ARTICLE_ID_COLUMN]
-                    .astype(str)
-                    .tolist()
-                )
-                st.session_state.news_editor_version += 1
-                st.session_state.generated_files = []
-                st.session_state.generated_download = None
-                st.session_state.manual_email_download = None
-                st.rerun()
-
-        with col_unselect_all:
-            if st.button("전체 해제"):
+        if st.button(
+            select_toggle_label,
+            width=120
+        ):
+            if all_selected:
                 st.session_state.selected_article_ids = set()
                 st.session_state.selected_article_order = []
-                st.session_state.news_editor_version += 1
-                st.session_state.generated_files = []
-                st.session_state.generated_download = None
-                st.session_state.manual_email_download = None
-                st.rerun()
+            else:
+                st.session_state.selected_article_ids = set(
+                    all_article_ids
+                )
+                st.session_state.selected_article_order = all_article_ids
+
+            st.session_state.news_editor_version += 1
+            st.session_state.generated_files = []
+            st.session_state.generated_download = None
+            st.session_state.manual_email_download = None
+            st.session_state.manual_excel_download = None
+            st.rerun()
 
         editor_df = apply_selection(
             st.session_state.news_df,
@@ -530,6 +564,7 @@ with manual_tab:
             st.session_state.generated_files = []
             st.session_state.generated_download = None
             st.session_state.manual_email_download = None
+            st.session_state.manual_excel_download = None
             selected_source_df = edited_df
         else:
             selected_source_df = editor_df
@@ -563,9 +598,24 @@ with manual_tab:
 
         if len(selected_df):
 
-            if st.button("이메일 템플릿 만들기", type="primary"):
+            manual_template_label = st.selectbox(
+                "HTML 템플릿",
+                options=list(EMAIL_TEMPLATE_OPTIONS),
+                key="manual_email_template_option",
+                on_change=clear_manual_email_download,
+                width=260
+            )
+            manual_template = EMAIL_TEMPLATE_OPTIONS[
+                manual_template_label
+            ]
+
+            if st.button(
+                "이메일 템플릿 만들기",
+                type="primary"
+            ):
                 st.session_state.generated_files = []
                 st.session_state.generated_download = None
+                st.session_state.manual_excel_download = None
 
                 with st.status(
                     "이메일 템플릿 생성 중입니다.",
@@ -579,9 +629,10 @@ with manual_tab:
                                 selected_df,
                                 file_name=(
                                     datetime.now().strftime("%Y%m%d")
-                                    + "_daily_news_email"
+                                    + manual_template["suffix"]
                                 ),
-                                file_type="html"
+                                file_type="html",
+                                template_size=manual_template["value"]
                             )
                         )
                     except Exception as error:
@@ -607,23 +658,52 @@ with manual_tab:
 
                 st.code(
                     html_code,
-                    language="html"
+                    language="html",
+                    height=420
                 )
 
-                col_save_html, col_save_excel = st.columns(2)
+                manual_download_type = st.selectbox(
+                    "파일 다운로드",
+                    options=[
+                        "HTML",
+                        "Excel",
+                    ],
+                    key="manual_download_type",
+                    width=180
+                )
 
-                with col_save_html:
+                if manual_download_type == "HTML":
                     st.download_button(
-                        label="html로 저장하기",
+                        label="다운로드",
                         data=email_download["data"],
                         file_name=email_download["file_name"],
                         mime=email_download["mime"],
-                        key="manual_email_html_download"
+                        key="manual_email_html_download",
+                        width=120
                     )
+                else:
+                    if not st.session_state.manual_excel_download:
+                        with st.spinner("엑셀 파일 준비 중..."):
+                            st.session_state.manual_excel_download = (
+                                build_export_download(
+                                    selected_df,
+                                    file_name=(
+                                        datetime.now().strftime("%Y%m%d")
+                                        + "_daily_news"
+                                    ),
+                                    file_type="excel"
+                                )
+                            )
 
-                with col_save_excel:
-                    if st.button("엑셀로 저장하기"):
-                        save_excel_dialog()
+                    excel_download = st.session_state.manual_excel_download
+                    st.download_button(
+                        label="다운로드",
+                        data=excel_download["data"],
+                        file_name=excel_download["file_name"],
+                        mime=excel_download["mime"],
+                        key="manual_email_excel_download",
+                        width=120
+                    )
 
         else:
 
@@ -677,6 +757,16 @@ with upload_tab:
         key="upload_html_file_name"
     )
 
+    upload_template_label = st.selectbox(
+        "HTML 템플릿",
+        options=list(EMAIL_TEMPLATE_OPTIONS),
+        key="upload_email_template_option",
+        width=260
+    )
+    upload_template = EMAIL_TEMPLATE_OPTIONS[
+        upload_template_label
+    ]
+
     if uploaded_file:
 
         try:
@@ -691,28 +781,61 @@ with upload_tab:
             article_df = normalize_article_upload_df(
                 uploaded_df
             )
-            download = build_export_download(
-                article_df,
-                file_name=upload_file_name,
-                file_type="html",
-                url_resolver=lambda url: url
-            )
         except Exception as error:
             st.error(f"엑셀 파일을 변환할 수 없습니다: {error}")
         else:
-            html_code = download["data"].decode("utf-8")
-
-            st.success(f"{len(article_df)}건을 이메일 HTML로 변환했습니다.")
-
-            st.code(
-                html_code,
-                language="html"
+            st.success(
+                f"{len(article_df)}건을 이메일 HTML로 변환할 수 있습니다."
             )
 
-            st.download_button(
-                label="html로 저장하기",
-                data=download["data"],
-                file_name=download["file_name"],
-                mime=download["mime"],
-                key="uploaded_excel_html_download"
-            )
+            if st.button(
+                "이메일 템플릿 만들기",
+                key="uploaded_excel_html_button",
+                type="primary"
+            ):
+                file_name = upload_file_name
+
+                if (
+                    upload_template["upload_suffix"]
+                    and not file_name.endswith(
+                        upload_template["upload_suffix"]
+                    )
+                ):
+                    file_name = (
+                        file_name
+                        + upload_template["upload_suffix"]
+                    )
+
+                download = build_export_download(
+                    article_df,
+                    file_name=file_name,
+                    file_type="html",
+                    url_resolver=lambda url: url,
+                    template_size=upload_template["value"]
+                )
+
+                html_code = download["data"].decode("utf-8")
+
+                st.code(
+                    html_code,
+                    language="html",
+                    height=420
+                )
+
+                st.selectbox(
+                    "파일 다운로드",
+                    options=[
+                        "HTML",
+                    ],
+                    key="upload_download_type",
+                    width=180
+                )
+
+                st.download_button(
+                    label="다운로드",
+                    data=download["data"],
+                    file_name=download["file_name"],
+                    mime=download["mime"],
+                    key="uploaded_excel_html_download",
+                    width=120
+                )

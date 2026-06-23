@@ -4,6 +4,10 @@ from datetime import datetime
 
 from core.email_generator import (
     generate_email_body_html,
+    generate_large_email_body_html,
+    generate_orange_card_email_body_html,
+    generate_orange_email_body_html,
+    generate_orange_no_sidebar_email_body_html,
 )
 from core.rss_fetcher import (
     get_original_url,
@@ -122,7 +126,8 @@ def build_export_download(
     selected_df,
     file_name,
     file_type,
-    url_resolver=get_original_url
+    url_resolver=get_original_url,
+    template_size="default"
 ):
 
     export_df = prepare_export_df(
@@ -141,7 +146,25 @@ def build_export_download(
         data = buffer.getvalue()
 
     elif file_type == "html":
-        html_content = generate_email_body_html(
+        if template_size in [
+            "orange",
+            "orange_sidebar",
+        ]:
+            html_generator = generate_orange_email_body_html
+        elif template_size == "orange_no_sidebar":
+            html_generator = generate_orange_no_sidebar_email_body_html
+        elif template_size == "orange_card":
+            html_generator = generate_orange_card_email_body_html
+        elif template_size == "large":
+            html_generator = generate_large_email_body_html
+        elif template_size == "default":
+            html_generator = generate_email_body_html
+        else:
+            raise ValueError(
+                f"지원하지 않는 이메일 템플릿 크기입니다: {template_size}"
+            )
+
+        html_content = html_generator(
             export_df,
             datetime.now().strftime("%Y.%m.%d")
         )
@@ -166,7 +189,8 @@ def save_articles_file(
     file_name,
     file_type,
     output_dir="exports",
-    url_resolver=get_original_url
+    url_resolver=get_original_url,
+    template_size="default"
 ):
 
     output_dir = os.path.expanduser(output_dir)
@@ -180,7 +204,8 @@ def save_articles_file(
         selected_df,
         file_name=file_name,
         file_type=file_type,
-        url_resolver=url_resolver
+        url_resolver=url_resolver,
+        template_size=template_size
     )
 
     output_file = os.path.join(

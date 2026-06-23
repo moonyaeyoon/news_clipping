@@ -219,6 +219,150 @@ class ExportManagerTest(unittest.TestCase):
             download["data"]
         )
 
+    def test_build_export_download_can_return_large_email_template(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "큰 템플릿 기사",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        download = build_export_download(
+            source_df,
+            file_name="daily_news_large",
+            file_type="html",
+            url_resolver=lambda url: url,
+            template_size="large"
+        )
+
+        self.assertEqual(
+            "daily_news_large.html",
+            download["file_name"]
+        )
+        self.assertIn(
+            b'width="860"',
+            download["data"]
+        )
+        self.assertIn(
+            "큰 템플릿 기사".encode("utf-8"),
+            download["data"]
+        )
+
+    def test_build_export_download_can_return_orange_email_template(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "오렌지 템플릿 기사",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        download = build_export_download(
+            source_df,
+            file_name="daily_news_orange",
+            file_type="html",
+            url_resolver=lambda url: url,
+            template_size="orange_sidebar"
+        )
+
+        self.assertEqual(
+            "daily_news_orange.html",
+            download["file_name"]
+        )
+        self.assertIn(
+            b"v1782197788/header-og_hns352.png",
+            download["data"]
+        )
+        self.assertIn(
+            b"v1782178324/image_1_tlmvlj.png",
+            download["data"]
+        )
+
+    def test_build_export_download_can_return_orange_no_sidebar_email_template(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "사이드바 없는 오렌지 템플릿 기사",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        download = build_export_download(
+            source_df,
+            file_name="daily_news_orange_no_sidebar",
+            file_type="html",
+            url_resolver=lambda url: url,
+            template_size="orange_no_sidebar"
+        )
+
+        self.assertEqual(
+            "daily_news_orange_no_sidebar.html",
+            download["file_name"]
+        )
+        self.assertIn(
+            b"v1782197788/header-og_hns352.png",
+            download["data"]
+        )
+        self.assertIn(
+            "사이드바 없는 오렌지 템플릿 기사".encode("utf-8"),
+            download["data"]
+        )
+        self.assertNotIn(
+            b"v1782178324/image_1_tlmvlj.png",
+            download["data"]
+        )
+
+    def test_build_export_download_can_return_orange_card_email_template(self):
+
+        source_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-15",
+                    "제목": "오렌지 카드 템플릿 기사",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        download = build_export_download(
+            source_df,
+            file_name="daily_news_orange_card",
+            file_type="html",
+            url_resolver=lambda url: url,
+            template_size="orange_card"
+        )
+
+        self.assertEqual(
+            "daily_news_orange_card.html",
+            download["file_name"]
+        )
+        self.assertIn(
+            b"v1782201609/bg-sky_hduhxx.png",
+            download["data"]
+        )
+        self.assertIn(
+            b"v1782178324/image_1_tlmvlj.png",
+            download["data"]
+        )
+        self.assertIn(
+            "오렌지 카드 템플릿 기사".encode("utf-8"),
+            download["data"]
+        )
+
     def test_build_export_download_returns_file_data_without_writing_file(self):
 
         source_df = pd.DataFrame(

@@ -27,9 +27,25 @@ FOOTER_IMAGE_URL = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
     "v1781763779/footer_ver1.4_vual7u.png"
 )
+ORANGE_HEADER_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1782197788/header-og_hns352.png"
+)
+ORANGE_SIDEBAR_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1782175688/sidebar_ebyxau.png"
+)
+ORANGE_BUILDING_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1782178324/image_1_tlmvlj.png"
+)
+CARD_SKY_BACKGROUND_IMAGE_URL = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1782201609/bg-sky_hduhxx.png"
+)
 BIZ_BUTTON_IMAGE_URL = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
-    "v1781758969/BIZ-Btn_scm0dh.png"
+    "v1782117221/BIZ-Btn_rw8rux.png"
 )
 BITHUMB_BIZ_URL = "https://www.bithumb.com/react/biz/intro"
 TEMPLATE_DIR = os.path.join(
@@ -230,6 +246,10 @@ def render_news_template(
         logo_data_uri=get_logo_data_uri(),
         header_image_url=HEADER_IMAGE_URL,
         footer_image_url=FOOTER_IMAGE_URL,
+        orange_header_image_url=ORANGE_HEADER_IMAGE_URL,
+        orange_sidebar_image_url=ORANGE_SIDEBAR_IMAGE_URL,
+        orange_building_image_url=ORANGE_BUILDING_IMAGE_URL,
+        card_sky_background_image_url=CARD_SKY_BACKGROUND_IMAGE_URL,
         biz_button_image_url=BIZ_BUTTON_IMAGE_URL,
         bithumb_biz_url=BITHUMB_BIZ_URL,
         articles=build_articles(news_df)
@@ -245,6 +265,54 @@ def generate_email_body_html(
 
     return render_news_template(
         "daily_news_email.html",
+        news_df,
+        report_date
+    )
+
+
+def generate_large_email_body_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news_email_large.html",
+        news_df,
+        report_date
+    )
+
+
+def generate_orange_email_body_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news_email_orange.html",
+        news_df,
+        report_date
+    )
+
+
+def generate_orange_no_sidebar_email_body_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news_email_orange_no_sidebar.html",
+        news_df,
+        report_date
+    )
+
+
+def generate_orange_card_email_body_html(
+    news_df,
+    report_date
+):
+
+    return render_news_template(
+        "daily_news_email_orange_card.html",
         news_df,
         report_date
     )

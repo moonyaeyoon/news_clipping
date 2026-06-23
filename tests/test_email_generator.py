@@ -7,9 +7,17 @@ import pandas as pd
 from core.email_generator import (
     BIZ_BUTTON_IMAGE_URL,
     BITHUMB_BIZ_URL,
+    CARD_SKY_BACKGROUND_IMAGE_URL,
     FOOTER_IMAGE_URL,
     HEADER_IMAGE_URL,
+    ORANGE_BUILDING_IMAGE_URL,
+    ORANGE_HEADER_IMAGE_URL,
+    ORANGE_SIDEBAR_IMAGE_URL,
     generate_email_body_html,
+    generate_large_email_body_html,
+    generate_orange_card_email_body_html,
+    generate_orange_email_body_html,
+    generate_orange_no_sidebar_email_body_html,
     get_logo_data_uri,
 )
 
@@ -52,6 +60,10 @@ OLD_FOOTER_IMAGE_URL_6 = (
 OLD_BIZ_BUTTON_IMAGE_URL = (
     "https://res.cloudinary.com/dys1jifiy/image/upload/"
     "v1781742268/BizButton_k7fsjr.png"
+)
+OLD_BIZ_BUTTON_IMAGE_URL_2 = (
+    "https://res.cloudinary.com/dys1jifiy/image/upload/"
+    "v1781758969/BIZ-Btn_scm0dh.png"
 )
 
 
@@ -403,6 +415,10 @@ class EmailGeneratorTest(unittest.TestCase):
             OLD_BIZ_BUTTON_IMAGE_URL,
             html
         )
+        self.assertNotIn(
+            OLD_BIZ_BUTTON_IMAGE_URL_2,
+            html
+        )
         self.assertIn(
             'alt="빗썸 BIZ 바로가기"',
             html
@@ -494,6 +510,307 @@ class EmailGeneratorTest(unittest.TestCase):
         self.assertNotIn(
             OLD_FOOTER_IMAGE_URL_6,
             html
+        )
+
+    def test_generate_large_email_body_html_uses_wider_layout(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": "큰 사이즈 기사 제목",
+                    "출처": "언론A",
+                    "링크": "https://example.com/article",
+                }
+            ]
+        )
+
+        html = generate_large_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            'width="860"',
+            html
+        )
+        self.assertIn(
+            'height="127"',
+            html
+        )
+        self.assertIn(
+            "background-size:860px 129px",
+            html
+        )
+        self.assertIn(
+            'width="720"',
+            html
+        )
+        self.assertIn(
+            "font-size:20px; font-weight:500; line-height:30px",
+            html
+        )
+        self.assertIn(
+            "background-size:860px 98px",
+            html
+        )
+        self.assertIn(
+            "큰 사이즈 기사 제목",
+            html
+        )
+        self.assertNotIn(
+            'width="680"',
+            html
+        )
+        self.assertNotIn(
+            'width="760"',
+            html
+        )
+
+    def test_generate_orange_email_body_html_uses_responsive_sidebar_layout(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": f"오렌지 템플릿 기사 {index}",
+                    "출처": "언론A",
+                    "링크": f"https://example.com/article/{index}",
+                }
+                for index in range(1, 9)
+            ]
+        )
+
+        html = generate_orange_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            ORANGE_HEADER_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            ORANGE_BUILDING_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            ORANGE_SIDEBAR_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            'width="90%"',
+            html
+        )
+        self.assertIn(
+            "max-width:1200px",
+            html
+        )
+        self.assertIn(
+            "font-family:Arial,sans-serif",
+            html
+        )
+        self.assertIn(
+            'width="21%"',
+            html
+        )
+        self.assertIn(
+            'width="79%"',
+            html
+        )
+        self.assertIn(
+            "linear-gradient(to bottom",
+            html
+        )
+        self.assertIn(
+            "#f5f5f5 52%",
+            html
+        )
+        self.assertIn(
+            "rgba(189, 223, 245, 0.95) 100%",
+            html
+        )
+        self.assertIn(
+            'alt=""',
+            html
+        )
+        self.assertIn(
+            "mailto:biz@bithumbcorp.com",
+            html
+        )
+        self.assertIn(
+            'width="100%"',
+            html
+        )
+        self.assertIn(
+            "display:block; width:100%; height:auto",
+            html
+        )
+        self.assertIn(
+            "background-color:#292d32",
+            html
+        )
+        self.assertNotIn("2026.6.16 (화)", html)
+        self.assertEqual(
+            8,
+            sum(
+                f"오렌지 템플릿 기사 {index}" in html
+                for index in range(1, 9)
+            )
+        )
+        self.assertNotIn(
+            'height="624"',
+            html
+        )
+        self.assertNotIn(
+            "position:absolute",
+            html
+        )
+
+    def test_generate_orange_no_sidebar_email_body_html_uses_single_column_layout(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": f"사이드바 없는 템플릿 기사 {index}",
+                    "출처": "언론A",
+                    "링크": f"https://example.com/article/{index}",
+                }
+                for index in range(1, 6)
+            ]
+        )
+
+        html = generate_orange_no_sidebar_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            ORANGE_HEADER_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            'width="90%"',
+            html
+        )
+        self.assertIn(
+            "max-width:1200px",
+            html
+        )
+        self.assertIn(
+            'width="75%"',
+            html
+        )
+        self.assertIn(
+            "padding-top:44px",
+            html
+        )
+        self.assertIn(
+            "padding-bottom:168px",
+            html
+        )
+        self.assertIn(
+            "mailto:biz@bithumbcorp.com",
+            html
+        )
+        self.assertNotIn(
+            ORANGE_BUILDING_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            ORANGE_SIDEBAR_IMAGE_URL,
+            html
+        )
+        self.assertNotIn(
+            "2026.6.16 (화)",
+            html
+        )
+        self.assertEqual(
+            5,
+            sum(
+                f"사이드바 없는 템플릿 기사 {index}" in html
+                for index in range(1, 6)
+            )
+        )
+
+    def test_generate_orange_card_email_body_html_uses_sky_card_layout(self):
+
+        news_df = pd.DataFrame(
+            [
+                {
+                    "날짜": "2026-06-16",
+                    "제목": f"카드 템플릿 기사 {index}",
+                    "출처": "언론A",
+                    "링크": f"https://example.com/article/{index}",
+                }
+                for index in range(1, 9)
+            ]
+        )
+
+        html = generate_orange_card_email_body_html(
+            news_df,
+            "2026.06.16"
+        )
+
+        self.assertIn(
+            ORANGE_HEADER_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            CARD_SKY_BACKGROUND_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            ORANGE_BUILDING_IMAGE_URL,
+            html
+        )
+        self.assertIn(
+            'width="74%"',
+            html
+        )
+        self.assertIn(
+            "border:1px solid #d9d9d9",
+            html
+        )
+        self.assertIn(
+            "background-color:rgba(255,255,255,0.90)",
+            html
+        )
+        self.assertIn(
+            "background-size:100% 100%",
+            html
+        )
+        self.assertIn(
+            "padding-top:70px",
+            html
+        )
+        self.assertIn(
+            "padding-bottom:78px",
+            html
+        )
+        self.assertIn(
+            "2026.6.16 (화)",
+            html
+        )
+        self.assertIn(
+            "font-size:22px; font-weight:400; line-height:28px",
+            html
+        )
+        self.assertIn(
+            "margin-top:-250px",
+            html
+        )
+        self.assertIn(
+            "mailto:biz@bithumbcorp.com",
+            html
+        )
+        self.assertEqual(
+            8,
+            sum(
+                f"카드 템플릿 기사 {index}" in html
+                for index in range(1, 9)
+            )
         )
 
 

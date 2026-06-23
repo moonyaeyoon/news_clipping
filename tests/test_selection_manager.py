@@ -3,9 +3,11 @@ import unittest
 import pandas as pd
 
 from core.selection_manager import (
+    ARTICLE_SORTABLE_STYLE,
     ARTICLE_ID_COLUMN,
     SELECTED_COLUMN,
     apply_selection,
+    build_article_order_label,
     ensure_article_ids,
     get_selected_article_ids,
     get_selected_articles,
@@ -13,6 +15,74 @@ from core.selection_manager import (
 
 
 class SelectionManagerTest(unittest.TestCase):
+
+    def test_build_article_order_label_uses_title_and_metadata_lines(self):
+
+        label = build_article_order_label(
+            {
+                "제목": "가상자산 시장 기사",
+                "출처": "뉴스1",
+                "날짜": "2026-06-22",
+                ARTICLE_ID_COLUMN: "abcdef12",
+            }
+        )
+
+        self.assertTrue(
+            label.startswith(
+                "가상자산 시장 기사\n뉴스1 · 2026-06-22"
+            )
+        )
+        self.assertNotIn(
+            "abcdef12",
+            label
+        )
+
+    def test_build_article_order_label_keeps_duplicate_labels_unique(self):
+
+        first_label = build_article_order_label(
+            {
+                "제목": "같은 기사",
+                "출처": "뉴스1",
+                "날짜": "2026-06-22",
+                ARTICLE_ID_COLUMN: "00000000",
+            }
+        )
+        second_label = build_article_order_label(
+            {
+                "제목": "같은 기사",
+                "출처": "뉴스1",
+                "날짜": "2026-06-22",
+                ARTICLE_ID_COLUMN: "ffffffff",
+            }
+        )
+
+        self.assertNotEqual(
+            first_label,
+            second_label
+        )
+
+    def test_article_sortable_style_matches_card_layout(self):
+
+        self.assertIn(
+            "min-height: 70px",
+            ARTICLE_SORTABLE_STYLE
+        )
+        self.assertIn(
+            "font-size: 16px",
+            ARTICLE_SORTABLE_STYLE
+        )
+        self.assertIn(
+            'content: "⠿"',
+            ARTICLE_SORTABLE_STYLE
+        )
+        self.assertIn(
+            "white-space: pre-line",
+            ARTICLE_SORTABLE_STYLE
+        )
+        self.assertIn(
+            ".sortable-item.dragging",
+            ARTICLE_SORTABLE_STYLE
+        )
 
     def test_ensure_article_ids_adds_stable_id_column(self):
 
