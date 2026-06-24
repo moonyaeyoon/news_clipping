@@ -17,7 +17,7 @@ export async function POST(request: Request) {
     const articles = body.articles ?? [];
 
     const html = generateNewsletterHtml({
-      template: body.template ?? "orange-card",
+      template: body.template ?? "default",
       reportDate: formatReportDate(),
       articles,
     });
@@ -36,4 +36,3 @@ export async function POST(request: Request) {
     );
   }
 }
-

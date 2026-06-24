@@ -1,6 +1,11 @@
 import type { NewsArticle } from "@/lib/news";
 
-export type NewsletterTemplate = "blue-basic" | "orange-card";
+export type NewsletterTemplate =
+  | "default"
+  | "large"
+  | "orange"
+  | "orange_no_sidebar"
+  | "orange_card";
 
 type GenerateNewsletterHtmlInput = {
   template: NewsletterTemplate;
@@ -17,7 +22,7 @@ export function generateNewsletterHtml({
   reportDate,
   articles,
 }: GenerateNewsletterHtmlInput) {
-  if (template === "orange-card") {
+  if (template === "orange_card" || template === "orange") {
     return generateOrangeCardHtml(reportDate, articles);
   }
 
@@ -178,4 +183,3 @@ function escapeHtml(value: string) {
 function escapeAttribute(value: string) {
   return escapeHtml(value).replace(/`/g, "&#96;");
 }
-

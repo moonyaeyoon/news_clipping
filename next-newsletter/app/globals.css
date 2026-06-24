@@ -1,4 +1,5 @@
 @import url("https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css");
+@import "react-day-picker/style.css";
 
 :root {
   --bg: #ffffff;
@@ -171,17 +172,45 @@ a {
   line-height: 1;
 }
 
-.date-controls {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(200px, 250px));
-  gap: 44px;
-  align-items: end;
+.query-details {
   max-width: 1016px;
-  margin: 38px auto 0;
+  margin: 22px auto 0;
   padding: 0 28px;
 }
 
-.date-controls label,
+.query-details summary {
+  width: fit-content;
+  color: #666a73;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.query-details pre {
+  width: min(520px, 100%);
+  margin: 12px 0 0;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fafafa;
+  color: #4b5563;
+  font-family: "SUIT", sans-serif;
+  font-size: 13px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+.date-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 192px);
+  gap: 48px;
+  align-items: end;
+  max-width: 1016px;
+  margin: 30px auto 0;
+  padding: 0 28px;
+}
+
+.date-field,
 .actions-section label {
   display: grid;
   gap: 10px;
@@ -190,20 +219,107 @@ a {
   font-weight: 700;
 }
 
-.date-controls input,
+.date-field {
+  position: relative;
+  width: 192px;
+}
+
+.date-trigger,
 .actions-section select {
+  width: 192px;
   height: 42px;
   border: 1px solid var(--strong-line);
   border-radius: 7px;
   background: #ffffff;
   color: #555b66;
-  padding: 0 14px;
+  padding: 0 12px;
   outline: none;
+}
+
+.date-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.date-trigger:hover {
+  border-color: #c8ced8;
+}
+
+.date-trigger > span:nth-child(2) {
+  flex: 1;
+}
+
+.date-clear {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #c4c7cc;
+  color: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.calendar-popover {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 9px);
+  left: 0;
+  width: 220px;
+  padding: 6px;
+  border: 1px solid #e0e3e8;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 34px rgba(26, 31, 39, 0.14);
+}
+
+.calendar-popover .rdp-root {
+  --rdp-accent-color: #5aa3ff;
+  --rdp-accent-background-color: #5aa3ff;
+  --rdp-day_button-width: 28px;
+  --rdp-day_button-height: 28px;
+  --rdp-day-width: 28px;
+  --rdp-day-height: 28px;
+  font-family: "SUIT", sans-serif;
+  font-size: 12px;
+}
+
+.calendar-popover .rdp-month_caption {
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.calendar-popover .rdp-chevron {
+  fill: #111827;
+  width: 12px;
+  height: 12px;
+}
+
+.calendar-popover .rdp-weekday {
+  color: #111827;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.calendar-popover .rdp-day_button {
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.calendar-popover .rdp-selected .rdp-day_button {
+  color: #ffffff;
+  font-weight: 800;
 }
 
 .date-controls .primary-button {
   grid-column: 1 / 2;
   margin-top: 8px;
+  width: 192px;
 }
 
 .primary-button {
@@ -233,23 +349,12 @@ a {
 .table-toolbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   max-width: 1016px;
   margin: 62px auto 0;
   padding: 0 28px;
   color: var(--muted);
   font-size: 14px;
-}
-
-.select-toggle {
-  min-width: 74px;
-  height: 32px;
-  border: 0;
-  border-radius: 6px;
-  background: var(--orange);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 800;
 }
 
 .news-table {
@@ -272,11 +377,17 @@ a {
 .news-head {
   color: #90949d;
   font-weight: 800;
+  text-align: center;
+}
+
+.news-head span {
+  justify-self: center;
 }
 
 .check-cell {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .check-cell input {
@@ -310,16 +421,16 @@ a {
 
 .sortable-list {
   display: grid;
-  gap: 10px;
+  gap: 8px;
 }
 
 .sort-item {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 32px;
+  grid-template-columns: 20px minmax(0, 1fr) 30px;
   align-items: center;
-  gap: 20px;
-  min-height: 70px;
-  padding: 12px 18px;
+  gap: 14px;
+  min-height: 58px;
+  padding: 10px 14px;
   border: 1px solid var(--strong-line);
   border-radius: 9px;
   background: #ffffff;
@@ -332,24 +443,40 @@ a {
 
 .drag-handle {
   color: #aeb6c2;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 
-.sort-meta {
-  display: flex;
-  justify-content: space-between;
+.sort-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 94px;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.sort-copy {
+  min-width: 0;
+}
+
+.sort-copy span,
+.sort-date {
   color: #8b8f98;
-  font-size: 13px;
-  line-height: 20px;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.sort-date {
+  align-self: center;
+  text-align: right;
 }
 
 .sort-item strong {
   display: block;
-  margin-top: 2px;
+  margin-top: 1px;
   color: #2a2d33;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 13px;
+  line-height: 19px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -379,14 +506,30 @@ a {
 .actions-section {
   display: flex;
   align-items: end;
-  gap: 84px;
+  gap: 68px;
   max-width: 760px;
   margin: 34px auto 0;
   padding: 0 28px;
 }
 
-.actions-section label {
+.select-field {
   width: 192px;
+}
+
+.select-field select {
+  appearance: none;
+  background:
+    linear-gradient(45deg, transparent 50%, #1c1b1f 50%) calc(100% - 17px)
+      18px / 6px 6px no-repeat,
+    linear-gradient(135deg, #1c1b1f 50%, transparent 50%) calc(100% - 12px)
+      18px / 6px 6px no-repeat,
+    #ffffff;
+  border-radius: 6px 6px 0 0;
+  color: #6b7280;
+}
+
+.select-field select:focus {
+  border-color: #c6cad1;
 }
 
 .actions-section .primary-button {
