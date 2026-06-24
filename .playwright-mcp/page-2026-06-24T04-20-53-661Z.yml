@@ -1,0 +1,60 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - img "빗썸 biz" [ref=e4]
+      - heading "뉴스레터" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - complementary [ref=e7]:
+        - group [ref=e8]:
+          - generic "⌁ 최근 기록" [ref=e9]
+          - list [ref=e10]:
+            - listitem [ref=e11]: 최근 기록이 없습니다.
+        - group [ref=e12]:
+          - generic "⌁ 스크랩" [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - button "현재 검색 조건" [ref=e16] [cursor=pointer]:
+            - generic [ref=e17]: ›
+            - text: 현재 검색 조건
+          - generic [ref=e18]:
+            - generic [ref=e19]:
+              - generic [ref=e20]: From
+              - textbox "From" [ref=e21]: 2026-06-17
+            - generic [ref=e22]:
+              - generic [ref=e23]: To
+              - textbox "To" [ref=e24]: 2026-06-24
+            - button "RUN" [ref=e25] [cursor=pointer]
+          - generic [ref=e26]:
+            - button "전체 선택" [disabled] [ref=e27]
+            - generic [ref=e28]: 수집 전
+          - table [ref=e29]:
+            - row "날짜 제목 출처 링크" [ref=e30]:
+              - generic [ref=e31]: 날짜
+              - generic [ref=e32]: 제목
+              - generic [ref=e33]: 출처
+              - generic [ref=e34]: 링크
+          - button "적용" [disabled] [ref=e35]
+        - paragraph [ref=e37]: "개수 : 0건"
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]: 파일 다운로드
+            - combobox "파일 다운로드" [disabled] [ref=e41]:
+              - option "HTML" [selected]
+          - generic [ref=e42]:
+            - generic [ref=e43]: 이메일 템플릿 만들기
+            - combobox "이메일 템플릿 만들기" [ref=e44]:
+              - option "오렌지 카드" [selected]
+              - option "블루 기본"
+          - button "HTML 생성" [disabled] [ref=e45]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - strong [ref=e49]: Code Block
+              - button "복사" [disabled] [ref=e50]
+            - generic [ref=e51]: HTML 생성 후 코드가 여기에 표시됩니다.
+          - generic [ref=e53]:
+            - strong [ref=e54]: Preview
+            - button "다운로드" [disabled] [ref=e55]
+  - button "Open Next.js Dev Tools" [ref=e62] [cursor=pointer]:
+    - img [ref=e63]
+  - alert [ref=e66]

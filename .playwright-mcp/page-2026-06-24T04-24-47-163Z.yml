@@ -1,0 +1,961 @@
+- generic [active] [ref=e1]:
+  - main [ref=e2]:
+    - generic [ref=e3]:
+      - img "빗썸 biz" [ref=e4]
+      - heading "뉴스레터" [level=1] [ref=e5]
+    - generic [ref=e6]:
+      - complementary [ref=e7]:
+        - group [ref=e8]:
+          - generic "⌁ 최근 기록" [ref=e9]
+          - list [ref=e10]:
+            - listitem [ref=e67]:
+              - strong [ref=e68]: 6/24 13:23
+              - generic [ref=e69]: 49건 수집
+        - group [ref=e12]:
+          - generic "⌁ 스크랩" [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - button "현재 검색 조건" [ref=e16] [cursor=pointer]:
+            - generic [ref=e17]: ›
+            - text: 현재 검색 조건
+          - generic [ref=e18]:
+            - generic [ref=e19]:
+              - generic [ref=e20]: From
+              - textbox "From" [ref=e21]: 2026-06-17
+            - generic [ref=e22]:
+              - generic [ref=e23]: To
+              - textbox "To" [ref=e24]: 2026-06-24
+            - button "RUN" [ref=e25] [cursor=pointer]
+          - generic [ref=e26]:
+            - button "전체 해제" [ref=e70] [cursor=pointer]
+            - generic [ref=e28]: 49건
+          - table [ref=e29]:
+            - row "날짜 제목 출처 링크" [ref=e30]:
+              - generic [ref=e31]: 날짜
+              - generic [ref=e32]: 제목
+              - generic [ref=e33]: 출처
+              - generic [ref=e34]: 링크
+            - row "2026-06-24 한은 \"가상자산 가격, 주가와 연동…외환 등 수급 영향 유의\" 연합뉴스 열기" [ref=e71]:
+              - checkbox [checked] [ref=e73]
+              - generic [ref=e74]: 2026-06-24
+              - generic [ref=e75]: 한은 "가상자산 가격, 주가와 연동…외환 등 수급 영향 유의"
+              - generic [ref=e76]: 연합뉴스
+              - link "열기" [ref=e77] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVdIBYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVQ?oc=5
+            - row "2026-06-24 한은 “비트코인 충격, 주식·외환시장 번질 수도” 경고 국민일보 열기" [ref=e78]:
+              - checkbox [checked] [ref=e80]
+              - generic [ref=e81]: 2026-06-24
+              - generic [ref=e82]: 한은 “비트코인 충격, 주식·외환시장 번질 수도” 경고
+              - generic [ref=e83]: 국민일보
+              - link "열기" [ref=e84] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMibEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWNIBbEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWA?oc=5
+            - row "2026-06-24 한은 \"가상자산·주식시장 동조화 심화\"…기관 참여 확대시 금융시장 충격 우려 블루밍비트 열기" [ref=e85]:
+              - checkbox [checked] [ref=e87]
+              - generic [ref=e88]: 2026-06-24
+              - generic [ref=e89]: 한은 "가상자산·주식시장 동조화 심화"…기관 참여 확대시 금융시장 충격 우려
+              - generic [ref=e90]: 블루밍비트
+              - link "열기" [ref=e91] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1OTWtDSFdjdENmbTkxUUtCeVkzYnNEbGVGWUlUUUUwRU1ZMVQ4ZnVQaE8yU2h5VENCeU5wcHZJTTNtRDdsbUd5b1N0SmZ2N3dC?oc=5
+            - row "2026-06-24 [코인뉴스] 비트코인 안 사는 이유 있었다…범인은 AI? 데일리안 열기" [ref=e92]:
+              - checkbox [checked] [ref=e94]
+              - generic [ref=e95]: 2026-06-24
+              - generic [ref=e96]: "[코인뉴스] 비트코인 안 사는 이유 있었다…범인은 AI?"
+              - generic [ref=e97]: 데일리안
+              - link "열기" [ref=e98] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMimwJBVV95cUxNeWJIYWtQZ1N3b0FLdGN0VGplMTJBLW8tZlJXQ09Jb0RyVTJES1Y2N0lKaU9NMmhZQUVRY0pWXzViTjRnZllEQW5naFE0LVFvdG9fc1EtMUN4YUNZUUdJajJUWEFzTXhaS0NrekxFTk4tNWo4bmg2bEhnNUlwWWFKLXNmbW0zU3dRZC0xSVlfZE9Rdk9OMlF5ZS1OMVYwRHVtNnJQQm1jVFpiRXI1cEpnZ3IzUEhUVmNMSGt4YVJnWE9ueVd3WFE2V0lTYjFFVWxTaUh5MXIwYVE4Vjd0ME9LYkY0YmZSOEFRcE45RnhoV29EanIyTG9fT29ycGI2dzJZRUpmZ3BqaEo3RXVyVDRYdHNfRjQxYzZEZzFj0gGbAkFVX3lxTE15Ykhha1BnU3dvQUt0Y3RUamUxMkEtby1mUldDT0lvRHJVMkRLVjY3SUppT00yaFlBRVFjSlZfNWJONGdmWURBbmdoUTQtUW90b19zUS0xQ3hhQ1lRR0lqMlRYQXNNeFpLQ2t6TEVOTi01ajhuaDZsSGc1SXBZYUotc2ZtbTNTd1FkLTFJWV9kT1F2T04yUXllLU4xVjBEdW02clBCbWNUWmJFcjVwSmdncjNQSFRWY0xIa3hhUmdYT255V3dYUTZXSVNiMUVVbFNpSHkxcjBhUThWN3QwT0tiRjRiZlI4QVFwTjlGeGhXb0RqcjJMb19Pb3JwYjZ3MllFSmZncGpoSjdFdXJUNFh0c19GNDFjNkRnMWM?oc=5
+            - row "2026-06-24 비트코인 흔들리면 코스피도 출렁? … 주식·환율 흔드는 코인發 나비효과 뉴데일리 열기" [ref=e99]:
+              - checkbox [checked] [ref=e101]
+              - generic [ref=e102]: 2026-06-24
+              - generic [ref=e103]: 비트코인 흔들리면 코스피도 출렁? … 주식·환율 흔드는 코인發 나비효과
+              - generic [ref=e104]: 뉴데일리
+              - link "열기" [ref=e105] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMigAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDa9IBgAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDaw?oc=5
+            - row "2026-06-24 비트코인 6만3000달러 횡보, 돈은 AI로 빠졌다 jabon.co.kr 열기" [ref=e106]:
+              - checkbox [checked] [ref=e108]
+              - generic [ref=e109]: 2026-06-24
+              - generic [ref=e110]: 비트코인 6만3000달러 횡보, 돈은 AI로 빠졌다
+              - generic [ref=e111]: jabon.co.kr
+              - link "열기" [ref=e112] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBqT1h6anNta3NVay1pemI3MndlRFV2elp1WlJoYlZyMnZpakVMQTJGYnhFTUtYVUIzdFowaW9UVUZkaDR5YktEV0l2UjdmaDRkNlVzaVhQU1RnNlVoUzkzLXd5QVVEMzg?oc=5
+            - row "2026-06-24 한은 \"국내 가상자산시장에 법인·기관 참여하면 주식·외환 영향 가능성\" 디지털애셋 열기" [ref=e113]:
+              - checkbox [checked] [ref=e115]
+              - generic [ref=e116]: 2026-06-24
+              - generic [ref=e117]: 한은 "국내 가상자산시장에 법인·기관 참여하면 주식·외환 영향 가능성"
+              - generic [ref=e118]: 디지털애셋
+              - link "열기" [ref=e119] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMickFVX3lxTE80ZTBUZTJFbDBJMzl2VzVWU1JIWE13NzdLTVo4T1BMekRkTkdpV25pMllILU5XSXg1dzlHYVFFTVR6d2xYUWFYQ056TUZKSXJyLTRPN0RFY2F6dWxJaWZ1M3dERmVjSVBUYTJEdEhHQUpyUQ?oc=5
+            - row "2026-06-23 OKX, 인터컨티넨털 익스체인지와 합작법인…가상자산 인프라 구축 아시아경제 열기" [ref=e120]:
+              - checkbox [checked] [ref=e122]
+              - generic [ref=e123]: 2026-06-23
+              - generic [ref=e124]: OKX, 인터컨티넨털 익스체인지와 합작법인…가상자산 인프라 구축
+              - generic [ref=e125]: 아시아경제
+              - link "열기" [ref=e126] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE5veEY1eDNsQ3RtSzZNZWM2RGt2SmdWRjlmWGVrYXZ5RmMwZFQtb0ZNUEJTbGdlRnBYa29ieFNhNlBKU2lXWjhoZndHOGtjMk1DNW5vYzFKX0dCNjZnVTE4Mg?oc=5
+            - row "2026-06-23 글로벌 가상자산 거래소 OKX, ICE와 합작법인 설립 다음뉴스 열기" [ref=e127]:
+              - checkbox [checked] [ref=e129]
+              - generic [ref=e130]: 2026-06-23
+              - generic [ref=e131]: 글로벌 가상자산 거래소 OKX, ICE와 합작법인 설립
+              - generic [ref=e132]: 다음뉴스
+              - link "열기" [ref=e133] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE04WDBqNGFxTmxiUUpBSGRTZXJJRTVLV2VhRmJVeFpadks0SW8xbE9Xc3ZRTDh6bDBnRVdPb0NiOVFTUVpWQ1E?oc=5
+            - row "2026-06-23 글로벌 가상자산 거래소 OKX, ICE와 디지털자산 합작법인 세운다 지디넷코리아 열기" [ref=e134]:
+              - checkbox [checked] [ref=e136]
+              - generic [ref=e137]: 2026-06-23
+              - generic [ref=e138]: 글로벌 가상자산 거래소 OKX, ICE와 디지털자산 합작법인 세운다
+              - generic [ref=e139]: 지디넷코리아
+              - link "열기" [ref=e140] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiVkFVX3lxTE5YdkFnSFAzUzlONi0wek5kYUM0dHJENWN0ZjlNcXEyMUliSXBvMmVHUjRHU3RELS1QaFVjd0xYZURndXptWXhzREVRZmNUZDJDZkVBYjdn?oc=5
+            - row "2026-06-23 OKX, 디지털 자산 겨냥한 합작법인 설립 fetv.co.kr 열기" [ref=e141]:
+              - checkbox [checked] [ref=e143]
+              - generic [ref=e144]: 2026-06-23
+              - generic [ref=e145]: OKX, 디지털 자산 겨냥한 합작법인 설립
+              - generic [ref=e146]: fetv.co.kr
+              - link "열기" [ref=e147] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiaEFVX3lxTFB2Vmp1WXBmTElqZU5ieWI4UEdicjlmcS1mNW8zWTk0VmI5a0lxd1ZtZlRnLWY4bVkyRGhDTUdoUDBnNV9DOEFHaTVfR3JlSWNGa2QtTmVpMGJxNlllM1V6RnV1djBhTHFk?oc=5
+            - row "2026-06-23 한 달 새 11조 원 증발, 월가 기관들 비트코인 시장서 대거 이탈 블록체인투데이 열기" [ref=e148]:
+              - checkbox [checked] [ref=e150]
+              - generic [ref=e151]: 2026-06-23
+              - generic [ref=e152]: 한 달 새 11조 원 증발, 월가 기관들 비트코인 시장서 대거 이탈
+              - generic [ref=e153]: 블록체인투데이
+              - link "열기" [ref=e154] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMicEFVX3lxTFByeW4temlHVE9sM0dUMm8zbTE4NHdtdGdlSEF5RHhtbHEtRkR6QjlNTnFudm1wclVkSThKSEpiQzJmeTQtei10aVM0QlJYT25ZSUMyVDV2OTZCdGRaaWxmLXlwUTJFWHpWWlFVYWlmUmc?oc=5
+            - row "2026-06-23 디지털자산 제도화 논의...\"기관 금융 진입 대비해야\" 딜사이트 열기" [ref=e155]:
+              - checkbox [checked] [ref=e157]
+              - generic [ref=e158]: 2026-06-23
+              - generic [ref=e159]: 디지털자산 제도화 논의..."기관 금융 진입 대비해야"
+              - generic [ref=e160]: 딜사이트
+              - link "열기" [ref=e161] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiT0FVX3lxTE5VUTZ3akZpZHA1VXJDNjFtekZBYzAyOHNJZkxISEVPMkNoWDloVEtsSi12VGxlWDZ3cGQ3dHp5aUZ4U3pjdmVCekY4QlMxY3M?oc=5
+            - row "2026-06-23 [코인뉴스] 비트코인 7만 달러 간다더니…ETF는 또 팔았다 데일리안 열기" [ref=e162]:
+              - checkbox [checked] [ref=e164]
+              - generic [ref=e165]: 2026-06-23
+              - generic [ref=e166]: "[코인뉴스] 비트코인 7만 달러 간다더니…ETF는 또 팔았다"
+              - generic [ref=e167]: 데일리안
+              - link "열기" [ref=e168] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMimwJBVV95cUxPTTRSWTc3SXZZMjZDQks3T0hHRl9NcExyUVpJMkl3bWlIMmJUZnJRajdXbkR3b1FZbks3UzFfV2JSQ0FLd0l1WTR2MU9UeHZaaDU5SlhZSDQ5MlRrbVIzV09WaDhhNHVVWHV2REdEajFxcFViSDdGV3VJdFB2dTBLNnc5U0d0dHZhQW1vVlVXZjhiUXZaZXY1ZXdzamZiV2FZMlRUa2lpZUJ6WTlhRzdrMV91MHRIXzBob3UwZ1NLSXNreEt5ZTBZanFzNnZvWGljbEpSbnQxLTdKNE9EOFJmZ2UzWTE1eUwxS3ZoNmhiQUstYno5N0RmdEt0YldieVl5bHZjQ0hfMm90bzNuSzJNUGlYMzNLOGlUZld30gGbAkFVX3lxTE9NNFJZNzdJdlkyNkNCSzdPSEdGX01wTHJRWkkySXdtaUgyYlRmclFqN1duRHdvUVluSzdTMV9XYlJDQUt3SXVZNHYxT1R4dlpoNTlKWFlINDkyVGttUjNXT1ZoOGE0dVVYdXZER0RqMXFwVWJIN0ZXdUl0UHZ1MEs2dzlTR3R0dmFBbW9WVVdmOGJRdlpldjVld3NqZmJXYVkyVFRraWllQnpZOWFHN2sxX3UwdEhfMGhvdTBnU0tJc2t4S3llMFlqcXM2dm9YaWNsSlJudDEtN0o0T0Q4UmZnZTNZMTV5TDFLdmg2aGJBSy1iejk3RGZ0S3RiV2J5WXlsdmNDSF8yb3RvM25LMk1QaVgzM0s4aVRmV3c?oc=5
+            - row "2026-06-23 프랭클린템플턴, 가상자산 투자 조직 출범…250디지털 인수 완료 블루밍비트 열기" [ref=e169]:
+              - checkbox [checked] [ref=e171]
+              - generic [ref=e172]: 2026-06-23
+              - generic [ref=e173]: 프랭클린템플턴, 가상자산 투자 조직 출범…250디지털 인수 완료
+              - generic [ref=e174]: 블루밍비트
+              - link "열기" [ref=e175] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1UUExhdlI3bDQ3VVExUkpKRDF3ZS1FdHNZa0ZFcGN2OURmcFpUYmM3QTYtcGQwcmdEUldBRzBFSWVTSU5hS3Z3MG5WUzZ6MmVq?oc=5
+            - row "2026-06-23 \"일단 소나기는 피하자\"…기관들, 비트코인·이더리움 1.3억 달러 던졌다 | 핀포인트뉴스 열기" [ref=e176]:
+              - checkbox [checked] [ref=e178]
+              - generic [ref=e179]: 2026-06-23
+              - generic [ref=e180]: "\"일단 소나기는 피하자\"…기관들, 비트코인·이더리움 1.3억 달러 던졌다 |"
+              - generic [ref=e181]: 핀포인트뉴스
+              - link "열기" [ref=e182] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMid0FVX3lxTFB3RlhDTEwxclVJMUhkSzJfdC1HSHBadE1lSUZidlcxX2hhTF9QaXg3cUhjTkEwenNuSHpkNXo4anBkQXhKMFJKaU1zblItQ290VHVCcWdtSzBqRER6RVNicFpQZ2E4dndlOE9Rd0VXT0doa0V4dHJr?oc=5
+            - row "2026-06-23 30일 새 11조 싹 빠졌다…월가 기관들, 비트코인 '전량 폐기' 수준의 대탈출 핀포인트뉴스 열기" [ref=e183]:
+              - checkbox [checked] [ref=e185]
+              - generic [ref=e186]: 2026-06-23
+              - generic [ref=e187]: 30일 새 11조 싹 빠졌다…월가 기관들, 비트코인 '전량 폐기' 수준의 대탈출
+              - generic [ref=e188]: 핀포인트뉴스
+              - link "열기" [ref=e189] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMid0FVX3lxTE01dVZOb1FwYnJGaHJSQ1MyaDlIaGVfejI4R0lxWU9uZzhZTXV0RFBRMjhEdEdJc3VjS2JQcW1OM1Z2TXZiT1Blc0F2Wm9nZTZucDAtdThTa3JmNEN2cUpuSGFSVFpFdjFRcHhPVjZQZXpIQkFrLXo40gF3QVVfeXFMTTV1Vk5vUXBickZoclJDUzJoOUhoZV96MjhHSXFZT25nOFlNdXREUFEyOER0R0lzdWNLYlBxbU4zVnZNdmJPUGVzQXZab2dlNm5wMC11OFNrcmY0Q3ZxSm5IYVJUWkV2MVFweE9WNlBlekhCQWstejg?oc=5
+            - row "2026-06-23 디지털자산서비스 기업 BIT·QCP캐피털 “비트코인, 금리 압박에 박스권” 한스경제 열기" [ref=e190]:
+              - checkbox [checked] [ref=e192]
+              - generic [ref=e193]: 2026-06-23
+              - generic [ref=e194]: 디지털자산서비스 기업 BIT·QCP캐피털 “비트코인, 금리 압박에 박스권”
+              - generic [ref=e195]: 한스경제
+              - link "열기" [ref=e196] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMibEFVX3lxTE1TWDRucm1NX2VvQXJEZFo4SXJYdjlpQ2k3T2dISFlCM2pGWWNMNVlrYVhqZklkSEJSbTF5dTNDY2FXVmZveXhtTmE1c2FRaEE2Y3VMOUNJRGlYVHVaUWxDRk9VVGZfVHg1V2RYMdIBb0FVX3lxTFBQLVhoWlJRSWZCV18wWkJOejhUSkNpMVRSWE90QjhWeFhUZmlEcXVQZjI1MWVDb1BFcFI3Z3EzN2JpSEU3U3FlbVFwdzNwMV9rRXNTcW5GbE90SkdOTk92czZPaE9xYllBbTB0T1ZWcw?oc=5
+            - row "2026-06-23 비트코인ETF 8일 연속 21억달러 유입…블랙록IBIT 75% 독식, 비트코인 9만달러 간다 네이버 프리미엄콘텐츠 열기" [ref=e197]:
+              - checkbox [checked] [ref=e199]
+              - generic [ref=e200]: 2026-06-23
+              - generic [ref=e201]: 비트코인ETF 8일 연속 21억달러 유입…블랙록IBIT 75% 독식, 비트코인 9만달러 간다
+              - generic [ref=e202]: 네이버 프리미엄콘텐츠
+              - link "열기" [ref=e203] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiiwFBVV95cUxPemJobXhRaDZ0dDhGWnVnelk5OHdSdFRFNXRzV3FOSk85dS12WENqZHJad3lzWkNkRGZCeDhlaW0yd2pleDB3VXlZdGNUNUFIQ2JOQkIwNE5oLVduUkRlZS16OHljd0hGdFVvUDVlc2Rlc1VKSXlyWDJMcmlvUVFDTlJaal90R1BzdW9Z?oc=5
+            - row "2026-06-23 OKX, ICE와 합작법인 설립 공식 발표...전통 금융과 디지털 자산 연결 디지털투데이 열기" [ref=e204]:
+              - checkbox [checked] [ref=e206]
+              - generic [ref=e207]: 2026-06-23
+              - generic [ref=e208]: OKX, ICE와 합작법인 설립 공식 발표...전통 금융과 디지털 자산 연결
+              - generic [ref=e209]: 디지털투데이
+              - link "열기" [ref=e210] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE01a1h0Njg1eWlFT0JLYUZtdXZ4STRUR2tiNUJHclkwaXJ1c05hZFRYOTVEOVZLenZXR0JWWGJ5bzNKWTBQSC1vUnZ5NWJ4LUVuNm5YNEtXVEdwQWNtLWo4VldmdFhlY08ycU5lUXhBRURrSW8?oc=5
+            - row "2026-06-22 기관자금 몰리는 美 디지털자산 시장…한국 어디까지 왔나 데일리안 열기" [ref=e211]:
+              - checkbox [checked] [ref=e213]
+              - generic [ref=e214]: 2026-06-22
+              - generic [ref=e215]: 기관자금 몰리는 美 디지털자산 시장…한국 어디까지 왔나
+              - generic [ref=e216]: 데일리안
+              - link "열기" [ref=e217] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiowJBVV95cUxPdDkzUFhBUVQ1cHdwS3BRdjhtZzI0UWJ6RDJKZlNIYU11djFyNFFhS0dRS2t1dnF3YW03ZXRVSjVBNzI3eEVuTlFsTGh4NHpZREtLdXF5YXItT2VwWEpnWkhIUGpId0c5Z0VrSzFDS1daQWk5WUtuMS1VSDJpMjVIcjYzYWtPRkZRQ0p1cjdJZC14X0NCejROZlhKQlIwVkl3eWwtN0RISG9kcnZmZFlyTmdTUVU0VHRZbkEwR3kwRE9DMFdpcmUzeEtEUmlCNE9idHZ3U2ZHWEpOZFUwRUNjVmtoQjhWSkVUZ0pvaUoyYkJweGlGWGxfbk4tMVpnZmw0MDJBaDlxX2s4eXA5Zi1vcE5WM3RHREJIUVpWOEh1a0txQXc?oc=5
+            - row "2026-06-22 일본 기업연금도 비트코인 산다…내년부터 운용자산 1% 가상자산 편입 뉴스1 열기" [ref=e218]:
+              - checkbox [checked] [ref=e220]
+              - generic [ref=e221]: 2026-06-22
+              - generic [ref=e222]: 일본 기업연금도 비트코인 산다…내년부터 운용자산 1% 가상자산 편입
+              - generic [ref=e223]: 뉴스1
+              - link "열기" [ref=e224] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiZkFVX3lxTE9nU2h6d2dKV0Y3RmxUX0F6UTJNa2lUVEhrdUxBMW04aUpScFVqa1pPT0hyWm8tajE5SzFhYUN4Y2l5QmVJOGlzWHlidWcxb0ttRzdnV2Z2YWZWNlFzWko2MUZ0LUx5Zw?oc=5
+            - row "2026-06-22 릭 에델만 \"기관 참여 확대가 가상자산 시장 핵심 성장 동력\" 블루밍비트 열기" [ref=e225]:
+              - checkbox [checked] [ref=e227]
+              - generic [ref=e228]: 2026-06-22
+              - generic [ref=e229]: 릭 에델만 "기관 참여 확대가 가상자산 시장 핵심 성장 동력"
+              - generic [ref=e230]: 블루밍비트
+              - link "열기" [ref=e231] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTFBKYVdMMm45WHVqckJwWWRnYktyVkxUaGlwd0dwdmhHUENMVUkzM0RGZkJrWjBWOHNZMnJoLUpuUzJGeEpaVEdvanBVU2FtYnBi?oc=5
+            - row "2026-06-22 글래스노드 \"비트코인, 기관 수요 둔화에도 시장 구조는 견조\" 블루밍비트 열기" [ref=e232]:
+              - checkbox [checked] [ref=e234]
+              - generic [ref=e235]: 2026-06-22
+              - generic [ref=e236]: 글래스노드 "비트코인, 기관 수요 둔화에도 시장 구조는 견조"
+              - generic [ref=e237]: 블루밍비트
+              - link "열기" [ref=e238] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1LVnQzRW80VzNmbHFwZVlNSHlnV1d5VGE3M2MzenpRSzVXUGM1Z3Z5QU1OUVdWT2pMMnVldXNQcFhDU0xYcWZMNnNiakRpd1lY?oc=5
+            - row "2026-06-22 핀테크산업협회, 디지털자산 기관 참여 확대 논의…“명확한 규율체계 필요” 전자신문 열기" [ref=e239]:
+              - checkbox [checked] [ref=e241]
+              - generic [ref=e242]: 2026-06-22
+              - generic [ref=e243]: 핀테크산업협회, 디지털자산 기관 참여 확대 논의…“명확한 규율체계 필요”
+              - generic [ref=e244]: 전자신문
+              - link "열기" [ref=e245] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiTkFVX3lxTE52MVVFRUFLeEZ3TVphUHQ1TktKaDMtX2owV3QwcHJsUUJnNndRMFFDd3lvanljQVpCMy1wbk5jUENPU2ljbHdjNURoZzJ2Zw?oc=5
+            - row "2026-06-22 핀테크산업협회, 디지털자산 제도화 논의… “한국형 입법 모델 필요” 한국보험신문 열기" [ref=e246]:
+              - checkbox [checked] [ref=e248]
+              - generic [ref=e249]: 2026-06-22
+              - generic [ref=e250]: 핀테크산업협회, 디지털자산 제도화 논의… “한국형 입법 모델 필요”
+              - generic [ref=e251]: 한국보험신문
+              - link "열기" [ref=e252] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMia0FVX3lxTFBRUVV0VTllN1JwSmdPR1FyVnZHTjJkaGZQckNpMzVJTDVFZ0w2QkRoY3ZvYmNmME9UTFJCRzRnQVpsNUZtc2swYU12blZCRWhUTk5jcTAycXF3Q2VJM3JpM0JuRnR2dktyTDl30gFvQVVfeXFMTlNBRkVkUC13MlEtejA2bXhPbWFadGgwQjFmVFZnMDhGQjQxNWlDNGhLTHhPYzIzbDJTVUFmRG5KUjFkbjlBUUZCX0wxR3JZelh4ekVkbHJmZGJobnNGSlpqeWx1SDVOLTNURkhSNmJ3?oc=5
+            - row "2026-06-22 광주은행, 글로벌 블록체인 기업과 손잡고 디지털자산 결제시장 대응 안전신문 열기" [ref=e253]:
+              - checkbox [checked] [ref=e255]
+              - generic [ref=e256]: 2026-06-22
+              - generic [ref=e257]: 광주은행, 글로벌 블록체인 기업과 손잡고 디지털자산 결제시장 대응
+              - generic [ref=e258]: 안전신문
+              - link "열기" [ref=e259] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMicEFVX3lxTFBlMVZrMU9fTVl2N3VKWVBTamdyX28xLW43T0FMNjFNcW90QW9qUW5INWQ4RzJpYlp0SndNemRSNHlXakprXzV0UDVtRTdzbVc3Z0E5SkpxWjNSRXFFY0FGQWo1SlRndXhOOU8xWGp5bTA?oc=5
+            - row "2026-06-22 비트코인 ETF 6주 연속 순유출, 기관은 발 뺐다 jabon.co.kr 열기" [ref=e260]:
+              - checkbox [checked] [ref=e262]
+              - generic [ref=e263]: 2026-06-22
+              - generic [ref=e264]: 비트코인 ETF 6주 연속 순유출, 기관은 발 뺐다
+              - generic [ref=e265]: jabon.co.kr
+              - link "열기" [ref=e266] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQVEZQZWVLUndFWXFTT3JLWk91d0NWNzVxWTF2QXJhM1NjLXZ4Q3AyQjJSVXh4MW5ob3A4TTRKY0VnT0d2NW05NWw2OFlZbVJNMlJiZV9VZHlCZEJDNnlVdFRhdzcxUG8?oc=5
+            - row "2026-06-22 \"日 기업연기금, 자산 1% 가상자산에 투자\" 디지털애셋 열기" [ref=e267]:
+              - checkbox [checked] [ref=e269]
+              - generic [ref=e270]: 2026-06-22
+              - generic [ref=e271]: "\"日 기업연기금, 자산 1% 가상자산에 투자\""
+              - generic [ref=e272]: 디지털애셋
+              - link "열기" [ref=e273] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMickFVX3lxTE1wdDVyZ3FvOXZLdkQ5am5qR3NEOFd2RlVaNUxKZXlpUlI4Z0NvRnJQTk96Vk1uMW9yUUVvbFB5OXdCNlY4NlJURjZZWEN4Ukh6WnNPZmxrV25lc3llcUJ4bmZNbTFWLUhveWY0Wm1CVFg1UQ?oc=5
+            - 'row "2026-06-22 비트코인의 6월 60,000달러 붕괴는 새로운 기관 투자자들의 역풍을 부각시켜: 도이치은행 CoinDesk 열기" [ref=e274]':
+              - checkbox [checked] [ref=e276]
+              - generic [ref=e277]: 2026-06-22
+              - generic [ref=e278]: "비트코인의 6월 60,000달러 붕괴는 새로운 기관 투자자들의 역풍을 부각시켜: 도이치은행"
+              - generic [ref=e279]: CoinDesk
+              - link "열기" [ref=e280] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiywFBVV95cUxONkFVLXFaaUwyZmdPWjlScjM0RmFtQmtRMUR3aGUtSFpyQi1JRmYwVHBuNnRrbVltMmdwSFdIem13ZjQtaHE5MzQwQzJpZE5tLWhpMkRlWXJXdTlNRWxGZEtQOUU5cFdWWW9WWm96WXNfcnBhREFLUGFjcU5DaGp1emRNRkx4SFNyMUh2UHBLMDlCQUZmWWo0Vk05RktEY3pKeXpIcHk2ZUREN2JEWHdVcVE5ellZZGs1YXd4TlFPZzNCdFIzOXA5NERtbw?oc=5
+            - row "2026-06-22 [코인뉴스] 비트코인 살아났나 했더니…기관은 '글쎄' 데일리안 열기" [ref=e281]:
+              - checkbox [checked] [ref=e283]
+              - generic [ref=e284]: 2026-06-22
+              - generic [ref=e285]: "[코인뉴스] 비트코인 살아났나 했더니…기관은 '글쎄'"
+              - generic [ref=e286]: 데일리안
+              - link "열기" [ref=e287] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE9kUDRnbUF1VDQ3d3FWdDVwR01mSUh1ZzlfYy1GQzhHMF9FVDNTN05WNWpSa1RiemhZMDljUDE1cHBnVUhuRDNPN1A5cWJOQkYweFp5Q0tfN3pabnhOWVdRb9IBsAJBVV95cUxOVExPT0dZYnJ3OEtzTXdkcWdPYk51OUFla25aMGlKc1F2SGpWRGVtZ21HZzc1Z3VpQ3BDUHFLZ3g0YmVJOWVzYVdhVk9nQTF1WGVwa1ZVN1BGN2RPT0JDdUkxX0dNTVItRVdqaW82RlgtS3k2OTZMSVFMRjkyenMxZnlNODBZcHYzS2c5NWlXeHRRM3JlZnZQZDlWS3pHTW42ZHJoeHNQMnE2d0NlYmM1RDRQX3ZRTi1ndzZPc1Y4eFJuN09NYzZYRkhySUJrTFhLSkRWNFg0RExNcGIxMmNPSXRmSkkxWHlJMFh2THhOLWxFd0p6alF6NFRySFBDQW5Nb2xvRXAyS2dTeUU5RHh0NEh6dThhTVNabkRKRW9jaTB2WGs1bWtQYnlad1B6NEdj?oc=5
+            - row "2026-06-21 비트코인 사들이던 '큰손' 기업들 경고등…우선주 줄줄이 액면가 밑돌아 뉴스1 열기" [ref=e288]:
+              - checkbox [checked] [ref=e290]
+              - generic [ref=e291]: 2026-06-21
+              - generic [ref=e292]: 비트코인 사들이던 '큰손' 기업들 경고등…우선주 줄줄이 액면가 밑돌아
+              - generic [ref=e293]: 뉴스1
+              - link "열기" [ref=e294] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wdGVyOWZ5OEJ0Y0VKUVN2NnlLcWVpS3BHTm9SQ3RTX1Y3QUNXOWRENi15YWdzN21GOC1GR0xVa3QyTmoyNDdOQ3RGUjJ5SnVXQlJ3Qzg0NlhSR2RhNEtMeGtZWTJOdw?oc=5
+            - row "2026-06-21 \"법인 투자시장 커질 것…글로벌 거래소 손잡고 승부\" 한국경제 열기" [ref=e295]:
+              - checkbox [checked] [ref=e297]
+              - generic [ref=e298]: 2026-06-21
+              - generic [ref=e299]: "\"법인 투자시장 커질 것…글로벌 거래소 손잡고 승부\""
+              - generic [ref=e300]: 한국경제
+              - link "열기" [ref=e301] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XZk1NYlAwRlVJN1dsYWNfWVBzOHdvbG5BN0xTUTdtZVRyOVBsYzllS25zMVlZUjFyWUVqenAzb0V5OTcxdUZFQ0tJS29LNFkxSVpMejlUWTNqd9IBVEFVX3lxTE00ajAxQmFWcnh2QmhCaEFjR21PSVlDbHo5TjJvUXI4cWUzQkNLNFRBa19ZWWVOX1JlaTlKTEpZWURLckllYVFYVVpMZE9vb3RzWDUxZw?oc=5
+            - row "2026-06-20 2029년엔 신고가 vs 더 떨어진다…반토막 난 비트코인의 미래 중앙일보 열기" [ref=e302]:
+              - checkbox [checked] [ref=e304]
+              - generic [ref=e305]: 2026-06-20
+              - generic [ref=e306]: 2029년엔 신고가 vs 더 떨어진다…반토막 난 비트코인의 미래
+              - generic [ref=e307]: 중앙일보
+              - link "열기" [ref=e308] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hdExMQmRLVzRLTHA1TWtnZjZQV2F0SjlucEFrV2pKZFNvNGx0cjljRURWT0liMXBGdmU4UzBtWHotTzlLUVVIbmJGbVROZ2Z5S0NZVFlR?oc=5
+            - row "2026-06-20 비트코인 ETF 4주 연속 12억달러 순유입…기관투자자 자금이 8만달러 돌파 이끌까 네이버 프리미엄콘텐츠 열기" [ref=e309]:
+              - checkbox [checked] [ref=e311]
+              - generic [ref=e312]: 2026-06-20
+              - generic [ref=e313]: 비트코인 ETF 4주 연속 12억달러 순유입…기관투자자 자금이 8만달러 돌파 이끌까
+              - generic [ref=e314]: 네이버 프리미엄콘텐츠
+              - link "열기" [ref=e315] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOVl2V1RQbGNnSnJ3ZVhfdjNXZHJ6SW1DM25RLWRjWkoyZWt0dFVyWEs0NE5OY1VYaGdGZ21WdUhTTEJ2U3ZWT2h3aWw4R2pCSlpzX3lkRG54MXZPWVhvSzRIbWlMbGZ1SFJVS0pkMUhTZEJyUTYyS28xb1U0alRqSEF0b1dvWENYc1RB?oc=5
+            - row "2026-06-19 기관투자자 문 열릴까…국회, 가상자산 제도화 로드맵 논의:동아경제신문 & daenews.co.kr 동아경제 열기" [ref=e316]:
+              - checkbox [checked] [ref=e318]
+              - generic [ref=e319]: 2026-06-19
+              - generic [ref=e320]: 기관투자자 문 열릴까…국회, 가상자산 제도화 로드맵 논의:동아경제신문 & daenews.co.kr
+              - generic [ref=e321]: 동아경제
+              - link "열기" [ref=e322] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE4wc1BUejh2bEpqbWlvNzIteXZQWEs5RVZoZk96MkpkT09pMmVvZ0VfRVJXby1TWU1LUGR5aTk3aGY1cUtOVUHSAWJBVV95cUxPSXY5SWgxeXE1cTlTQ0ZJV0IyclhwZ0JsWXJtWHdOdUg4NVl1MXBQNmhTckRBTC13WDRkRkg0d2cxWjVoeF9zN2EwNTcxaDNBbFpPMFVWV2RyT09SeGcwQ0NMUQ?oc=5
+            - row "2026-06-19 [단독] 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도 블루밍비트 열기" [ref=e323]:
+              - checkbox [checked] [ref=e325]
+              - generic [ref=e326]: 2026-06-19
+              - generic [ref=e327]: "[단독] 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도"
+              - generic [ref=e328]: 블루밍비트
+              - link "열기" [ref=e329] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ZRGF0NmV2U3VDRUZaeEhubzdIWnFEYldBcS01N3oyNEVnNXJIY1Vyd3dxWGJyTFRFTjlEWHh2WjRDLWZNZjAwbGFMd05DTE9U?oc=5
+            - row "2026-06-19 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도 한국경제 열기" [ref=e330]:
+              - checkbox [checked] [ref=e332]
+              - generic [ref=e333]: 2026-06-19
+              - generic [ref=e334]: 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도
+              - generic [ref=e335]: 한국경제
+              - link "열기" [ref=e336] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiWkFVX3lxTE5RYl96VnJ5Nm0zUTUtRklxbkFDUWVJRnR0dmFETHNIR1BuRWN4cGhlMkkxdWhudzhZSWIzUW54UnYtSFRKTkFNc3hENnVTcndNSU9RWmZiS1JJQdIBVEFVX3lxTE13V3lCZWZOQUQ3U1Rjd0s4VnNLS2dqMTI2WEpaRVZUZ0MxR09CbGRHcm8zaGpIS2pvX2tYQWUwMjBmVmVwTGFKRjJ5bnpUNkVwamYzNw?oc=5
+            - row "2026-06-19 [RE:기업] 5대 가상자산거래소 '합종연횡'···스테이블코인·결제·정산 인프라 확보로 경쟁 축 이동 한스경제 열기" [ref=e337]:
+              - checkbox [checked] [ref=e339]
+              - generic [ref=e340]: 2026-06-19
+              - generic [ref=e341]: "[RE:기업] 5대 가상자산거래소 '합종연횡'···스테이블코인·결제·정산 인프라 확보로 경쟁 축 이동"
+              - generic [ref=e342]: 한스경제
+              - link "열기" [ref=e343] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMia0FVX3lxTFA2cVk2azNWX0dTWl9raVI2QzUzRGxQa3hKRlo2QjAyNUswQzRHZVlaa01NUzllZnR4RDdHcWFvUzdvOXctSzRIMjBLR3ltY3RrX0lyc2V2ZGdmNW9Ddm5Ba21YbGpzTXV5Qjhz0gFvQVVfeXFMTVU3dWtBQkpPZEk3UWowempqcFlpRXBfUkhVSzNHYm83WU1sT0RkS1JRSWk4UndMOXJkaDJUZjlabFBfa09LdW1vTGp0bWxBZk1iS3NlYmgtTGYxd1ZWWThDRmV1d3RzWGl1dTN0dGpZ?oc=5
+            - 'row "2026-06-19 프랭클린 템플턴, 배당금을 비트코인(BTC)으로 전환하는 신기금 제안: 크립토 데일리 CoinDesk 열기" [ref=e344]':
+              - checkbox [checked] [ref=e346]
+              - generic [ref=e347]: 2026-06-19
+              - generic [ref=e348]: "프랭클린 템플턴, 배당금을 비트코인(BTC)으로 전환하는 신기금 제안: 크립토 데일리"
+              - generic [ref=e349]: CoinDesk
+              - link "열기" [ref=e350] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiygFBVV95cUxNbGFweWdYdU9TSnJsTmR0cndzVzk3dGl5d2JFbi13YjIxekpBU01HRGJ4X0QyUEhOdjlSRGRaQl83ZzZVLVBvOGxmWWVUUjkycWJVaEgtQ1VnTlAxdjhTQlJTVFNQdG9ZWGVFMS1ZelM3ZkdBOWxBZHVwM3dTVFFiWGY4RkhFNVoyQnoydjV1cWVUUkdCb0xBYllqV1pyd1hPWjFCYWhTMGtqQ1lKOVFWRTA4LW5QdW9IMzZfTzVmdS1YeS1pWmNlYjhn?oc=5
+            - row "2026-06-18 [논현논단] ‘법인의 가상자산 투자’ 시장은 목마르다 다음뉴스 열기" [ref=e351]:
+              - checkbox [checked] [ref=e353]
+              - generic [ref=e354]: 2026-06-18
+              - generic [ref=e355]: "[논현논단] ‘법인의 가상자산 투자’ 시장은 목마르다"
+              - generic [ref=e356]: 다음뉴스
+              - link "열기" [ref=e357] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE9FVEt3QTBHSXVJOEprTFM2ZkZ1OUd3cUFZdl9FM2NZTTl1ZURfMUM0amdVOG5kRjIxU1lTS2o4MnczR0tBRWc?oc=5
+            - row "2026-06-18 ‘나오리스 공식 브리지 출시’ 엑스큐어, 디지털자산 보안 인프라 사업화 추진 매일경제 열기" [ref=e358]:
+              - checkbox [checked] [ref=e360]
+              - generic [ref=e361]: 2026-06-18
+              - generic [ref=e362]: ‘나오리스 공식 브리지 출시’ 엑스큐어, 디지털자산 보안 인프라 사업화 추진
+              - generic [ref=e363]: 매일경제
+              - link "열기" [ref=e364] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiUkFVX3lxTFB0N2dqb3J6b19kYlhZVndLR3ZkZG5yN3dSdVlUVXNIR3hTX0EtMlQ3Vk80bEEwX0Y1czAtdjNMYlBVcndzMjBNZG9XU3BxNVBqaWc?oc=5
+            - row "2026-06-18 파이어블록스 \"韓 디지털자산 규제 변화, 전분야서 기회 창출\" 연합뉴스 열기" [ref=e365]:
+              - checkbox [checked] [ref=e367]
+              - generic [ref=e368]: 2026-06-18
+              - generic [ref=e369]: 파이어블록스 "韓 디지털자산 규제 변화, 전분야서 기회 창출"
+              - generic [ref=e370]: 연합뉴스
+              - link "열기" [ref=e371] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6S202MEVsdTRKZXlITmRKdjU0YUM0T1hpYWYxRVNBLWJ1MUZXdXVaam9EbE1TQnJ1U1VfY1lvNEpRbWFIU04yXy0yV2NJdE51U0FmdFZZVHhSeEHSAWBBVV95cUxQdDNfZ053VkFKZUJUYlkwQXhoMXB4MnhBTEF5SnYtY3FKMDRWVXR4cDJ4d2NnRzdVclR1anV3Yk8zTVJpTEk0OVdyMkpOTkVwZWVrdVNIU0QtWG1WMXdMalE?oc=5
+            - row "2026-06-18 압수코인 수탁시장 열렸지만…중소 커스터디 '높은 문턱' 전자신문 열기" [ref=e372]:
+              - checkbox [checked] [ref=e374]
+              - generic [ref=e375]: 2026-06-18
+              - generic [ref=e376]: 압수코인 수탁시장 열렸지만…중소 커스터디 '높은 문턱'
+              - generic [ref=e377]: 전자신문
+              - link "열기" [ref=e378] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiTkFVX3lxTE1UemJsZFk3R0xlN3FkS1RncUZPSExxUzc5Z0NSSHkybjczMTk0TFZUMURpQ3Y1U05BYXR3emUyTWx5T2VVMkxwUEhmVjhjQQ?oc=5
+            - row "2026-06-17 금융권은 바쁜데 국회는 멈췄다…“원화 코인, 법제화 없인 반쪽 준비” 에너지경제신문 열기" [ref=e379]:
+              - checkbox [checked] [ref=e381]
+              - generic [ref=e382]: 2026-06-17
+              - generic [ref=e383]: 금융권은 바쁜데 국회는 멈췄다…“원화 코인, 법제화 없인 반쪽 준비”
+              - generic [ref=e384]: 에너지경제신문
+              - link "열기" [ref=e385] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiW0FVX3lxTE5yU3JGV2VLZTJ6dEgxaVEyRGhZXzhjSVNVemJ1aGdIczhUeEIyQjY1QUp2Vll4dC0yNmZ5MDZ2U01pNW9oRmJjMTliUTlRaFRKUmZ4X0RkUkc1WFE?oc=5
+            - row "2026-06-17 \"지금이 바닥인데\"…비트코인 떨어져도 법인들에겐 '그림의 떡' 다음뉴스 열기" [ref=e386]:
+              - checkbox [checked] [ref=e388]
+              - generic [ref=e389]: 2026-06-17
+              - generic [ref=e390]: "\"지금이 바닥인데\"…비트코인 떨어져도 법인들에겐 '그림의 떡'"
+              - generic [ref=e391]: 다음뉴스
+              - link "열기" [ref=e392] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiS0FVX3lxTE5WUzdfQjBGS3AtcVJSUU5UazV6QXFhX1hlWDdXRHlNUVJ6WFJMa2gxLVBfQTRPYlhxTTlGRWtTNHpVUFVVZkVSd3VERQ?oc=5
+            - row "2026-06-17 비트코인 현물 ETF 주춤, 하이퍼리퀴드는 유입…기관 자금 '역주행' 디지털투데이 열기" [ref=e393]:
+              - checkbox [checked] [ref=e395]
+              - generic [ref=e396]: 2026-06-17
+              - generic [ref=e397]: 비트코인 현물 ETF 주춤, 하이퍼리퀴드는 유입…기관 자금 '역주행'
+              - generic [ref=e398]: 디지털투데이
+              - link "열기" [ref=e399] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE4tM21JMmpSd3djeGRrMnRUa0FSRGpDUTFXTXhHWmhGb21BMVRscnNrR3hWb1FtZ2ZGU0NUa0w4TVhobEc3bzI4ajhhTlJtRXZ2cXIxVjVoVXBwZ2ZlWTg2S1NRQzJ0RXh4aHRZd0ZTeGZNc0U?oc=5
+            - row "2026-06-17 연쇄 이동하는 기관 자금… 비트코인·이더리움 시장 흔드는 머니무브의 공포 핀포인트뉴스 열기" [ref=e400]:
+              - checkbox [checked] [ref=e402]
+              - generic [ref=e403]: 2026-06-17
+              - generic [ref=e404]: 연쇄 이동하는 기관 자금… 비트코인·이더리움 시장 흔드는 머니무브의 공포
+              - generic [ref=e405]: 핀포인트뉴스
+              - link "열기" [ref=e406] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE5QX0p5eUtrWVJHWGdPOEJkYUhfUDZXdDYwU3NIOEhyVUVRd2xEYk9JaU5xcGpmOWpzZzl4MGpkNnZOVWFCS2IwVzRVXzFpb0VsUzZMNlYyMkRZUjlZTWlRYXdJNXZxa1lWc2VDRE1DaUVnVXPSAXdBVV95cUxONmswQU9hMzVMOUdlU045N2d0X2cxcTZLTlRkRnFKZ2VSeWp6d2hST25OMEN2ZzF4cUt5TTFCVkFMN1ZmY2YtUldlX2VuR1dFRi1nUVVGTUgwNHVpeTJuZDlPUTRiYTNSWnRqR3JkOU9JT3dWOU1rRQ?oc=5
+            - row "2026-06-17 비트코인 6만 5000달러대 횡보 속 기관 투자 수요는 견조 에너지 뉴스 열기" [ref=e407]:
+              - checkbox [checked] [ref=e409]
+              - generic [ref=e410]: 2026-06-17
+              - generic [ref=e411]: 비트코인 6만 5000달러대 횡보 속 기관 투자 수요는 견조
+              - generic [ref=e412]: 에너지 뉴스
+              - link "열기" [ref=e413] [cursor=pointer]:
+                - /url: https://news.google.com/rss/articles/CBMiaEFVX3lxTE9zMDQ1ZnJ2ZHRiN3B0YndFTHBvSmFvVHJQbHVlRkFncTFNblJRdmlNNDJ4SnpZdmk0T2U5QlNtdTg0d19yZkdZRWY2eXlLNWlkY21NNzFGQUpYOTJBSHZSVXdzeUN3eExZ?oc=5
+          - button "적용" [ref=e35] [cursor=pointer]
+        - generic [ref=e36]:
+          - generic [ref=e414]:
+            - article [ref=e415]:
+              - generic [ref=e416]: ⠿
+              - generic [ref=e417]:
+                - generic [ref=e418]:
+                  - generic [ref=e419]: 연합뉴스
+                  - generic [ref=e420]: 2026-06-24
+                - strong [ref=e421]: 한은 "가상자산 가격, 주가와 연동…외환 등 수급 영향 유의"
+              - button "선택 기사 삭제" [ref=e422] [cursor=pointer]: ⌫
+            - article [ref=e423]:
+              - generic [ref=e424]: ⠿
+              - generic [ref=e425]:
+                - generic [ref=e426]:
+                  - generic [ref=e427]: 국민일보
+                  - generic [ref=e428]: 2026-06-24
+                - strong [ref=e429]: 한은 “비트코인 충격, 주식·외환시장 번질 수도” 경고
+              - button "선택 기사 삭제" [ref=e430] [cursor=pointer]: ⌫
+            - article [ref=e431]:
+              - generic [ref=e432]: ⠿
+              - generic [ref=e433]:
+                - generic [ref=e434]:
+                  - generic [ref=e435]: 블루밍비트
+                  - generic [ref=e436]: 2026-06-24
+                - strong [ref=e437]: 한은 "가상자산·주식시장 동조화 심화"…기관 참여 확대시 금융시장 충격 우려
+              - button "선택 기사 삭제" [ref=e438] [cursor=pointer]: ⌫
+            - article [ref=e439]:
+              - generic [ref=e440]: ⠿
+              - generic [ref=e441]:
+                - generic [ref=e442]:
+                  - generic [ref=e443]: 데일리안
+                  - generic [ref=e444]: 2026-06-24
+                - strong [ref=e445]: "[코인뉴스] 비트코인 안 사는 이유 있었다…범인은 AI?"
+              - button "선택 기사 삭제" [ref=e446] [cursor=pointer]: ⌫
+            - article [ref=e447]:
+              - generic [ref=e448]: ⠿
+              - generic [ref=e449]:
+                - generic [ref=e450]:
+                  - generic [ref=e451]: 뉴데일리
+                  - generic [ref=e452]: 2026-06-24
+                - strong [ref=e453]: 비트코인 흔들리면 코스피도 출렁? … 주식·환율 흔드는 코인發 나비효과
+              - button "선택 기사 삭제" [ref=e454] [cursor=pointer]: ⌫
+            - article [ref=e455]:
+              - generic [ref=e456]: ⠿
+              - generic [ref=e457]:
+                - generic [ref=e458]:
+                  - generic [ref=e459]: jabon.co.kr
+                  - generic [ref=e460]: 2026-06-24
+                - strong [ref=e461]: 비트코인 6만3000달러 횡보, 돈은 AI로 빠졌다
+              - button "선택 기사 삭제" [ref=e462] [cursor=pointer]: ⌫
+            - article [ref=e463]:
+              - generic [ref=e464]: ⠿
+              - generic [ref=e465]:
+                - generic [ref=e466]:
+                  - generic [ref=e467]: 디지털애셋
+                  - generic [ref=e468]: 2026-06-24
+                - strong [ref=e469]: 한은 "국내 가상자산시장에 법인·기관 참여하면 주식·외환 영향 가능성"
+              - button "선택 기사 삭제" [ref=e470] [cursor=pointer]: ⌫
+            - article [ref=e471]:
+              - generic [ref=e472]: ⠿
+              - generic [ref=e473]:
+                - generic [ref=e474]:
+                  - generic [ref=e475]: 아시아경제
+                  - generic [ref=e476]: 2026-06-23
+                - strong [ref=e477]: OKX, 인터컨티넨털 익스체인지와 합작법인…가상자산 인프라 구축
+              - button "선택 기사 삭제" [ref=e478] [cursor=pointer]: ⌫
+            - article [ref=e479]:
+              - generic [ref=e480]: ⠿
+              - generic [ref=e481]:
+                - generic [ref=e482]:
+                  - generic [ref=e483]: 다음뉴스
+                  - generic [ref=e484]: 2026-06-23
+                - strong [ref=e485]: 글로벌 가상자산 거래소 OKX, ICE와 합작법인 설립
+              - button "선택 기사 삭제" [ref=e486] [cursor=pointer]: ⌫
+            - article [ref=e487]:
+              - generic [ref=e488]: ⠿
+              - generic [ref=e489]:
+                - generic [ref=e490]:
+                  - generic [ref=e491]: 지디넷코리아
+                  - generic [ref=e492]: 2026-06-23
+                - strong [ref=e493]: 글로벌 가상자산 거래소 OKX, ICE와 디지털자산 합작법인 세운다
+              - button "선택 기사 삭제" [ref=e494] [cursor=pointer]: ⌫
+            - article [ref=e495]:
+              - generic [ref=e496]: ⠿
+              - generic [ref=e497]:
+                - generic [ref=e498]:
+                  - generic [ref=e499]: fetv.co.kr
+                  - generic [ref=e500]: 2026-06-23
+                - strong [ref=e501]: OKX, 디지털 자산 겨냥한 합작법인 설립
+              - button "선택 기사 삭제" [ref=e502] [cursor=pointer]: ⌫
+            - article [ref=e503]:
+              - generic [ref=e504]: ⠿
+              - generic [ref=e505]:
+                - generic [ref=e506]:
+                  - generic [ref=e507]: 블록체인투데이
+                  - generic [ref=e508]: 2026-06-23
+                - strong [ref=e509]: 한 달 새 11조 원 증발, 월가 기관들 비트코인 시장서 대거 이탈
+              - button "선택 기사 삭제" [ref=e510] [cursor=pointer]: ⌫
+            - article [ref=e511]:
+              - generic [ref=e512]: ⠿
+              - generic [ref=e513]:
+                - generic [ref=e514]:
+                  - generic [ref=e515]: 딜사이트
+                  - generic [ref=e516]: 2026-06-23
+                - strong [ref=e517]: 디지털자산 제도화 논의..."기관 금융 진입 대비해야"
+              - button "선택 기사 삭제" [ref=e518] [cursor=pointer]: ⌫
+            - article [ref=e519]:
+              - generic [ref=e520]: ⠿
+              - generic [ref=e521]:
+                - generic [ref=e522]:
+                  - generic [ref=e523]: 데일리안
+                  - generic [ref=e524]: 2026-06-23
+                - strong [ref=e525]: "[코인뉴스] 비트코인 7만 달러 간다더니…ETF는 또 팔았다"
+              - button "선택 기사 삭제" [ref=e526] [cursor=pointer]: ⌫
+            - article [ref=e527]:
+              - generic [ref=e528]: ⠿
+              - generic [ref=e529]:
+                - generic [ref=e530]:
+                  - generic [ref=e531]: 블루밍비트
+                  - generic [ref=e532]: 2026-06-23
+                - strong [ref=e533]: 프랭클린템플턴, 가상자산 투자 조직 출범…250디지털 인수 완료
+              - button "선택 기사 삭제" [ref=e534] [cursor=pointer]: ⌫
+            - article [ref=e535]:
+              - generic [ref=e536]: ⠿
+              - generic [ref=e537]:
+                - generic [ref=e538]:
+                  - generic [ref=e539]: 핀포인트뉴스
+                  - generic [ref=e540]: 2026-06-23
+                - strong [ref=e541]: "\"일단 소나기는 피하자\"…기관들, 비트코인·이더리움 1.3억 달러 던졌다 |"
+              - button "선택 기사 삭제" [ref=e542] [cursor=pointer]: ⌫
+            - article [ref=e543]:
+              - generic [ref=e544]: ⠿
+              - generic [ref=e545]:
+                - generic [ref=e546]:
+                  - generic [ref=e547]: 핀포인트뉴스
+                  - generic [ref=e548]: 2026-06-23
+                - strong [ref=e549]: 30일 새 11조 싹 빠졌다…월가 기관들, 비트코인 '전량 폐기' 수준의 대탈출
+              - button "선택 기사 삭제" [ref=e550] [cursor=pointer]: ⌫
+            - article [ref=e551]:
+              - generic [ref=e552]: ⠿
+              - generic [ref=e553]:
+                - generic [ref=e554]:
+                  - generic [ref=e555]: 한스경제
+                  - generic [ref=e556]: 2026-06-23
+                - strong [ref=e557]: 디지털자산서비스 기업 BIT·QCP캐피털 “비트코인, 금리 압박에 박스권”
+              - button "선택 기사 삭제" [ref=e558] [cursor=pointer]: ⌫
+            - article [ref=e559]:
+              - generic [ref=e560]: ⠿
+              - generic [ref=e561]:
+                - generic [ref=e562]:
+                  - generic [ref=e563]: 네이버 프리미엄콘텐츠
+                  - generic [ref=e564]: 2026-06-23
+                - strong [ref=e565]: 비트코인ETF 8일 연속 21억달러 유입…블랙록IBIT 75% 독식, 비트코인 9만달러 간다
+              - button "선택 기사 삭제" [ref=e566] [cursor=pointer]: ⌫
+            - article [ref=e567]:
+              - generic [ref=e568]: ⠿
+              - generic [ref=e569]:
+                - generic [ref=e570]:
+                  - generic [ref=e571]: 디지털투데이
+                  - generic [ref=e572]: 2026-06-23
+                - strong [ref=e573]: OKX, ICE와 합작법인 설립 공식 발표...전통 금융과 디지털 자산 연결
+              - button "선택 기사 삭제" [ref=e574] [cursor=pointer]: ⌫
+            - article [ref=e575]:
+              - generic [ref=e576]: ⠿
+              - generic [ref=e577]:
+                - generic [ref=e578]:
+                  - generic [ref=e579]: 데일리안
+                  - generic [ref=e580]: 2026-06-22
+                - strong [ref=e581]: 기관자금 몰리는 美 디지털자산 시장…한국 어디까지 왔나
+              - button "선택 기사 삭제" [ref=e582] [cursor=pointer]: ⌫
+            - article [ref=e583]:
+              - generic [ref=e584]: ⠿
+              - generic [ref=e585]:
+                - generic [ref=e586]:
+                  - generic [ref=e587]: 뉴스1
+                  - generic [ref=e588]: 2026-06-22
+                - strong [ref=e589]: 일본 기업연금도 비트코인 산다…내년부터 운용자산 1% 가상자산 편입
+              - button "선택 기사 삭제" [ref=e590] [cursor=pointer]: ⌫
+            - article [ref=e591]:
+              - generic [ref=e592]: ⠿
+              - generic [ref=e593]:
+                - generic [ref=e594]:
+                  - generic [ref=e595]: 블루밍비트
+                  - generic [ref=e596]: 2026-06-22
+                - strong [ref=e597]: 릭 에델만 "기관 참여 확대가 가상자산 시장 핵심 성장 동력"
+              - button "선택 기사 삭제" [ref=e598] [cursor=pointer]: ⌫
+            - article [ref=e599]:
+              - generic [ref=e600]: ⠿
+              - generic [ref=e601]:
+                - generic [ref=e602]:
+                  - generic [ref=e603]: 블루밍비트
+                  - generic [ref=e604]: 2026-06-22
+                - strong [ref=e605]: 글래스노드 "비트코인, 기관 수요 둔화에도 시장 구조는 견조"
+              - button "선택 기사 삭제" [ref=e606] [cursor=pointer]: ⌫
+            - article [ref=e607]:
+              - generic [ref=e608]: ⠿
+              - generic [ref=e609]:
+                - generic [ref=e610]:
+                  - generic [ref=e611]: 전자신문
+                  - generic [ref=e612]: 2026-06-22
+                - strong [ref=e613]: 핀테크산업협회, 디지털자산 기관 참여 확대 논의…“명확한 규율체계 필요”
+              - button "선택 기사 삭제" [ref=e614] [cursor=pointer]: ⌫
+            - article [ref=e615]:
+              - generic [ref=e616]: ⠿
+              - generic [ref=e617]:
+                - generic [ref=e618]:
+                  - generic [ref=e619]: 한국보험신문
+                  - generic [ref=e620]: 2026-06-22
+                - strong [ref=e621]: 핀테크산업협회, 디지털자산 제도화 논의… “한국형 입법 모델 필요”
+              - button "선택 기사 삭제" [ref=e622] [cursor=pointer]: ⌫
+            - article [ref=e623]:
+              - generic [ref=e624]: ⠿
+              - generic [ref=e625]:
+                - generic [ref=e626]:
+                  - generic [ref=e627]: 안전신문
+                  - generic [ref=e628]: 2026-06-22
+                - strong [ref=e629]: 광주은행, 글로벌 블록체인 기업과 손잡고 디지털자산 결제시장 대응
+              - button "선택 기사 삭제" [ref=e630] [cursor=pointer]: ⌫
+            - article [ref=e631]:
+              - generic [ref=e632]: ⠿
+              - generic [ref=e633]:
+                - generic [ref=e634]:
+                  - generic [ref=e635]: jabon.co.kr
+                  - generic [ref=e636]: 2026-06-22
+                - strong [ref=e637]: 비트코인 ETF 6주 연속 순유출, 기관은 발 뺐다
+              - button "선택 기사 삭제" [ref=e638] [cursor=pointer]: ⌫
+            - article [ref=e639]:
+              - generic [ref=e640]: ⠿
+              - generic [ref=e641]:
+                - generic [ref=e642]:
+                  - generic [ref=e643]: 디지털애셋
+                  - generic [ref=e644]: 2026-06-22
+                - strong [ref=e645]: "\"日 기업연기금, 자산 1% 가상자산에 투자\""
+              - button "선택 기사 삭제" [ref=e646] [cursor=pointer]: ⌫
+            - article [ref=e647]:
+              - generic [ref=e648]: ⠿
+              - generic [ref=e649]:
+                - generic [ref=e650]:
+                  - generic [ref=e651]: CoinDesk
+                  - generic [ref=e652]: 2026-06-22
+                - strong [ref=e653]: "비트코인의 6월 60,000달러 붕괴는 새로운 기관 투자자들의 역풍을 부각시켜: 도이치은행"
+              - button "선택 기사 삭제" [ref=e654] [cursor=pointer]: ⌫
+            - article [ref=e655]:
+              - generic [ref=e656]: ⠿
+              - generic [ref=e657]:
+                - generic [ref=e658]:
+                  - generic [ref=e659]: 데일리안
+                  - generic [ref=e660]: 2026-06-22
+                - strong [ref=e661]: "[코인뉴스] 비트코인 살아났나 했더니…기관은 '글쎄'"
+              - button "선택 기사 삭제" [ref=e662] [cursor=pointer]: ⌫
+            - article [ref=e663]:
+              - generic [ref=e664]: ⠿
+              - generic [ref=e665]:
+                - generic [ref=e666]:
+                  - generic [ref=e667]: 뉴스1
+                  - generic [ref=e668]: 2026-06-21
+                - strong [ref=e669]: 비트코인 사들이던 '큰손' 기업들 경고등…우선주 줄줄이 액면가 밑돌아
+              - button "선택 기사 삭제" [ref=e670] [cursor=pointer]: ⌫
+            - article [ref=e671]:
+              - generic [ref=e672]: ⠿
+              - generic [ref=e673]:
+                - generic [ref=e674]:
+                  - generic [ref=e675]: 한국경제
+                  - generic [ref=e676]: 2026-06-21
+                - strong [ref=e677]: "\"법인 투자시장 커질 것…글로벌 거래소 손잡고 승부\""
+              - button "선택 기사 삭제" [ref=e678] [cursor=pointer]: ⌫
+            - article [ref=e679]:
+              - generic [ref=e680]: ⠿
+              - generic [ref=e681]:
+                - generic [ref=e682]:
+                  - generic [ref=e683]: 중앙일보
+                  - generic [ref=e684]: 2026-06-20
+                - strong [ref=e685]: 2029년엔 신고가 vs 더 떨어진다…반토막 난 비트코인의 미래
+              - button "선택 기사 삭제" [ref=e686] [cursor=pointer]: ⌫
+            - article [ref=e687]:
+              - generic [ref=e688]: ⠿
+              - generic [ref=e689]:
+                - generic [ref=e690]:
+                  - generic [ref=e691]: 네이버 프리미엄콘텐츠
+                  - generic [ref=e692]: 2026-06-20
+                - strong [ref=e693]: 비트코인 ETF 4주 연속 12억달러 순유입…기관투자자 자금이 8만달러 돌파 이끌까
+              - button "선택 기사 삭제" [ref=e694] [cursor=pointer]: ⌫
+            - article [ref=e695]:
+              - generic [ref=e696]: ⠿
+              - generic [ref=e697]:
+                - generic [ref=e698]:
+                  - generic [ref=e699]: 동아경제
+                  - generic [ref=e700]: 2026-06-19
+                - strong [ref=e701]: 기관투자자 문 열릴까…국회, 가상자산 제도화 로드맵 논의:동아경제신문 & daenews.co.kr
+              - button "선택 기사 삭제" [ref=e702] [cursor=pointer]: ⌫
+            - article [ref=e703]:
+              - generic [ref=e704]: ⠿
+              - generic [ref=e705]:
+                - generic [ref=e706]:
+                  - generic [ref=e707]: 블루밍비트
+                  - generic [ref=e708]: 2026-06-19
+                - strong [ref=e709]: "[단독] 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도"
+              - button "선택 기사 삭제" [ref=e710] [cursor=pointer]: ⌫
+            - article [ref=e711]:
+              - generic [ref=e712]: ⠿
+              - generic [ref=e713]:
+                - generic [ref=e714]:
+                  - generic [ref=e715]: 한국경제
+                  - generic [ref=e716]: 2026-06-19
+                - strong [ref=e717]: 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도
+              - button "선택 기사 삭제" [ref=e718] [cursor=pointer]: ⌫
+            - article [ref=e719]:
+              - generic [ref=e720]: ⠿
+              - generic [ref=e721]:
+                - generic [ref=e722]:
+                  - generic [ref=e723]: 한스경제
+                  - generic [ref=e724]: 2026-06-19
+                - strong [ref=e725]: "[RE:기업] 5대 가상자산거래소 '합종연횡'···스테이블코인·결제·정산 인프라 확보로 경쟁 축 이동"
+              - button "선택 기사 삭제" [ref=e726] [cursor=pointer]: ⌫
+            - article [ref=e727]:
+              - generic [ref=e728]: ⠿
+              - generic [ref=e729]:
+                - generic [ref=e730]:
+                  - generic [ref=e731]: CoinDesk
+                  - generic [ref=e732]: 2026-06-19
+                - strong [ref=e733]: "프랭클린 템플턴, 배당금을 비트코인(BTC)으로 전환하는 신기금 제안: 크립토 데일리"
+              - button "선택 기사 삭제" [ref=e734] [cursor=pointer]: ⌫
+            - article [ref=e735]:
+              - generic [ref=e736]: ⠿
+              - generic [ref=e737]:
+                - generic [ref=e738]:
+                  - generic [ref=e739]: 다음뉴스
+                  - generic [ref=e740]: 2026-06-18
+                - strong [ref=e741]: "[논현논단] ‘법인의 가상자산 투자’ 시장은 목마르다"
+              - button "선택 기사 삭제" [ref=e742] [cursor=pointer]: ⌫
+            - article [ref=e743]:
+              - generic [ref=e744]: ⠿
+              - generic [ref=e745]:
+                - generic [ref=e746]:
+                  - generic [ref=e747]: 매일경제
+                  - generic [ref=e748]: 2026-06-18
+                - strong [ref=e749]: ‘나오리스 공식 브리지 출시’ 엑스큐어, 디지털자산 보안 인프라 사업화 추진
+              - button "선택 기사 삭제" [ref=e750] [cursor=pointer]: ⌫
+            - article [ref=e751]:
+              - generic [ref=e752]: ⠿
+              - generic [ref=e753]:
+                - generic [ref=e754]:
+                  - generic [ref=e755]: 연합뉴스
+                  - generic [ref=e756]: 2026-06-18
+                - strong [ref=e757]: 파이어블록스 "韓 디지털자산 규제 변화, 전분야서 기회 창출"
+              - button "선택 기사 삭제" [ref=e758] [cursor=pointer]: ⌫
+            - article [ref=e759]:
+              - generic [ref=e760]: ⠿
+              - generic [ref=e761]:
+                - generic [ref=e762]:
+                  - generic [ref=e763]: 전자신문
+                  - generic [ref=e764]: 2026-06-18
+                - strong [ref=e765]: 압수코인 수탁시장 열렸지만…중소 커스터디 '높은 문턱'
+              - button "선택 기사 삭제" [ref=e766] [cursor=pointer]: ⌫
+            - article [ref=e767]:
+              - generic [ref=e768]: ⠿
+              - generic [ref=e769]:
+                - generic [ref=e770]:
+                  - generic [ref=e771]: 에너지경제신문
+                  - generic [ref=e772]: 2026-06-17
+                - strong [ref=e773]: 금융권은 바쁜데 국회는 멈췄다…“원화 코인, 법제화 없인 반쪽 준비”
+              - button "선택 기사 삭제" [ref=e774] [cursor=pointer]: ⌫
+            - article [ref=e775]:
+              - generic [ref=e776]: ⠿
+              - generic [ref=e777]:
+                - generic [ref=e778]:
+                  - generic [ref=e779]: 다음뉴스
+                  - generic [ref=e780]: 2026-06-17
+                - strong [ref=e781]: "\"지금이 바닥인데\"…비트코인 떨어져도 법인들에겐 '그림의 떡'"
+              - button "선택 기사 삭제" [ref=e782] [cursor=pointer]: ⌫
+            - article [ref=e783]:
+              - generic [ref=e784]: ⠿
+              - generic [ref=e785]:
+                - generic [ref=e786]:
+                  - generic [ref=e787]: 디지털투데이
+                  - generic [ref=e788]: 2026-06-17
+                - strong [ref=e789]: 비트코인 현물 ETF 주춤, 하이퍼리퀴드는 유입…기관 자금 '역주행'
+              - button "선택 기사 삭제" [ref=e790] [cursor=pointer]: ⌫
+            - article [ref=e791]:
+              - generic [ref=e792]: ⠿
+              - generic [ref=e793]:
+                - generic [ref=e794]:
+                  - generic [ref=e795]: 핀포인트뉴스
+                  - generic [ref=e796]: 2026-06-17
+                - strong [ref=e797]: 연쇄 이동하는 기관 자금… 비트코인·이더리움 시장 흔드는 머니무브의 공포
+              - button "선택 기사 삭제" [ref=e798] [cursor=pointer]: ⌫
+            - article [ref=e799]:
+              - generic [ref=e800]: ⠿
+              - generic [ref=e801]:
+                - generic [ref=e802]:
+                  - generic [ref=e803]: 에너지 뉴스
+                  - generic [ref=e804]: 2026-06-17
+                - strong [ref=e805]: 비트코인 6만 5000달러대 횡보 속 기관 투자 수요는 견조
+              - button "선택 기사 삭제" [ref=e806] [cursor=pointer]: ⌫
+          - paragraph [ref=e37]: "개수 : 49건"
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]: 파일 다운로드
+            - combobox "파일 다운로드" [disabled] [ref=e41]:
+              - option "HTML" [selected]
+          - generic [ref=e42]:
+            - generic [ref=e43]: 이메일 템플릿 만들기
+            - combobox "이메일 템플릿 만들기" [ref=e44]:
+              - option "오렌지 카드" [selected]
+              - option "블루 기본"
+          - button "HTML 생성" [ref=e45] [cursor=pointer]
+        - generic [ref=e46]:
+          - generic [ref=e47]:
+            - generic [ref=e48]:
+              - strong [ref=e49]: Code Block
+              - button "복사" [ref=e50] [cursor=pointer]
+            - generic [ref=e51]: "<!doctype html> <html lang=\"ko\"> <head> <meta charset=\"utf-8\" /> <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" /> <link href=\"https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css\" rel=\"stylesheet\" /> <title>빗썸 BIZ 뉴스레터</title> </head> <body style=\"margin:0;padding:0;background:#ffffff;font-family:'SUIT',sans-serif;\"> <table role=\"presentation\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" style=\"border-collapse:collapse;background:#ffffff;\"> <tr> <td align=\"center\" style=\"padding:0;\"> <table role=\"presentation\" width=\"760\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:760px;border-collapse:collapse;background:#ffffff;\"> <tr> <td style=\"padding:0;\"> <table role=\"presentation\" width=\"760\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:760px;border-collapse:collapse;background:#10141f;color:#ffffff;\"> <tr> <td style=\"padding:36px 52px 34px;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:18px;font-weight:800;color:#ff6b00;line-height:24px;\">빗썸 biz</div> <div style=\"font-size:34px;font-weight:800;line-height:46px;margin-top:4px;\">법인 디지털자산 시장 동향</div> </td> <td align=\"right\" style=\"padding:0 42px 24px 0;font-family:'SUIT',sans-serif;font-size:16px;font-weight:500;color:#ffffff;vertical-align:bottom;\">2026.6.24 (수)</td> </tr> </table> </td> </tr> <tr> <td align=\"center\" style=\"padding:54px 0 46px;background:#ffffff;\"> <table role=\"presentation\" width=\"620\" cellpadding=\"0\" cellspacing=\"0\" style=\"width:620px;border-collapse:collapse;\"> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 연합뉴스&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVdIBYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 한은 &quot;가상자산 가격, 주가와 연동…외환 등 수급 영향 유의&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 국민일보&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWNIBbEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWA?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 한은 “비트코인 충격, 주식·외환시장 번질 수도” 경고 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블루밍비트&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1OTWtDSFdjdENmbTkxUUtCeVkzYnNEbGVGWUlUUUUwRU1ZMVQ4ZnVQaE8yU2h5VENCeU5wcHZJTTNtRDdsbUd5b1N0SmZ2N3dC?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 한은 &quot;가상자산·주식시장 동조화 심화&quot;…기관 참여 확대시 금융시장 충격 우려 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 데일리안&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMimwJBVV95cUxNeWJIYWtQZ1N3b0FLdGN0VGplMTJBLW8tZlJXQ09Jb0RyVTJES1Y2N0lKaU9NMmhZQUVRY0pWXzViTjRnZllEQW5naFE0LVFvdG9fc1EtMUN4YUNZUUdJajJUWEFzTXhaS0NrekxFTk4tNWo4bmg2bEhnNUlwWWFKLXNmbW0zU3dRZC0xSVlfZE9Rdk9OMlF5ZS1OMVYwRHVtNnJQQm1jVFpiRXI1cEpnZ3IzUEhUVmNMSGt4YVJnWE9ueVd3WFE2V0lTYjFFVWxTaUh5MXIwYVE4Vjd0ME9LYkY0YmZSOEFRcE45RnhoV29EanIyTG9fT29ycGI2dzJZRUpmZ3BqaEo3RXVyVDRYdHNfRjQxYzZEZzFj0gGbAkFVX3lxTE15Ykhha1BnU3dvQUt0Y3RUamUxMkEtby1mUldDT0lvRHJVMkRLVjY3SUppT00yaFlBRVFjSlZfNWJONGdmWURBbmdoUTQtUW90b19zUS0xQ3hhQ1lRR0lqMlRYQXNNeFpLQ2t6TEVOTi01ajhuaDZsSGc1SXBZYUotc2ZtbTNTd1FkLTFJWV9kT1F2T04yUXllLU4xVjBEdW02clBCbWNUWmJFcjVwSmdncjNQSFRWY0xIa3hhUmdYT255V3dYUTZXSVNiMUVVbFNpSHkxcjBhUThWN3QwT0tiRjRiZlI4QVFwTjlGeGhXb0RqcjJMb19Pb3JwYjZ3MllFSmZncGpoSjdFdXJUNFh0c19GNDFjNkRnMWM?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [코인뉴스] 비트코인 안 사는 이유 있었다…범인은 AI? </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 뉴데일리&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMigAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDa9IBgAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDaw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 흔들리면 코스피도 출렁? … 주식·환율 흔드는 코인發 나비효과 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> jabon.co.kr&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBqT1h6anNta3NVay1pemI3MndlRFV2elp1WlJoYlZyMnZpakVMQTJGYnhFTUtYVUIzdFowaW9UVUZkaDR5YktEV0l2UjdmaDRkNlVzaVhQU1RnNlVoUzkzLXd5QVVEMzg?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 6만3000달러 횡보, 돈은 AI로 빠졌다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 디지털애셋&nbsp;&nbsp;(6/24) </div> <a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE80ZTBUZTJFbDBJMzl2VzVWU1JIWE13NzdLTVo4T1BMekRkTkdpV25pMllILU5XSXg1dzlHYVFFTVR6d2xYUWFYQ056TUZKSXJyLTRPN0RFY2F6dWxJaWZ1M3dERmVjSVBUYTJEdEhHQUpyUQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 한은 &quot;국내 가상자산시장에 법인·기관 참여하면 주식·외환 영향 가능성&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 아시아경제&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE5veEY1eDNsQ3RtSzZNZWM2RGt2SmdWRjlmWGVrYXZ5RmMwZFQtb0ZNUEJTbGdlRnBYa29ieFNhNlBKU2lXWjhoZndHOGtjMk1DNW5vYzFKX0dCNjZnVTE4Mg?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> OKX, 인터컨티넨털 익스체인지와 합작법인…가상자산 인프라 구축 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 다음뉴스&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiRkFVX3lxTE04WDBqNGFxTmxiUUpBSGRTZXJJRTVLV2VhRmJVeFpadks0SW8xbE9Xc3ZRTDh6bDBnRVdPb0NiOVFTUVpWQ1E?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 글로벌 가상자산 거래소 OKX, ICE와 합작법인 설립 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 지디넷코리아&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE5YdkFnSFAzUzlONi0wek5kYUM0dHJENWN0ZjlNcXEyMUliSXBvMmVHUjRHU3RELS1QaFVjd0xYZURndXptWXhzREVRZmNUZDJDZkVBYjdn?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 글로벌 가상자산 거래소 OKX, ICE와 디지털자산 합작법인 세운다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> fetv.co.kr&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTFB2Vmp1WXBmTElqZU5ieWI4UEdicjlmcS1mNW8zWTk0VmI5a0lxd1ZtZlRnLWY4bVkyRGhDTUdoUDBnNV9DOEFHaTVfR3JlSWNGa2QtTmVpMGJxNlllM1V6RnV1djBhTHFk?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> OKX, 디지털 자산 겨냥한 합작법인 설립 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블록체인투데이&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTFByeW4temlHVE9sM0dUMm8zbTE4NHdtdGdlSEF5RHhtbHEtRkR6QjlNTnFudm1wclVkSThKSEpiQzJmeTQtei10aVM0QlJYT25ZSUMyVDV2OTZCdGRaaWxmLXlwUTJFWHpWWlFVYWlmUmc?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 한 달 새 11조 원 증발, 월가 기관들 비트코인 시장서 대거 이탈 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 딜사이트&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiT0FVX3lxTE5VUTZ3akZpZHA1VXJDNjFtekZBYzAyOHNJZkxISEVPMkNoWDloVEtsSi12VGxlWDZ3cGQ3dHp5aUZ4U3pjdmVCekY4QlMxY3M?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 디지털자산 제도화 논의...&quot;기관 금융 진입 대비해야&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 데일리안&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMimwJBVV95cUxPTTRSWTc3SXZZMjZDQks3T0hHRl9NcExyUVpJMkl3bWlIMmJUZnJRajdXbkR3b1FZbks3UzFfV2JSQ0FLd0l1WTR2MU9UeHZaaDU5SlhZSDQ5MlRrbVIzV09WaDhhNHVVWHV2REdEajFxcFViSDdGV3VJdFB2dTBLNnc5U0d0dHZhQW1vVlVXZjhiUXZaZXY1ZXdzamZiV2FZMlRUa2lpZUJ6WTlhRzdrMV91MHRIXzBob3UwZ1NLSXNreEt5ZTBZanFzNnZvWGljbEpSbnQxLTdKNE9EOFJmZ2UzWTE1eUwxS3ZoNmhiQUstYno5N0RmdEt0YldieVl5bHZjQ0hfMm90bzNuSzJNUGlYMzNLOGlUZld30gGbAkFVX3lxTE9NNFJZNzdJdlkyNkNCSzdPSEdGX01wTHJRWkkySXdtaUgyYlRmclFqN1duRHdvUVluSzdTMV9XYlJDQUt3SXVZNHYxT1R4dlpoNTlKWFlINDkyVGttUjNXT1ZoOGE0dVVYdXZER0RqMXFwVWJIN0ZXdUl0UHZ1MEs2dzlTR3R0dmFBbW9WVVdmOGJRdlpldjVld3NqZmJXYVkyVFRraWllQnpZOWFHN2sxX3UwdEhfMGhvdTBnU0tJc2t4S3llMFlqcXM2dm9YaWNsSlJudDEtN0o0T0Q4UmZnZTNZMTV5TDFLdmg2aGJBSy1iejk3RGZ0S3RiV2J5WXlsdmNDSF8yb3RvM25LMk1QaVgzM0s4aVRmV3c?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [코인뉴스] 비트코인 7만 달러 간다더니…ETF는 또 팔았다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블루밍비트&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1UUExhdlI3bDQ3VVExUkpKRDF3ZS1FdHNZa0ZFcGN2OURmcFpUYmM3QTYtcGQwcmdEUldBRzBFSWVTSU5hS3Z3MG5WUzZ6MmVq?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 프랭클린템플턴, 가상자산 투자 조직 출범…250디지털 인수 완료 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 핀포인트뉴스&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTFB3RlhDTEwxclVJMUhkSzJfdC1HSHBadE1lSUZidlcxX2hhTF9QaXg3cUhjTkEwenNuSHpkNXo4anBkQXhKMFJKaU1zblItQ290VHVCcWdtSzBqRER6RVNicFpQZ2E4dndlOE9Rd0VXT0doa0V4dHJr?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> &quot;일단 소나기는 피하자&quot;…기관들, 비트코인·이더리움 1.3억 달러 던졌다 | </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 핀포인트뉴스&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMid0FVX3lxTE01dVZOb1FwYnJGaHJSQ1MyaDlIaGVfejI4R0lxWU9uZzhZTXV0RFBRMjhEdEdJc3VjS2JQcW1OM1Z2TXZiT1Blc0F2Wm9nZTZucDAtdThTa3JmNEN2cUpuSGFSVFpFdjFRcHhPVjZQZXpIQkFrLXo40gF3QVVfeXFMTTV1Vk5vUXBickZoclJDUzJoOUhoZV96MjhHSXFZT25nOFlNdXREUFEyOER0R0lzdWNLYlBxbU4zVnZNdmJPUGVzQXZab2dlNm5wMC11OFNrcmY0Q3ZxSm5IYVJUWkV2MVFweE9WNlBlekhCQWstejg?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 30일 새 11조 싹 빠졌다…월가 기관들, 비트코인 &#39;전량 폐기&#39; 수준의 대탈출 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 한스경제&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMibEFVX3lxTE1TWDRucm1NX2VvQXJEZFo4SXJYdjlpQ2k3T2dISFlCM2pGWWNMNVlrYVhqZklkSEJSbTF5dTNDY2FXVmZveXhtTmE1c2FRaEE2Y3VMOUNJRGlYVHVaUWxDRk9VVGZfVHg1V2RYMdIBb0FVX3lxTFBQLVhoWlJRSWZCV18wWkJOejhUSkNpMVRSWE90QjhWeFhUZmlEcXVQZjI1MWVDb1BFcFI3Z3EzN2JpSEU3U3FlbVFwdzNwMV9rRXNTcW5GbE90SkdOTk92czZPaE9xYllBbTB0T1ZWcw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 디지털자산서비스 기업 BIT·QCP캐피털 “비트코인, 금리 압박에 박스권” </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 네이버 프리미엄콘텐츠&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxPemJobXhRaDZ0dDhGWnVnelk5OHdSdFRFNXRzV3FOSk85dS12WENqZHJad3lzWkNkRGZCeDhlaW0yd2pleDB3VXlZdGNUNUFIQ2JOQkIwNE5oLVduUkRlZS16OHljd0hGdFVvUDVlc2Rlc1VKSXlyWDJMcmlvUVFDTlJaal90R1BzdW9Z?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인ETF 8일 연속 21억달러 유입…블랙록IBIT 75% 독식, 비트코인 9만달러 간다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 디지털투데이&nbsp;&nbsp;(6/23) </div> <a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE01a1h0Njg1eWlFT0JLYUZtdXZ4STRUR2tiNUJHclkwaXJ1c05hZFRYOTVEOVZLenZXR0JWWGJ5bzNKWTBQSC1vUnZ5NWJ4LUVuNm5YNEtXVEdwQWNtLWo4VldmdFhlY08ycU5lUXhBRURrSW8?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> OKX, ICE와 합작법인 설립 공식 발표...전통 금융과 디지털 자산 연결 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 데일리안&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiowJBVV95cUxPdDkzUFhBUVQ1cHdwS3BRdjhtZzI0UWJ6RDJKZlNIYU11djFyNFFhS0dRS2t1dnF3YW03ZXRVSjVBNzI3eEVuTlFsTGh4NHpZREtLdXF5YXItT2VwWEpnWkhIUGpId0c5Z0VrSzFDS1daQWk5WUtuMS1VSDJpMjVIcjYzYWtPRkZRQ0p1cjdJZC14X0NCejROZlhKQlIwVkl3eWwtN0RISG9kcnZmZFlyTmdTUVU0VHRZbkEwR3kwRE9DMFdpcmUzeEtEUmlCNE9idHZ3U2ZHWEpOZFUwRUNjVmtoQjhWSkVUZ0pvaUoyYkJweGlGWGxfbk4tMVpnZmw0MDJBaDlxX2s4eXA5Zi1vcE5WM3RHREJIUVpWOEh1a0txQXc?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 기관자금 몰리는 美 디지털자산 시장…한국 어디까지 왔나 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 뉴스1&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTE9nU2h6d2dKV0Y3RmxUX0F6UTJNa2lUVEhrdUxBMW04aUpScFVqa1pPT0hyWm8tajE5SzFhYUN4Y2l5QmVJOGlzWHlidWcxb0ttRzdnV2Z2YWZWNlFzWko2MUZ0LUx5Zw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 일본 기업연금도 비트코인 산다…내년부터 운용자산 1% 가상자산 편입 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블루밍비트&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTFBKYVdMMm45WHVqckJwWWRnYktyVkxUaGlwd0dwdmhHUENMVUkzM0RGZkJrWjBWOHNZMnJoLUpuUzJGeEpaVEdvanBVU2FtYnBi?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 릭 에델만 &quot;기관 참여 확대가 가상자산 시장 핵심 성장 동력&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블루밍비트&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE1LVnQzRW80VzNmbHFwZVlNSHlnV1d5VGE3M2MzenpRSzVXUGM1Z3Z5QU1OUVdWT2pMMnVldXNQcFhDU0xYcWZMNnNiakRpd1lY?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 글래스노드 &quot;비트코인, 기관 수요 둔화에도 시장 구조는 견조&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 전자신문&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiTkFVX3lxTE52MVVFRUFLeEZ3TVphUHQ1TktKaDMtX2owV3QwcHJsUUJnNndRMFFDd3lvanljQVpCMy1wbk5jUENPU2ljbHdjNURoZzJ2Zw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 핀테크산업협회, 디지털자산 기관 참여 확대 논의…“명확한 규율체계 필요” </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 한국보험신문&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMia0FVX3lxTFBRUVV0VTllN1JwSmdPR1FyVnZHTjJkaGZQckNpMzVJTDVFZ0w2QkRoY3ZvYmNmME9UTFJCRzRnQVpsNUZtc2swYU12blZCRWhUTk5jcTAycXF3Q2VJM3JpM0JuRnR2dktyTDl30gFvQVVfeXFMTlNBRkVkUC13MlEtejA2bXhPbWFadGgwQjFmVFZnMDhGQjQxNWlDNGhLTHhPYzIzbDJTVUFmRG5KUjFkbjlBUUZCX0wxR3JZelh4ekVkbHJmZGJobnNGSlpqeWx1SDVOLTNURkhSNmJ3?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 핀테크산업협회, 디지털자산 제도화 논의… “한국형 입법 모델 필요” </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 안전신문&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMicEFVX3lxTFBlMVZrMU9fTVl2N3VKWVBTamdyX28xLW43T0FMNjFNcW90QW9qUW5INWQ4RzJpYlp0SndNemRSNHlXakprXzV0UDVtRTdzbVc3Z0E5SkpxWjNSRXFFY0FGQWo1SlRndXhOOU8xWGp5bTA?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 광주은행, 글로벌 블록체인 기업과 손잡고 디지털자산 결제시장 대응 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> jabon.co.kr&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQVEZQZWVLUndFWXFTT3JLWk91d0NWNzVxWTF2QXJhM1NjLXZ4Q3AyQjJSVXh4MW5ob3A4TTRKY0VnT0d2NW05NWw2OFlZbVJNMlJiZV9VZHlCZEJDNnlVdFRhdzcxUG8?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 ETF 6주 연속 순유출, 기관은 발 뺐다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 디지털애셋&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTE1wdDVyZ3FvOXZLdkQ5am5qR3NEOFd2RlVaNUxKZXlpUlI4Z0NvRnJQTk96Vk1uMW9yUUVvbFB5OXdCNlY4NlJURjZZWEN4Ukh6WnNPZmxrV25lc3llcUJ4bmZNbTFWLUhveWY0Wm1CVFg1UQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> &quot;日 기업연기금, 자산 1% 가상자산에 투자&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> CoinDesk&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiywFBVV95cUxONkFVLXFaaUwyZmdPWjlScjM0RmFtQmtRMUR3aGUtSFpyQi1JRmYwVHBuNnRrbVltMmdwSFdIem13ZjQtaHE5MzQwQzJpZE5tLWhpMkRlWXJXdTlNRWxGZEtQOUU5cFdWWW9WWm96WXNfcnBhREFLUGFjcU5DaGp1emRNRkx4SFNyMUh2UHBLMDlCQUZmWWo0Vk05RktEY3pKeXpIcHk2ZUREN2JEWHdVcVE5ellZZGs1YXd4TlFPZzNCdFIzOXA5NERtbw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인의 6월 60,000달러 붕괴는 새로운 기관 투자자들의 역풍을 부각시켜: 도이치은행 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 데일리안&nbsp;&nbsp;(6/22) </div> <a href=\"https://news.google.com/rss/articles/CBMiYEFVX3lxTE9kUDRnbUF1VDQ3d3FWdDVwR01mSUh1ZzlfYy1GQzhHMF9FVDNTN05WNWpSa1RiemhZMDljUDE1cHBnVUhuRDNPN1A5cWJOQkYweFp5Q0tfN3pabnhOWVdRb9IBsAJBVV95cUxOVExPT0dZYnJ3OEtzTXdkcWdPYk51OUFla25aMGlKc1F2SGpWRGVtZ21HZzc1Z3VpQ3BDUHFLZ3g0YmVJOWVzYVdhVk9nQTF1WGVwa1ZVN1BGN2RPT0JDdUkxX0dNTVItRVdqaW82RlgtS3k2OTZMSVFMRjkyenMxZnlNODBZcHYzS2c5NWlXeHRRM3JlZnZQZDlWS3pHTW42ZHJoeHNQMnE2d0NlYmM1RDRQX3ZRTi1ndzZPc1Y4eFJuN09NYzZYRkhySUJrTFhLSkRWNFg0RExNcGIxMmNPSXRmSkkxWHlJMFh2THhOLWxFd0p6alF6NFRySFBDQW5Nb2xvRXAyS2dTeUU5RHh0NEh6dThhTVNabkRKRW9jaTB2WGs1bWtQYnlad1B6NEdj?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [코인뉴스] 비트코인 살아났나 했더니…기관은 &#39;글쎄&#39; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 뉴스1&nbsp;&nbsp;(6/21) </div> <a href=\"https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wdGVyOWZ5OEJ0Y0VKUVN2NnlLcWVpS3BHTm9SQ3RTX1Y3QUNXOWRENi15YWdzN21GOC1GR0xVa3QyTmoyNDdOQ3RGUjJ5SnVXQlJ3Qzg0NlhSR2RhNEtMeGtZWTJOdw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 사들이던 &#39;큰손&#39; 기업들 경고등…우선주 줄줄이 액면가 밑돌아 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 한국경제&nbsp;&nbsp;(6/21) </div> <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XZk1NYlAwRlVJN1dsYWNfWVBzOHdvbG5BN0xTUTdtZVRyOVBsYzllS25zMVlZUjFyWUVqenAzb0V5OTcxdUZFQ0tJS29LNFkxSVpMejlUWTNqd9IBVEFVX3lxTE00ajAxQmFWcnh2QmhCaEFjR21PSVlDbHo5TjJvUXI4cWUzQkNLNFRBa19ZWWVOX1JlaTlKTEpZWURLckllYVFYVVpMZE9vb3RzWDUxZw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> &quot;법인 투자시장 커질 것…글로벌 거래소 손잡고 승부&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 중앙일보&nbsp;&nbsp;(6/20) </div> <a href=\"https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hdExMQmRLVzRLTHA1TWtnZjZQV2F0SjlucEFrV2pKZFNvNGx0cjljRURWT0liMXBGdmU4UzBtWHotTzlLUVVIbmJGbVROZ2Z5S0NZVFlR?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 2029년엔 신고가 vs 더 떨어진다…반토막 난 비트코인의 미래 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 네이버 프리미엄콘텐츠&nbsp;&nbsp;(6/20) </div> <a href=\"https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOVl2V1RQbGNnSnJ3ZVhfdjNXZHJ6SW1DM25RLWRjWkoyZWt0dFVyWEs0NE5OY1VYaGdGZ21WdUhTTEJ2U3ZWT2h3aWw4R2pCSlpzX3lkRG54MXZPWVhvSzRIbWlMbGZ1SFJVS0pkMUhTZEJyUTYyS28xb1U0alRqSEF0b1dvWENYc1RB?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 ETF 4주 연속 12억달러 순유입…기관투자자 자금이 8만달러 돌파 이끌까 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 동아경제&nbsp;&nbsp;(6/19) </div> <a href=\"https://news.google.com/rss/articles/CBMiRkFVX3lxTE4wc1BUejh2bEpqbWlvNzIteXZQWEs5RVZoZk96MkpkT09pMmVvZ0VfRVJXby1TWU1LUGR5aTk3aGY1cUtOVUHSAWJBVV95cUxPSXY5SWgxeXE1cTlTQ0ZJV0IyclhwZ0JsWXJtWHdOdUg4NVl1MXBQNmhTckRBTC13WDRkRkg0d2cxWjVoeF9zN2EwNTcxaDNBbFpPMFVWV2RyT09SeGcwQ0NMUQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 기관투자자 문 열릴까…국회, 가상자산 제도화 로드맵 논의:동아경제신문 &amp; daenews.co.kr </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 블루밍비트&nbsp;&nbsp;(6/19) </div> <a href=\"https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ZRGF0NmV2U3VDRUZaeEhubzdIWnFEYldBcS01N3oyNEVnNXJIY1Vyd3dxWGJyTFRFTjlEWHh2WjRDLWZNZjAwbGFMd05DTE9U?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [단독] 업비트, 주민등록등본 직접 본다…가상자산 거래소 &#39;제도권 편입&#39; 속도 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 한국경제&nbsp;&nbsp;(6/19) </div> <a href=\"https://news.google.com/rss/articles/CBMiWkFVX3lxTE5RYl96VnJ5Nm0zUTUtRklxbkFDUWVJRnR0dmFETHNIR1BuRWN4cGhlMkkxdWhudzhZSWIzUW54UnYtSFRKTkFNc3hENnVTcndNSU9RWmZiS1JJQdIBVEFVX3lxTE13V3lCZWZOQUQ3U1Rjd0s4VnNLS2dqMTI2WEpaRVZUZ0MxR09CbGRHcm8zaGpIS2pvX2tYQWUwMjBmVmVwTGFKRjJ5bnpUNkVwamYzNw?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 업비트, 주민등록등본 직접 본다…가상자산 거래소 &#39;제도권 편입&#39; 속도 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 한스경제&nbsp;&nbsp;(6/19) </div> <a href=\"https://news.google.com/rss/articles/CBMia0FVX3lxTFA2cVk2azNWX0dTWl9raVI2QzUzRGxQa3hKRlo2QjAyNUswQzRHZVlaa01NUzllZnR4RDdHcWFvUzdvOXctSzRIMjBLR3ltY3RrX0lyc2V2ZGdmNW9Ddm5Ba21YbGpzTXV5Qjhz0gFvQVVfeXFMTVU3dWtBQkpPZEk3UWowempqcFlpRXBfUkhVSzNHYm83WU1sT0RkS1JRSWk4UndMOXJkaDJUZjlabFBfa09LdW1vTGp0bWxBZk1iS3NlYmgtTGYxd1ZWWThDRmV1d3RzWGl1dTN0dGpZ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [RE:기업] 5대 가상자산거래소 &#39;합종연횡&#39;···스테이블코인·결제·정산 인프라 확보로 경쟁 축 이동 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> CoinDesk&nbsp;&nbsp;(6/19) </div> <a href=\"https://news.google.com/rss/articles/CBMiygFBVV95cUxNbGFweWdYdU9TSnJsTmR0cndzVzk3dGl5d2JFbi13YjIxekpBU01HRGJ4X0QyUEhOdjlSRGRaQl83ZzZVLVBvOGxmWWVUUjkycWJVaEgtQ1VnTlAxdjhTQlJTVFNQdG9ZWGVFMS1ZelM3ZkdBOWxBZHVwM3dTVFFiWGY4RkhFNVoyQnoydjV1cWVUUkdCb0xBYllqV1pyd1hPWjFCYWhTMGtqQ1lKOVFWRTA4LW5QdW9IMzZfTzVmdS1YeS1pWmNlYjhn?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 프랭클린 템플턴, 배당금을 비트코인(BTC)으로 전환하는 신기금 제안: 크립토 데일리 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 다음뉴스&nbsp;&nbsp;(6/18) </div> <a href=\"https://news.google.com/rss/articles/CBMiRkFVX3lxTE9FVEt3QTBHSXVJOEprTFM2ZkZ1OUd3cUFZdl9FM2NZTTl1ZURfMUM0amdVOG5kRjIxU1lTS2o4MnczR0tBRWc?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> [논현논단] ‘법인의 가상자산 투자’ 시장은 목마르다 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 매일경제&nbsp;&nbsp;(6/18) </div> <a href=\"https://news.google.com/rss/articles/CBMiUkFVX3lxTFB0N2dqb3J6b19kYlhZVndLR3ZkZG5yN3dSdVlUVXNIR3hTX0EtMlQ3Vk80bEEwX0Y1czAtdjNMYlBVcndzMjBNZG9XU3BxNVBqaWc?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> ‘나오리스 공식 브리지 출시’ 엑스큐어, 디지털자산 보안 인프라 사업화 추진 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 연합뉴스&nbsp;&nbsp;(6/18) </div> <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6S202MEVsdTRKZXlITmRKdjU0YUM0T1hpYWYxRVNBLWJ1MUZXdXVaam9EbE1TQnJ1U1VfY1lvNEpRbWFIU04yXy0yV2NJdE51U0FmdFZZVHhSeEHSAWBBVV95cUxQdDNfZ053VkFKZUJUYlkwQXhoMXB4MnhBTEF5SnYtY3FKMDRWVXR4cDJ4d2NnRzdVclR1anV3Yk8zTVJpTEk0OVdyMkpOTkVwZWVrdVNIU0QtWG1WMXdMalE?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 파이어블록스 &quot;韓 디지털자산 규제 변화, 전분야서 기회 창출&quot; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 전자신문&nbsp;&nbsp;(6/18) </div> <a href=\"https://news.google.com/rss/articles/CBMiTkFVX3lxTE1UemJsZFk3R0xlN3FkS1RncUZPSExxUzc5Z0NSSHkybjczMTk0TFZUMURpQ3Y1U05BYXR3emUyTWx5T2VVMkxwUEhmVjhjQQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 압수코인 수탁시장 열렸지만…중소 커스터디 &#39;높은 문턱&#39; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 에너지경제신문&nbsp;&nbsp;(6/17) </div> <a href=\"https://news.google.com/rss/articles/CBMiW0FVX3lxTE5yU3JGV2VLZTJ6dEgxaVEyRGhZXzhjSVNVemJ1aGdIczhUeEIyQjY1QUp2Vll4dC0yNmZ5MDZ2U01pNW9oRmJjMTliUTlRaFRKUmZ4X0RkUkc1WFE?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 금융권은 바쁜데 국회는 멈췄다…“원화 코인, 법제화 없인 반쪽 준비” </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 다음뉴스&nbsp;&nbsp;(6/17) </div> <a href=\"https://news.google.com/rss/articles/CBMiS0FVX3lxTE5WUzdfQjBGS3AtcVJSUU5UazV6QXFhX1hlWDdXRHlNUVJ6WFJMa2gxLVBfQTRPYlhxTTlGRWtTNHpVUFVVZkVSd3VERQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> &quot;지금이 바닥인데&quot;…비트코인 떨어져도 법인들에겐 &#39;그림의 떡&#39; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 디지털투데이&nbsp;&nbsp;(6/17) </div> <a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE4tM21JMmpSd3djeGRrMnRUa0FSRGpDUTFXTXhHWmhGb21BMVRscnNrR3hWb1FtZ2ZGU0NUa0w4TVhobEc3bzI4ajhhTlJtRXZ2cXIxVjVoVXBwZ2ZlWTg2S1NRQzJ0RXh4aHRZd0ZTeGZNc0U?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 현물 ETF 주춤, 하이퍼리퀴드는 유입…기관 자금 &#39;역주행&#39; </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 핀포인트뉴스&nbsp;&nbsp;(6/17) </div> <a href=\"https://news.google.com/rss/articles/CBMic0FVX3lxTE5QX0p5eUtrWVJHWGdPOEJkYUhfUDZXdDYwU3NIOEhyVUVRd2xEYk9JaU5xcGpmOWpzZzl4MGpkNnZOVWFCS2IwVzRVXzFpb0VsUzZMNlYyMkRZUjlZTWlRYXdJNXZxa1lWc2VDRE1DaUVnVXPSAXdBVV95cUxONmswQU9hMzVMOUdlU045N2d0X2cxcTZLTlRkRnFKZ2VSeWp6d2hST25OMEN2ZzF4cUt5TTFCVkFMN1ZmY2YtUldlX2VuR1dFRi1nUVVGTUgwNHVpeTJuZDlPUTRiYTNSWnRqR3JkOU9JT3dWOU1rRQ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 연쇄 이동하는 기관 자금… 비트코인·이더리움 시장 흔드는 머니무브의 공포 </a> </td> </tr> <tr> <td style=\"padding:16px 0 15px;border-bottom:1px solid #d8d8d8;font-family:'SUIT',sans-serif;\"> <div style=\"font-size:13px;line-height:19px;color:#777777;font-weight:400;margin-bottom:5px;\"> 에너지 뉴스&nbsp;&nbsp;(6/17) </div> <a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTE9zMDQ1ZnJ2ZHRiN3B0YndFTHBvSmFvVHJQbHVlRkFncTFNblJRdmlNNDJ4SnpZdmk0T2U5QlNtdTg0d19yZkdZRWY2eXlLNWlkY21NNzFGQUpYOTJBSHZSVXdzeUN3eExZ?oc=5\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"font-size:19px;line-height:28px;font-weight:500;color:#252525;text-decoration:none;\"> 비트코인 6만 5000달러대 횡보 속 기관 투자 수요는 견조 </a> </td> </tr> <tr> <td align=\"center\" style=\"padding:34px 0 0;\"> <a href=\"https://www.bithumb.com/react/biz/intro\" target=\"_blank\" rel=\"noopener noreferrer\" style=\"text-decoration:none;\"> <img src=\"https://res.cloudinary.com/dys1jifiy/image/upload/v1782117221/BIZ-Btn_rw8rux.png\" alt=\"빗썸 BIZ 바로가기\" width=\"123\" height=\"42\" style=\"display:block;border:0;width:123px;height:42px;\" /> </a> </td> </tr> </table> </td> </tr> <tr> <td style=\"padding:24px 56px;background:#292d32;color:#ffffff;font-family:'SUIT',sans-serif;font-size:12px;line-height:19px;\"> 본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며, 어떠한 경우에도 투자 조언 또는 법률·세무 자문을 구성하지 않습니다.<br /> 투자 결정에 따른 책임은 투자자 본인에게 있습니다. 더 깊이 있는 인사이트와 귀사에 최적화된 솔루션이 필요하시면 빗썸 BIZ를 찾아주세요.<br /><br /> 문의하기: 1661-5566 (2번, 법인 전용 상담 창구)<br /> 이메일: <a href=\"mailto:biz@bithumbcorp.com\" style=\"color:#ffffff;\">biz@bithumbcorp.com</a> </td> </tr> </table> </td> </tr> </table> </body> </html>"
+          - generic [ref=e52]:
+            - generic [ref=e53]:
+              - strong [ref=e54]: Preview
+              - button "다운로드" [ref=e55] [cursor=pointer]
+            - iframe [ref=e807]:
+              - generic [active] [ref=f1e1]:
+                - generic [ref=f1e2]: 빗썸 biz
+                - generic [ref=f1e3]: 법인 디지털자산 시장 동향
+                - text: 2026.6.24 (수)
+                - generic [ref=f1e4]: 연합뉴스 (6/24)
+                - link "한은 \"가상자산 가격, 주가와 연동…외환 등 수급 영향 유의\"" [ref=f1e5] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVdIBYEFVX3lxTE9sZEE1N2p5VFdXbFlWVlpYcXhPRHh6RDZ2MGVHb3VsdjYwWV9Ydlk0ZTh4RGZHcFEyU1l6N0JoUkRaY2ZIWHJKcVg0aVQ5eGFmdnpPMkJYZlVnTll1VjZrVQ?oc=5
+                - generic [ref=f1e6]: 국민일보 (6/24)
+                - link "한은 “비트코인 충격, 주식·외환시장 번질 수도” 경고" [ref=f1e7] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMibEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWNIBbEFVX3lxTE1HSWdnSFgzRllMZDRjNHRnaHliaVR3Q3dadDVScWpzcmJZVFJ6MV9pM1BpSUR4YzZYN0YyZzdVb2dDbEtDZ3dMV2ZkT3E4T2lFTlpJSWh2U1hHTWdiS2VTam1fZlRQX3ZwZkZXWA?oc=5
+                - generic [ref=f1e8]: 블루밍비트 (6/24)
+                - link "한은 \"가상자산·주식시장 동조화 심화\"…기관 참여 확대시 금융시장 충격 우려" [ref=f1e9] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1OTWtDSFdjdENmbTkxUUtCeVkzYnNEbGVGWUlUUUUwRU1ZMVQ4ZnVQaE8yU2h5VENCeU5wcHZJTTNtRDdsbUd5b1N0SmZ2N3dC?oc=5
+                - generic [ref=f1e10]: 데일리안 (6/24)
+                - link "[코인뉴스] 비트코인 안 사는 이유 있었다…범인은 AI?" [ref=f1e11] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMimwJBVV95cUxNeWJIYWtQZ1N3b0FLdGN0VGplMTJBLW8tZlJXQ09Jb0RyVTJES1Y2N0lKaU9NMmhZQUVRY0pWXzViTjRnZllEQW5naFE0LVFvdG9fc1EtMUN4YUNZUUdJajJUWEFzTXhaS0NrekxFTk4tNWo4bmg2bEhnNUlwWWFKLXNmbW0zU3dRZC0xSVlfZE9Rdk9OMlF5ZS1OMVYwRHVtNnJQQm1jVFpiRXI1cEpnZ3IzUEhUVmNMSGt4YVJnWE9ueVd3WFE2V0lTYjFFVWxTaUh5MXIwYVE4Vjd0ME9LYkY0YmZSOEFRcE45RnhoV29EanIyTG9fT29ycGI2dzJZRUpmZ3BqaEo3RXVyVDRYdHNfRjQxYzZEZzFj0gGbAkFVX3lxTE15Ykhha1BnU3dvQUt0Y3RUamUxMkEtby1mUldDT0lvRHJVMkRLVjY3SUppT00yaFlBRVFjSlZfNWJONGdmWURBbmdoUTQtUW90b19zUS0xQ3hhQ1lRR0lqMlRYQXNNeFpLQ2t6TEVOTi01ajhuaDZsSGc1SXBZYUotc2ZtbTNTd1FkLTFJWV9kT1F2T04yUXllLU4xVjBEdW02clBCbWNUWmJFcjVwSmdncjNQSFRWY0xIa3hhUmdYT255V3dYUTZXSVNiMUVVbFNpSHkxcjBhUThWN3QwT0tiRjRiZlI4QVFwTjlGeGhXb0RqcjJMb19Pb3JwYjZ3MllFSmZncGpoSjdFdXJUNFh0c19GNDFjNkRnMWM?oc=5
+                - generic [ref=f1e12]: 뉴데일리 (6/24)
+                - link "비트코인 흔들리면 코스피도 출렁? … 주식·환율 흔드는 코인發 나비효과" [ref=f1e13] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMigAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDa9IBgAFBVV95cUxQQUVBSnJoZUMxa2NWS3dGakVrYndDQUdaaDV6OWxBSmpFWEttdzNlRlc0STNUNGJRUS0tNWgwMkk5Qjk1UjNEWS1KTkxoT0dfTHBuX3JveVZ3LWhlNS10eDk5TXpOLU9Ed0VMTFZncF80c0RKQmcxd2RvRUJhR2xDaw?oc=5
+                - generic [ref=f1e14]: jabon.co.kr (6/24)
+                - link "비트코인 6만3000달러 횡보, 돈은 AI로 빠졌다" [ref=f1e15] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBqT1h6anNta3NVay1pemI3MndlRFV2elp1WlJoYlZyMnZpakVMQTJGYnhFTUtYVUIzdFowaW9UVUZkaDR5YktEV0l2UjdmaDRkNlVzaVhQU1RnNlVoUzkzLXd5QVVEMzg?oc=5
+                - generic [ref=f1e16]: 디지털애셋 (6/24)
+                - link "한은 \"국내 가상자산시장에 법인·기관 참여하면 주식·외환 영향 가능성\"" [ref=f1e17] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMickFVX3lxTE80ZTBUZTJFbDBJMzl2VzVWU1JIWE13NzdLTVo4T1BMekRkTkdpV25pMllILU5XSXg1dzlHYVFFTVR6d2xYUWFYQ056TUZKSXJyLTRPN0RFY2F6dWxJaWZ1M3dERmVjSVBUYTJEdEhHQUpyUQ?oc=5
+                - generic [ref=f1e18]: 아시아경제 (6/23)
+                - link "OKX, 인터컨티넨털 익스체인지와 합작법인…가상자산 인프라 구축" [ref=f1e19] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE5veEY1eDNsQ3RtSzZNZWM2RGt2SmdWRjlmWGVrYXZ5RmMwZFQtb0ZNUEJTbGdlRnBYa29ieFNhNlBKU2lXWjhoZndHOGtjMk1DNW5vYzFKX0dCNjZnVTE4Mg?oc=5
+                - generic [ref=f1e20]: 다음뉴스 (6/23)
+                - link "글로벌 가상자산 거래소 OKX, ICE와 합작법인 설립" [ref=f1e21] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE04WDBqNGFxTmxiUUpBSGRTZXJJRTVLV2VhRmJVeFpadks0SW8xbE9Xc3ZRTDh6bDBnRVdPb0NiOVFTUVpWQ1E?oc=5
+                - generic [ref=f1e22]: 지디넷코리아 (6/23)
+                - link "글로벌 가상자산 거래소 OKX, ICE와 디지털자산 합작법인 세운다" [ref=f1e23] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiVkFVX3lxTE5YdkFnSFAzUzlONi0wek5kYUM0dHJENWN0ZjlNcXEyMUliSXBvMmVHUjRHU3RELS1QaFVjd0xYZURndXptWXhzREVRZmNUZDJDZkVBYjdn?oc=5
+                - generic [ref=f1e24]: fetv.co.kr (6/23)
+                - link "OKX, 디지털 자산 겨냥한 합작법인 설립" [ref=f1e25] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiaEFVX3lxTFB2Vmp1WXBmTElqZU5ieWI4UEdicjlmcS1mNW8zWTk0VmI5a0lxd1ZtZlRnLWY4bVkyRGhDTUdoUDBnNV9DOEFHaTVfR3JlSWNGa2QtTmVpMGJxNlllM1V6RnV1djBhTHFk?oc=5
+                - generic [ref=f1e26]: 블록체인투데이 (6/23)
+                - link "한 달 새 11조 원 증발, 월가 기관들 비트코인 시장서 대거 이탈" [ref=f1e27] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMicEFVX3lxTFByeW4temlHVE9sM0dUMm8zbTE4NHdtdGdlSEF5RHhtbHEtRkR6QjlNTnFudm1wclVkSThKSEpiQzJmeTQtei10aVM0QlJYT25ZSUMyVDV2OTZCdGRaaWxmLXlwUTJFWHpWWlFVYWlmUmc?oc=5
+                - generic [ref=f1e28]: 딜사이트 (6/23)
+                - link "디지털자산 제도화 논의...\"기관 금융 진입 대비해야\"" [ref=f1e29] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiT0FVX3lxTE5VUTZ3akZpZHA1VXJDNjFtekZBYzAyOHNJZkxISEVPMkNoWDloVEtsSi12VGxlWDZ3cGQ3dHp5aUZ4U3pjdmVCekY4QlMxY3M?oc=5
+                - generic [ref=f1e30]: 데일리안 (6/23)
+                - link "[코인뉴스] 비트코인 7만 달러 간다더니…ETF는 또 팔았다" [ref=f1e31] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMimwJBVV95cUxPTTRSWTc3SXZZMjZDQks3T0hHRl9NcExyUVpJMkl3bWlIMmJUZnJRajdXbkR3b1FZbks3UzFfV2JSQ0FLd0l1WTR2MU9UeHZaaDU5SlhZSDQ5MlRrbVIzV09WaDhhNHVVWHV2REdEajFxcFViSDdGV3VJdFB2dTBLNnc5U0d0dHZhQW1vVlVXZjhiUXZaZXY1ZXdzamZiV2FZMlRUa2lpZUJ6WTlhRzdrMV91MHRIXzBob3UwZ1NLSXNreEt5ZTBZanFzNnZvWGljbEpSbnQxLTdKNE9EOFJmZ2UzWTE1eUwxS3ZoNmhiQUstYno5N0RmdEt0YldieVl5bHZjQ0hfMm90bzNuSzJNUGlYMzNLOGlUZld30gGbAkFVX3lxTE9NNFJZNzdJdlkyNkNCSzdPSEdGX01wTHJRWkkySXdtaUgyYlRmclFqN1duRHdvUVluSzdTMV9XYlJDQUt3SXVZNHYxT1R4dlpoNTlKWFlINDkyVGttUjNXT1ZoOGE0dVVYdXZER0RqMXFwVWJIN0ZXdUl0UHZ1MEs2dzlTR3R0dmFBbW9WVVdmOGJRdlpldjVld3NqZmJXYVkyVFRraWllQnpZOWFHN2sxX3UwdEhfMGhvdTBnU0tJc2t4S3llMFlqcXM2dm9YaWNsSlJudDEtN0o0T0Q4UmZnZTNZMTV5TDFLdmg2aGJBSy1iejk3RGZ0S3RiV2J5WXlsdmNDSF8yb3RvM25LMk1QaVgzM0s4aVRmV3c?oc=5
+                - generic [ref=f1e32]: 블루밍비트 (6/23)
+                - link "프랭클린템플턴, 가상자산 투자 조직 출범…250디지털 인수 완료" [ref=f1e33] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1UUExhdlI3bDQ3VVExUkpKRDF3ZS1FdHNZa0ZFcGN2OURmcFpUYmM3QTYtcGQwcmdEUldBRzBFSWVTSU5hS3Z3MG5WUzZ6MmVq?oc=5
+                - generic [ref=f1e34]: 핀포인트뉴스 (6/23)
+                - link "\"일단 소나기는 피하자\"…기관들, 비트코인·이더리움 1.3억 달러 던졌다 |" [ref=f1e35] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMid0FVX3lxTFB3RlhDTEwxclVJMUhkSzJfdC1HSHBadE1lSUZidlcxX2hhTF9QaXg3cUhjTkEwenNuSHpkNXo4anBkQXhKMFJKaU1zblItQ290VHVCcWdtSzBqRER6RVNicFpQZ2E4dndlOE9Rd0VXT0doa0V4dHJr?oc=5
+                - generic [ref=f1e36]: 핀포인트뉴스 (6/23)
+                - link "30일 새 11조 싹 빠졌다…월가 기관들, 비트코인 '전량 폐기' 수준의 대탈출" [ref=f1e37] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMid0FVX3lxTE01dVZOb1FwYnJGaHJSQ1MyaDlIaGVfejI4R0lxWU9uZzhZTXV0RFBRMjhEdEdJc3VjS2JQcW1OM1Z2TXZiT1Blc0F2Wm9nZTZucDAtdThTa3JmNEN2cUpuSGFSVFpFdjFRcHhPVjZQZXpIQkFrLXo40gF3QVVfeXFMTTV1Vk5vUXBickZoclJDUzJoOUhoZV96MjhHSXFZT25nOFlNdXREUFEyOER0R0lzdWNLYlBxbU4zVnZNdmJPUGVzQXZab2dlNm5wMC11OFNrcmY0Q3ZxSm5IYVJUWkV2MVFweE9WNlBlekhCQWstejg?oc=5
+                - generic [ref=f1e38]: 한스경제 (6/23)
+                - link "디지털자산서비스 기업 BIT·QCP캐피털 “비트코인, 금리 압박에 박스권”" [ref=f1e39] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMibEFVX3lxTE1TWDRucm1NX2VvQXJEZFo4SXJYdjlpQ2k3T2dISFlCM2pGWWNMNVlrYVhqZklkSEJSbTF5dTNDY2FXVmZveXhtTmE1c2FRaEE2Y3VMOUNJRGlYVHVaUWxDRk9VVGZfVHg1V2RYMdIBb0FVX3lxTFBQLVhoWlJRSWZCV18wWkJOejhUSkNpMVRSWE90QjhWeFhUZmlEcXVQZjI1MWVDb1BFcFI3Z3EzN2JpSEU3U3FlbVFwdzNwMV9rRXNTcW5GbE90SkdOTk92czZPaE9xYllBbTB0T1ZWcw?oc=5
+                - generic [ref=f1e40]: 네이버 프리미엄콘텐츠 (6/23)
+                - link "비트코인ETF 8일 연속 21억달러 유입…블랙록IBIT 75% 독식, 비트코인 9만달러 간다" [ref=f1e41] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiiwFBVV95cUxPemJobXhRaDZ0dDhGWnVnelk5OHdSdFRFNXRzV3FOSk85dS12WENqZHJad3lzWkNkRGZCeDhlaW0yd2pleDB3VXlZdGNUNUFIQ2JOQkIwNE5oLVduUkRlZS16OHljd0hGdFVvUDVlc2Rlc1VKSXlyWDJMcmlvUVFDTlJaal90R1BzdW9Z?oc=5
+                - generic [ref=f1e42]: 디지털투데이 (6/23)
+                - link "OKX, ICE와 합작법인 설립 공식 발표...전통 금융과 디지털 자산 연결" [ref=f1e43] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE01a1h0Njg1eWlFT0JLYUZtdXZ4STRUR2tiNUJHclkwaXJ1c05hZFRYOTVEOVZLenZXR0JWWGJ5bzNKWTBQSC1vUnZ5NWJ4LUVuNm5YNEtXVEdwQWNtLWo4VldmdFhlY08ycU5lUXhBRURrSW8?oc=5
+                - generic [ref=f1e44]: 데일리안 (6/22)
+                - link "기관자금 몰리는 美 디지털자산 시장…한국 어디까지 왔나" [ref=f1e45] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiowJBVV95cUxPdDkzUFhBUVQ1cHdwS3BRdjhtZzI0UWJ6RDJKZlNIYU11djFyNFFhS0dRS2t1dnF3YW03ZXRVSjVBNzI3eEVuTlFsTGh4NHpZREtLdXF5YXItT2VwWEpnWkhIUGpId0c5Z0VrSzFDS1daQWk5WUtuMS1VSDJpMjVIcjYzYWtPRkZRQ0p1cjdJZC14X0NCejROZlhKQlIwVkl3eWwtN0RISG9kcnZmZFlyTmdTUVU0VHRZbkEwR3kwRE9DMFdpcmUzeEtEUmlCNE9idHZ3U2ZHWEpOZFUwRUNjVmtoQjhWSkVUZ0pvaUoyYkJweGlGWGxfbk4tMVpnZmw0MDJBaDlxX2s4eXA5Zi1vcE5WM3RHREJIUVpWOEh1a0txQXc?oc=5
+                - generic [ref=f1e46]: 뉴스1 (6/22)
+                - link "일본 기업연금도 비트코인 산다…내년부터 운용자산 1% 가상자산 편입" [ref=f1e47] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiZkFVX3lxTE9nU2h6d2dKV0Y3RmxUX0F6UTJNa2lUVEhrdUxBMW04aUpScFVqa1pPT0hyWm8tajE5SzFhYUN4Y2l5QmVJOGlzWHlidWcxb0ttRzdnV2Z2YWZWNlFzWko2MUZ0LUx5Zw?oc=5
+                - generic [ref=f1e48]: 블루밍비트 (6/22)
+                - link "릭 에델만 \"기관 참여 확대가 가상자산 시장 핵심 성장 동력\"" [ref=f1e49] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTFBKYVdMMm45WHVqckJwWWRnYktyVkxUaGlwd0dwdmhHUENMVUkzM0RGZkJrWjBWOHNZMnJoLUpuUzJGeEpaVEdvanBVU2FtYnBi?oc=5
+                - generic [ref=f1e50]: 블루밍비트 (6/22)
+                - link "글래스노드 \"비트코인, 기관 수요 둔화에도 시장 구조는 견조\"" [ref=f1e51] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE1LVnQzRW80VzNmbHFwZVlNSHlnV1d5VGE3M2MzenpRSzVXUGM1Z3Z5QU1OUVdWT2pMMnVldXNQcFhDU0xYcWZMNnNiakRpd1lY?oc=5
+                - generic [ref=f1e52]: 전자신문 (6/22)
+                - link "핀테크산업협회, 디지털자산 기관 참여 확대 논의…“명확한 규율체계 필요”" [ref=f1e53] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiTkFVX3lxTE52MVVFRUFLeEZ3TVphUHQ1TktKaDMtX2owV3QwcHJsUUJnNndRMFFDd3lvanljQVpCMy1wbk5jUENPU2ljbHdjNURoZzJ2Zw?oc=5
+                - generic [ref=f1e54]: 한국보험신문 (6/22)
+                - link "핀테크산업협회, 디지털자산 제도화 논의… “한국형 입법 모델 필요”" [ref=f1e55] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMia0FVX3lxTFBRUVV0VTllN1JwSmdPR1FyVnZHTjJkaGZQckNpMzVJTDVFZ0w2QkRoY3ZvYmNmME9UTFJCRzRnQVpsNUZtc2swYU12blZCRWhUTk5jcTAycXF3Q2VJM3JpM0JuRnR2dktyTDl30gFvQVVfeXFMTlNBRkVkUC13MlEtejA2bXhPbWFadGgwQjFmVFZnMDhGQjQxNWlDNGhLTHhPYzIzbDJTVUFmRG5KUjFkbjlBUUZCX0wxR3JZelh4ekVkbHJmZGJobnNGSlpqeWx1SDVOLTNURkhSNmJ3?oc=5
+                - generic [ref=f1e56]: 안전신문 (6/22)
+                - link "광주은행, 글로벌 블록체인 기업과 손잡고 디지털자산 결제시장 대응" [ref=f1e57] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMicEFVX3lxTFBlMVZrMU9fTVl2N3VKWVBTamdyX28xLW43T0FMNjFNcW90QW9qUW5INWQ4RzJpYlp0SndNemRSNHlXakprXzV0UDVtRTdzbVc3Z0E5SkpxWjNSRXFFY0FGQWo1SlRndXhOOU8xWGp5bTA?oc=5
+                - generic [ref=f1e58]: jabon.co.kr (6/22)
+                - link "비트코인 ETF 6주 연속 순유출, 기관은 발 뺐다" [ref=f1e59] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiZ0FVX3lxTFBQVEZQZWVLUndFWXFTT3JLWk91d0NWNzVxWTF2QXJhM1NjLXZ4Q3AyQjJSVXh4MW5ob3A4TTRKY0VnT0d2NW05NWw2OFlZbVJNMlJiZV9VZHlCZEJDNnlVdFRhdzcxUG8?oc=5
+                - generic [ref=f1e60]: 디지털애셋 (6/22)
+                - link "\"日 기업연기금, 자산 1% 가상자산에 투자\"" [ref=f1e61] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMickFVX3lxTE1wdDVyZ3FvOXZLdkQ5am5qR3NEOFd2RlVaNUxKZXlpUlI4Z0NvRnJQTk96Vk1uMW9yUUVvbFB5OXdCNlY4NlJURjZZWEN4Ukh6WnNPZmxrV25lc3llcUJ4bmZNbTFWLUhveWY0Wm1CVFg1UQ?oc=5
+                - generic [ref=f1e62]: CoinDesk (6/22)
+                - 'link "비트코인의 6월 60,000달러 붕괴는 새로운 기관 투자자들의 역풍을 부각시켜: 도이치은행" [ref=f1e63] [cursor=pointer]':
+                  - /url: https://news.google.com/rss/articles/CBMiywFBVV95cUxONkFVLXFaaUwyZmdPWjlScjM0RmFtQmtRMUR3aGUtSFpyQi1JRmYwVHBuNnRrbVltMmdwSFdIem13ZjQtaHE5MzQwQzJpZE5tLWhpMkRlWXJXdTlNRWxGZEtQOUU5cFdWWW9WWm96WXNfcnBhREFLUGFjcU5DaGp1emRNRkx4SFNyMUh2UHBLMDlCQUZmWWo0Vk05RktEY3pKeXpIcHk2ZUREN2JEWHdVcVE5ellZZGs1YXd4TlFPZzNCdFIzOXA5NERtbw?oc=5
+                - generic [ref=f1e64]: 데일리안 (6/22)
+                - link "[코인뉴스] 비트코인 살아났나 했더니…기관은 '글쎄'" [ref=f1e65] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiYEFVX3lxTE9kUDRnbUF1VDQ3d3FWdDVwR01mSUh1ZzlfYy1GQzhHMF9FVDNTN05WNWpSa1RiemhZMDljUDE1cHBnVUhuRDNPN1A5cWJOQkYweFp5Q0tfN3pabnhOWVdRb9IBsAJBVV95cUxOVExPT0dZYnJ3OEtzTXdkcWdPYk51OUFla25aMGlKc1F2SGpWRGVtZ21HZzc1Z3VpQ3BDUHFLZ3g0YmVJOWVzYVdhVk9nQTF1WGVwa1ZVN1BGN2RPT0JDdUkxX0dNTVItRVdqaW82RlgtS3k2OTZMSVFMRjkyenMxZnlNODBZcHYzS2c5NWlXeHRRM3JlZnZQZDlWS3pHTW42ZHJoeHNQMnE2d0NlYmM1RDRQX3ZRTi1ndzZPc1Y4eFJuN09NYzZYRkhySUJrTFhLSkRWNFg0RExNcGIxMmNPSXRmSkkxWHlJMFh2THhOLWxFd0p6alF6NFRySFBDQW5Nb2xvRXAyS2dTeUU5RHh0NEh6dThhTVNabkRKRW9jaTB2WGs1bWtQYnlad1B6NEdj?oc=5
+                - generic [ref=f1e66]: 뉴스1 (6/21)
+                - link "비트코인 사들이던 '큰손' 기업들 경고등…우선주 줄줄이 액면가 밑돌아" [ref=f1e67] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wdGVyOWZ5OEJ0Y0VKUVN2NnlLcWVpS3BHTm9SQ3RTX1Y3QUNXOWRENi15YWdzN21GOC1GR0xVa3QyTmoyNDdOQ3RGUjJ5SnVXQlJ3Qzg0NlhSR2RhNEtMeGtZWTJOdw?oc=5
+                - generic [ref=f1e68]: 한국경제 (6/21)
+                - link "\"법인 투자시장 커질 것…글로벌 거래소 손잡고 승부\"" [ref=f1e69] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiWkFVX3lxTE5XZk1NYlAwRlVJN1dsYWNfWVBzOHdvbG5BN0xTUTdtZVRyOVBsYzllS25zMVlZUjFyWUVqenAzb0V5OTcxdUZFQ0tJS29LNFkxSVpMejlUWTNqd9IBVEFVX3lxTE00ajAxQmFWcnh2QmhCaEFjR21PSVlDbHo5TjJvUXI4cWUzQkNLNFRBa19ZWWVOX1JlaTlKTEpZWURLckllYVFYVVpMZE9vb3RzWDUxZw?oc=5
+                - generic [ref=f1e70]: 중앙일보 (6/20)
+                - link "2029년엔 신고가 vs 더 떨어진다…반토막 난 비트코인의 미래" [ref=f1e71] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiVkFVX3lxTE1hdExMQmRLVzRLTHA1TWtnZjZQV2F0SjlucEFrV2pKZFNvNGx0cjljRURWT0liMXBGdmU4UzBtWHotTzlLUVVIbmJGbVROZ2Z5S0NZVFlR?oc=5
+                - generic [ref=f1e72]: 네이버 프리미엄콘텐츠 (6/20)
+                - link "비트코인 ETF 4주 연속 12억달러 순유입…기관투자자 자금이 8만달러 돌파 이끌까" [ref=f1e73] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiiwFBVV95cUxQOVl2V1RQbGNnSnJ3ZVhfdjNXZHJ6SW1DM25RLWRjWkoyZWt0dFVyWEs0NE5OY1VYaGdGZ21WdUhTTEJ2U3ZWT2h3aWw4R2pCSlpzX3lkRG54MXZPWVhvSzRIbWlMbGZ1SFJVS0pkMUhTZEJyUTYyS28xb1U0alRqSEF0b1dvWENYc1RB?oc=5
+                - generic [ref=f1e74]: 동아경제 (6/19)
+                - link "기관투자자 문 열릴까…국회, 가상자산 제도화 로드맵 논의:동아경제신문 & daenews.co.kr" [ref=f1e75] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE4wc1BUejh2bEpqbWlvNzIteXZQWEs5RVZoZk96MkpkT09pMmVvZ0VfRVJXby1TWU1LUGR5aTk3aGY1cUtOVUHSAWJBVV95cUxPSXY5SWgxeXE1cTlTQ0ZJV0IyclhwZ0JsWXJtWHdOdUg4NVl1MXBQNmhTckRBTC13WDRkRkg0d2cxWjVoeF9zN2EwNTcxaDNBbFpPMFVWV2RyT09SeGcwQ0NMUQ?oc=5
+                - generic [ref=f1e76]: 블루밍비트 (6/19)
+                - link "[단독] 업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도" [ref=f1e77] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUEFVX3lxTE9ZRGF0NmV2U3VDRUZaeEhubzdIWnFEYldBcS01N3oyNEVnNXJIY1Vyd3dxWGJyTFRFTjlEWHh2WjRDLWZNZjAwbGFMd05DTE9U?oc=5
+                - generic [ref=f1e78]: 한국경제 (6/19)
+                - link "업비트, 주민등록등본 직접 본다…가상자산 거래소 '제도권 편입' 속도" [ref=f1e79] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiWkFVX3lxTE5RYl96VnJ5Nm0zUTUtRklxbkFDUWVJRnR0dmFETHNIR1BuRWN4cGhlMkkxdWhudzhZSWIzUW54UnYtSFRKTkFNc3hENnVTcndNSU9RWmZiS1JJQdIBVEFVX3lxTE13V3lCZWZOQUQ3U1Rjd0s4VnNLS2dqMTI2WEpaRVZUZ0MxR09CbGRHcm8zaGpIS2pvX2tYQWUwMjBmVmVwTGFKRjJ5bnpUNkVwamYzNw?oc=5
+                - generic [ref=f1e80]: 한스경제 (6/19)
+                - link "[RE:기업] 5대 가상자산거래소 '합종연횡'···스테이블코인·결제·정산 인프라 확보로 경쟁 축 이동" [ref=f1e81] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMia0FVX3lxTFA2cVk2azNWX0dTWl9raVI2QzUzRGxQa3hKRlo2QjAyNUswQzRHZVlaa01NUzllZnR4RDdHcWFvUzdvOXctSzRIMjBLR3ltY3RrX0lyc2V2ZGdmNW9Ddm5Ba21YbGpzTXV5Qjhz0gFvQVVfeXFMTVU3dWtBQkpPZEk3UWowempqcFlpRXBfUkhVSzNHYm83WU1sT0RkS1JRSWk4UndMOXJkaDJUZjlabFBfa09LdW1vTGp0bWxBZk1iS3NlYmgtTGYxd1ZWWThDRmV1d3RzWGl1dTN0dGpZ?oc=5
+                - generic [ref=f1e82]: CoinDesk (6/19)
+                - 'link "프랭클린 템플턴, 배당금을 비트코인(BTC)으로 전환하는 신기금 제안: 크립토 데일리" [ref=f1e83] [cursor=pointer]':
+                  - /url: https://news.google.com/rss/articles/CBMiygFBVV95cUxNbGFweWdYdU9TSnJsTmR0cndzVzk3dGl5d2JFbi13YjIxekpBU01HRGJ4X0QyUEhOdjlSRGRaQl83ZzZVLVBvOGxmWWVUUjkycWJVaEgtQ1VnTlAxdjhTQlJTVFNQdG9ZWGVFMS1ZelM3ZkdBOWxBZHVwM3dTVFFiWGY4RkhFNVoyQnoydjV1cWVUUkdCb0xBYllqV1pyd1hPWjFCYWhTMGtqQ1lKOVFWRTA4LW5QdW9IMzZfTzVmdS1YeS1pWmNlYjhn?oc=5
+                - generic [ref=f1e84]: 다음뉴스 (6/18)
+                - link "[논현논단] ‘법인의 가상자산 투자’ 시장은 목마르다" [ref=f1e85] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiRkFVX3lxTE9FVEt3QTBHSXVJOEprTFM2ZkZ1OUd3cUFZdl9FM2NZTTl1ZURfMUM0amdVOG5kRjIxU1lTS2o4MnczR0tBRWc?oc=5
+                - generic [ref=f1e86]: 매일경제 (6/18)
+                - link "‘나오리스 공식 브리지 출시’ 엑스큐어, 디지털자산 보안 인프라 사업화 추진" [ref=f1e87] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiUkFVX3lxTFB0N2dqb3J6b19kYlhZVndLR3ZkZG5yN3dSdVlUVXNIR3hTX0EtMlQ3Vk80bEEwX0Y1czAtdjNMYlBVcndzMjBNZG9XU3BxNVBqaWc?oc=5
+                - generic [ref=f1e88]: 연합뉴스 (6/18)
+                - link "파이어블록스 \"韓 디지털자산 규제 변화, 전분야서 기회 창출\"" [ref=f1e89] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiW0FVX3lxTFB6S202MEVsdTRKZXlITmRKdjU0YUM0T1hpYWYxRVNBLWJ1MUZXdXVaam9EbE1TQnJ1U1VfY1lvNEpRbWFIU04yXy0yV2NJdE51U0FmdFZZVHhSeEHSAWBBVV95cUxQdDNfZ053VkFKZUJUYlkwQXhoMXB4MnhBTEF5SnYtY3FKMDRWVXR4cDJ4d2NnRzdVclR1anV3Yk8zTVJpTEk0OVdyMkpOTkVwZWVrdVNIU0QtWG1WMXdMalE?oc=5
+                - generic [ref=f1e90]: 전자신문 (6/18)
+                - link "압수코인 수탁시장 열렸지만…중소 커스터디 '높은 문턱'" [ref=f1e91] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiTkFVX3lxTE1UemJsZFk3R0xlN3FkS1RncUZPSExxUzc5Z0NSSHkybjczMTk0TFZUMURpQ3Y1U05BYXR3emUyTWx5T2VVMkxwUEhmVjhjQQ?oc=5
+                - generic [ref=f1e92]: 에너지경제신문 (6/17)
+                - link "금융권은 바쁜데 국회는 멈췄다…“원화 코인, 법제화 없인 반쪽 준비”" [ref=f1e93] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiW0FVX3lxTE5yU3JGV2VLZTJ6dEgxaVEyRGhZXzhjSVNVemJ1aGdIczhUeEIyQjY1QUp2Vll4dC0yNmZ5MDZ2U01pNW9oRmJjMTliUTlRaFRKUmZ4X0RkUkc1WFE?oc=5
+                - generic [ref=f1e94]: 다음뉴스 (6/17)
+                - link "\"지금이 바닥인데\"…비트코인 떨어져도 법인들에겐 '그림의 떡'" [ref=f1e95] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiS0FVX3lxTE5WUzdfQjBGS3AtcVJSUU5UazV6QXFhX1hlWDdXRHlNUVJ6WFJMa2gxLVBfQTRPYlhxTTlGRWtTNHpVUFVVZkVSd3VERQ?oc=5
+                - generic [ref=f1e96]: 디지털투데이 (6/17)
+                - link "비트코인 현물 ETF 주춤, 하이퍼리퀴드는 유입…기관 자금 '역주행'" [ref=f1e97] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE4tM21JMmpSd3djeGRrMnRUa0FSRGpDUTFXTXhHWmhGb21BMVRscnNrR3hWb1FtZ2ZGU0NUa0w4TVhobEc3bzI4ajhhTlJtRXZ2cXIxVjVoVXBwZ2ZlWTg2S1NRQzJ0RXh4aHRZd0ZTeGZNc0U?oc=5
+                - generic [ref=f1e98]: 핀포인트뉴스 (6/17)
+                - link "연쇄 이동하는 기관 자금… 비트코인·이더리움 시장 흔드는 머니무브의 공포" [ref=f1e99] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMic0FVX3lxTE5QX0p5eUtrWVJHWGdPOEJkYUhfUDZXdDYwU3NIOEhyVUVRd2xEYk9JaU5xcGpmOWpzZzl4MGpkNnZOVWFCS2IwVzRVXzFpb0VsUzZMNlYyMkRZUjlZTWlRYXdJNXZxa1lWc2VDRE1DaUVnVXPSAXdBVV95cUxONmswQU9hMzVMOUdlU045N2d0X2cxcTZLTlRkRnFKZ2VSeWp6d2hST25OMEN2ZzF4cUt5TTFCVkFMN1ZmY2YtUldlX2VuR1dFRi1nUVVGTUgwNHVpeTJuZDlPUTRiYTNSWnRqR3JkOU9JT3dWOU1rRQ?oc=5
+                - generic [ref=f1e100]: 에너지 뉴스 (6/17)
+                - link "비트코인 6만 5000달러대 횡보 속 기관 투자 수요는 견조" [ref=f1e101] [cursor=pointer]:
+                  - /url: https://news.google.com/rss/articles/CBMiaEFVX3lxTE9zMDQ1ZnJ2ZHRiN3B0YndFTHBvSmFvVHJQbHVlRkFncTFNblJRdmlNNDJ4SnpZdmk0T2U5QlNtdTg0d19yZkdZRWY2eXlLNWlkY21NNzFGQUpYOTJBSHZSVXdzeUN3eExZ?oc=5
+                - link "빗썸 BIZ 바로가기" [ref=f1e102] [cursor=pointer]:
+                  - /url: https://www.bithumb.com/react/biz/intro
+                  - img "빗썸 BIZ 바로가기" [ref=f1e103]
+                - text: 본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며, 어떠한 경우에도 투자 조언 또는 법률·세무 자문을 구성하지 않습니다.
+                - text: 투자 결정에 따른 책임은 투자자 본인에게 있습니다. 더 깊이 있는 인사이트와 귀사에 최적화된 솔루션이 필요하시면 빗썸 BIZ를 찾아주세요.
+                - text: "문의하기: 1661-5566 (2번, 법인 전용 상담 창구)"
+                - text: "이메일:"
+                - link "biz@bithumbcorp.com" [ref=f1e104] [cursor=pointer]:
+                  - /url: mailto:biz@bithumbcorp.com
+  - button "Open Next.js Dev Tools" [ref=e62] [cursor=pointer]:
+    - img [ref=e63]
+  - alert [ref=e66]
