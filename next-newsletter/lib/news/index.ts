@@ -15,16 +15,17 @@ AND
 const SOURCE_ALIASES: Record<string, string> = {
   "2news.co.kr": "에너지 뉴스",
   "www.2news.co.kr": "에너지 뉴스",
-  "v.daum.net": "다음뉴스",
-  "daum.net": "다음뉴스",
-  daum: "다음뉴스",
   "jabon.co.kr": "자본시장뉴스",
   "www.jabon.co.kr": "자본시장뉴스",
   "ebn.co.kr": "EBN",
   "www.ebn.co.kr": "EBN",
   "fetv.co.kr": "FETV",
   "www.fetv.co.kr": "FETV",
+  "newsway.co.kr": "뉴스웨이",
+  "www.newsway.co.kr": "뉴스웨이",
 };
+
+const DAUM_SOURCES = new Set(["v.daum.net", "daum.net", "daum", "Daum", "다음뉴스"]);
 
 const SOURCE_PREFIXES = [
   "연합뉴스",
@@ -75,8 +76,16 @@ export function normalizeSource(source: string, link = "") {
     return SOURCE_ALIASES[trimmed];
   }
 
-  if (linkHost && SOURCE_ALIASES[linkHost]) {
+  if (isDaumSource(trimmed)) {
+    return "다음뉴스";
+  }
+
+  if (!trimmed && linkHost && SOURCE_ALIASES[linkHost]) {
     return SOURCE_ALIASES[linkHost];
+  }
+
+  if (!trimmed && isDaumHost(linkHost)) {
+    return "다음뉴스";
   }
 
   const matchingPrefix = SOURCE_PREFIXES.find((prefix) =>
@@ -105,7 +114,9 @@ export function parseGoogleNewsRss(rssText: string) {
       continue;
     }
 
-    const { title, source } = splitTitleAndSource(rawTitle);
+    const { title, source: titleSource } = splitTitleAndSource(rawTitle);
+    const rssSource = readXmlTag(item, "source");
+    const source = rssSource || titleSource;
     const normalizedTitle = title.trim();
 
     if (seenTitles.has(normalizedTitle)) {
@@ -222,9 +233,10 @@ export async function getOriginalUrl(link: string, fetcher = fetch) {
 
 export async function resolveOriginalArticle(article: NewsArticle) {
   const originalLink = await getOriginalUrl(article.link);
+  const sourceWasGoogle = isGoogleSource(article.source);
   let source = normalizeSource(article.source, originalLink);
 
-  if (shouldResolvePublisher(source, originalLink)) {
+  if (sourceWasGoogle || shouldResolvePublisher(source, originalLink)) {
     const publisher = await extractPublisherFromUrl(originalLink);
 
     if (publisher) {
@@ -232,8 +244,13 @@ export async function resolveOriginalArticle(article: NewsArticle) {
     }
   }
 
-  if ((source === "다음뉴스" || source === "구글뉴스") && isGoogleUrl(originalLink)) {
-    source = article.source;
+  if (isGoogleSource(source) && !isGoogleUrl(originalLink)) {
+    const originalHost = getUrlHost(originalLink);
+    source = normalizeSource(originalHost, originalLink) || stripWww(originalHost);
+  }
+
+  if ((source === "다음뉴스" || isGoogleSource(source)) && isGoogleUrl(originalLink)) {
+    source = normalizeSource(article.source);
   }
 
   return {
@@ -301,15 +318,11 @@ async function resolveOriginalArticleLinks(articles: NewsArticle[]) {
 
 function shouldResolvePublisher(source: string, link: string) {
   const host = getUrlHost(link);
-  const normalizedSource = source.trim().toLowerCase();
 
   return (
-    source === "다음뉴스" ||
-    source === "구글뉴스" ||
-    normalizedSource === "google news" ||
-    normalizedSource === "news.google.com" ||
-    host.endsWith("daum.net") ||
-    host === "v.daum.net" ||
+    isDaumSource(source) ||
+    isGoogleSource(source) ||
+    isDaumHost(host) ||
     isGoogleUrl(link)
   );
 }
@@ -340,6 +353,8 @@ function extractPublisherFromHtml(html: string) {
     /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:article:author["']/i,
     /<meta[^>]+name=["']article:author["'][^>]+content=["']([^"']+)["']/i,
     /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']article:author["']/i,
+    /<meta[^>]+property=["']dable:item_id["'][^>]+content=["']([^"']+)["']/i,
+    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']dable:item_id["']/i,
     /<meta[^>]+name=["']author["'][^>]+content=["']([^"']+)["']/i,
     /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']author["']/i,
     /<meta[^>]+property=["']og:site_name["'][^>]+content=["']([^"']+)["']/i,
@@ -432,12 +447,34 @@ function isGoogleUrl(value: string) {
   );
 }
 
+function isGoogleSource(value: string) {
+  const normalizedValue = value.trim().toLowerCase();
+
+  return (
+    value.trim() === "구글뉴스" ||
+    normalizedValue === "google news" ||
+    normalizedValue === "news.google.com"
+  );
+}
+
+function isDaumSource(value: string) {
+  return DAUM_SOURCES.has(value.trim());
+}
+
+function isDaumHost(host: string) {
+  return host === "v.daum.net" || host.endsWith(".daum.net") || host === "daum.net";
+}
+
 function getUrlHost(value: string) {
   try {
     return new URL(value).hostname.toLowerCase();
   } catch {
     return "";
   }
+}
+
+function stripWww(host: string) {
+  return host.replace(/^www\./, "");
 }
 
 function extractCanonicalUrl(html: string) {
@@ -542,9 +579,11 @@ async function decodeGoogleNewsUrl(
 }
 
 function parseBatchExecuteResponse(responseText: string) {
-  const payload = responseText.startsWith(")]}'")
-    ? responseText.split("\n", 2)[1]
-    : responseText;
+  const payload = (
+    responseText.startsWith(")]}'")
+      ? responseText.slice(responseText.indexOf("\n") + 1)
+      : responseText
+  ).trim();
 
   try {
     const rows = JSON.parse(payload) as unknown[];
