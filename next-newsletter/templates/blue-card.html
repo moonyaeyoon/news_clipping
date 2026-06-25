@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>법인 디지털자산 시장 동향</title>
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" rel="stylesheet" />
+<style type="text/css">
+body, table, td, a { font-family:Pretendard,sans-serif; }
+</style>
+</head>
+<body bgcolor="#ffffff" style="margin:0; padding:0; background-color:#ffffff;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="border-collapse:collapse; width:100%; background-color:#ffffff;">
+<tr>
+<td align="center" valign="top" style="padding:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#ffffff" style="border-collapse:collapse; width:100%; max-width:1200px; background-color:#ffffff;">
+<tr>
+<td align="center" valign="top" width="100%" height="182" bgcolor="#080c15" background="{{ card_blue_header_image_url }}" style="width:100%; height:182px; background-color:#080c15; background-image:url('{{ card_blue_header_image_url }}'); background-repeat:no-repeat; background-position:center top; background-size:100% 100%; padding:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="520" height="182" style="border-collapse:collapse; width:520px; height:182px; margin:0 auto;">
+<tr>
+<td height="136" style="height:136px; font-size:0; line-height:0;">&nbsp;</td>
+</tr>
+<tr>
+<td align="right" valign="middle" height="26" style="height:26px; padding:0;">
+<font face="Pretendard, sans-serif" color="#ffffff" style="font-family:Pretendard,sans-serif; font-size:18px; font-weight:400; line-height:24px; color:#ffffff; letter-spacing:0;">
+<span style="display:inline-block;">{{ report_date }}</span>
+</font>
+</td>
+</tr>
+<tr>
+<td height="20" style="height:20px; font-size:0; line-height:0;">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="100%" bgcolor="#eaf7ff" background="{{ card_sky_background_image_url }}" style="width:100%; background-color:#eaf7ff; background-image:url('{{ orange_building_image_url }}'), url('{{ card_sky_background_image_url }}'); background-repeat:no-repeat, no-repeat; background-position:left bottom, center bottom; background-size:22% auto, 100% 100%; padding-top:70px; padding-right:0; padding-bottom:70px; padding-left:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="74%" bgcolor="#ffffff" style="border-collapse:separate; width:74%; background-color:#ffffff; background-color:rgba(255,255,255,0.90); border:0; border-radius:10px; box-shadow:0px 4px 4px 0px rgba(0,0,0,0.25), inset 2px 2px 4px 0px rgba(124,124,124,0.30), inset -2px -2px 4px 0px rgba(124,124,124,0.30); overflow:hidden;">
+<tr>
+<td align="center" valign="top" style="padding-top:42px; padding-right:0; padding-bottom:0; padding-left:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="82%" style="border-collapse:collapse; width:82%;">
+{% for article in articles %}
+<tr>
+<td align="left" valign="top" style="border-bottom:0; padding-top:10px; padding-right:0; padding-bottom:10px; padding-left:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse; width:100%;">
+<tr>
+<td align="left" valign="middle" style="padding-top:0; padding-right:0; padding-bottom:4px; padding-left:0;">
+<font face="Pretendard, sans-serif" color="#8a8a8a" style="font-family:Pretendard,sans-serif; font-size:11px; font-weight:300; line-height:16px; color:#8a8a8a;">
+{{ article.source }}&nbsp;&nbsp;{{ article.date }}
+</font>
+</td>
+</tr>
+<tr>
+<td align="left" valign="middle" style="padding:0;">
+<a href="{{ article.link }}" target="_blank" rel="noopener noreferrer" aria-label="기사 원문 열기" style="color:#252525; font-family:Pretendard,sans-serif; font-size:18px; font-weight:600; line-height:25px; text-decoration:none;"><font color="#252525">{{ article.title }}</font></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+{% endfor %}
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse; width:100%;">
+<tr>
+<td align="center" valign="bottom" style="padding-top:54px; padding-right:0; padding-bottom:68px; padding-left:0;">
+<a href="{{ bithumb_biz_url }}" target="_blank" rel="noopener noreferrer" aria-label="빗썸 BIZ 바로가기" style="text-decoration:none;"><img src="{{ biz_button_image_url }}" alt="빗썸 BIZ 바로가기" width="160" height="43" style="border:0; outline:none; text-decoration:none; display:block; width:160px; height:43px;" /></a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" width="100%" height="158" bgcolor="#292d32" style="width:100%; height:158px; background-color:#292d32; padding:0;">
+<table border="0" cellpadding="0" cellspacing="0" width="75%" height="158" style="border-collapse:collapse; width:75%; height:158px;">
+<tr>
+<td align="left" valign="top" style="padding-top:26px; padding-right:0; padding-bottom:12px; padding-left:0;">
+<font face="Pretendard, sans-serif" color="#f5f5f5" style="font-family:Pretendard,sans-serif; font-size:13px; font-weight:400; line-height:20px; color:#f5f5f5;">
+본 뉴스레터는 신뢰할 수 있는 정보 제공을 목적으로 작성되었으며, 투자 조언 또는 법률·세무 자문을 구성하지 않습니다.<br />
+투자 결정에 따른 책임은 투자자 본인에게 있음을 안내드립니다.<br />
+더 깊이 있는 인사이트와 귀사에 최적화된 솔루션이 필요하시면 빗썸 BIZ를 찾아주세요.<br /><br />
+문의하기: 1661-5566 (2번, 법인 전용 상담 창구)<br />
+이메일: <a href="mailto:biz@bithumbcorp.com" style="color:#f5f5f5; font-family:Pretendard,sans-serif; text-decoration:none;"><font color="#f5f5f5">biz@bithumbcorp.com</font></a>
+</font>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

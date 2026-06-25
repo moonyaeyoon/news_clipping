@@ -1,32 +1,20 @@
 import { NextResponse } from "next/server";
 import { resolveOriginalArticle, type NewsArticle } from "@/lib/news";
-import {
-  formatReportDate,
-  generateNewsletterHtml,
-  type NewsletterTemplate,
-} from "@/lib/templates";
 
-type GenerateHtmlRequestBody = {
-  template?: NewsletterTemplate;
+type ResolveRequestBody = {
   articles?: NewsArticle[];
 };
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as GenerateHtmlRequestBody;
+    const body = (await request.json()) as ResolveRequestBody;
     const articles = await Promise.all(
       (body.articles ?? []).map((article) => resolveOriginalArticle(article)),
     );
 
-    const html = generateNewsletterHtml({
-      template: body.template ?? "default",
-      reportDate: formatReportDate(),
-      articles,
-    });
-
     return NextResponse.json({
       ok: true,
-      html,
+      articles,
     });
   } catch (error) {
     return NextResponse.json(
