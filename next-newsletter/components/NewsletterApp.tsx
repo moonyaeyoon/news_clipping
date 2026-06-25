@@ -467,8 +467,20 @@ export function NewsletterApp() {
                 disabled={Boolean(activeHistoryId)}
               />
               {!activeHistoryId && (
-                <button className="primary-button" type="button" onClick={handleSearch}>
-                  {isLoading ? "수집 중" : "RUN"}
+                <button
+                  className="primary-button"
+                  type="button"
+                  onClick={handleSearch}
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <>
+                      <span className="button-spinner" aria-hidden />
+                      <span>수집 중</span>
+                    </>
+                  ) : (
+                    "RUN"
+                  )}
                 </button>
               )}
             </div>
