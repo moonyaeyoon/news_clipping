@@ -2,7 +2,7 @@
   - main [ref=e2]:
     - generic [ref=e3]:
       - img "빗썸 biz" [ref=e4]
-      - heading "뉴스레터" [level=1] [ref=e5]
+      - heading "NEWS LETTER" [level=1] [ref=e5]
     - generic [ref=e6]:
       - complementary [ref=e7]:
         - group [ref=e8]:

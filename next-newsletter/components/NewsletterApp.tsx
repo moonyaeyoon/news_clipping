@@ -1,43 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { DayPicker } from "react-day-picker";
 import { ko } from "date-fns/locale";
 import type { NewsArticle } from "@/lib/news";
 import type { NewsletterTemplate } from "@/lib/templates";
 
-type HistoryItem = {
-  id: string;
-  start_date: string | null;
-  end_date: string | null;
-  article_count: number;
-  created_at: string;
-};
-
 type NewsSearchResponse = {
   ok: boolean;
-  historyId?: string;
   query?: string;
   articles?: NewsArticle[];
-  message?: string;
-};
-
-type HistoryResponse = {
-  ok: boolean;
-  histories?: HistoryItem[];
   message?: string;
 };
 
 type HtmlResponse = {
   ok: boolean;
   html?: string;
-  message?: string;
-};
-
-type HistoryDetailResponse = {
-  ok: boolean;
-  history?: HistoryItem;
-  articles?: NewsArticle[];
   message?: string;
 };
 
@@ -107,7 +85,6 @@ export function NewsletterApp() {
   const [articles, setArticles] = useState<NewsArticle[]>([]);
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [orderedArticles, setOrderedArticles] = useState<NewsArticle[]>([]);
-  const [histories, setHistories] = useState<HistoryItem[]>([]);
   const [template, setTemplate] = useState<NewsletterTemplate>("default");
   const [html, setHtml] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -118,7 +95,6 @@ export function NewsletterApp() {
     null,
   );
   const [hasSearched, setHasSearched] = useState(false);
-  const [activeHistoryId, setActiveHistoryId] = useState<string | null>(null);
   const [fileType, setFileType] = useState("excel");
   const [openMenu, setOpenMenu] = useState<"file" | "template" | null>(null);
   const [hasAppliedSelection, setHasAppliedSelection] = useState(false);
@@ -132,23 +108,7 @@ export function NewsletterApp() {
     [articles, selectedIds],
   );
 
-  useEffect(() => {
-    loadHistories();
-  }, []);
-
-  async function loadHistories() {
-    const response = await fetch("/api/history", {
-      cache: "no-store",
-    });
-    const data = (await response.json()) as HistoryResponse;
-
-    if (data.ok) {
-      setHistories(data.histories ?? []);
-    }
-  }
-
   async function handleSearch() {
-    setActiveHistoryId(null);
     setIsLoading(true);
     setError("");
     setHtml("");
@@ -176,46 +136,11 @@ export function NewsletterApp() {
       setOrderedArticles([]);
       setHasAppliedSelection(false);
       setHasSearched(true);
-      await loadHistories();
     } catch (caughtError) {
       setError(
         caughtError instanceof Error
           ? caughtError.message
           : "뉴스 수집에 실패했습니다.",
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  }
-
-  async function handleLoadHistory(history: HistoryItem) {
-    setIsLoading(true);
-    setError("");
-    setHtml("");
-
-    try {
-      const response = await fetch(`/api/history/${history.id}`, {
-        cache: "no-store",
-      });
-      const data = (await response.json()) as HistoryDetailResponse;
-
-      if (!data.ok) {
-        throw new Error(data.message ?? "최근 기록을 불러오지 못했습니다.");
-      }
-
-      setStartDate(history.start_date ?? "");
-      setEndDate(history.end_date ?? "");
-      setArticles(data.articles ?? []);
-      setSelectedIds(new Set());
-      setOrderedArticles([]);
-      setHasAppliedSelection(false);
-      setActiveHistoryId(history.id);
-      setHasSearched(true);
-    } catch (caughtError) {
-      setError(
-        caughtError instanceof Error
-          ? caughtError.message
-          : "최근 기록을 불러오지 못했습니다.",
       );
     } finally {
       setIsLoading(false);
@@ -263,7 +188,6 @@ export function NewsletterApp() {
     setHtml("");
     setHasSearched(false);
     setHasAppliedSelection(false);
-    setActiveHistoryId(null);
     setOpenDatePicker(null);
     setOpenMenu(null);
   }
@@ -421,18 +345,7 @@ export function NewsletterApp() {
           <details open>
             <summary>최근 기록</summary>
             <ul className="history-list">
-              {histories.length ? (
-                histories.map((history) => (
-                  <li key={history.id}>
-                    <button type="button" onClick={() => handleLoadHistory(history)}>
-                      <strong>{formatHistoryDate(history.created_at)}</strong>
-                      <span>{history.article_count}건 수집</span>
-                    </button>
-                  </li>
-                ))
-              ) : (
-                <li className="empty-list">최근 기록이 없습니다.</li>
-              )}
+              <li className="empty-list">GitLab Pages 정적 배포에서는 최근 기록을 저장하지 않습니다.</li>
             </ul>
           </details>
           <details>
@@ -455,7 +368,6 @@ export function NewsletterApp() {
                 onOpen={() => setOpenDatePicker("start")}
                 onClose={() => setOpenDatePicker(null)}
                 onChange={setStartDate}
-                disabled={Boolean(activeHistoryId)}
               />
               <DateField
                 label="To"
@@ -464,25 +376,22 @@ export function NewsletterApp() {
                 onOpen={() => setOpenDatePicker("end")}
                 onClose={() => setOpenDatePicker(null)}
                 onChange={setEndDate}
-                disabled={Boolean(activeHistoryId)}
               />
-              {!activeHistoryId && (
-                <button
-                  className="primary-button"
-                  type="button"
-                  onClick={handleSearch}
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <span className="button-spinner" aria-hidden />
-                      <span>수집 중</span>
-                    </>
-                  ) : (
-                    "RUN"
-                  )}
-                </button>
-              )}
+              <button
+                className="primary-button"
+                type="button"
+                onClick={handleSearch}
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <>
+                    <span className="button-spinner" aria-hidden />
+                    <span>수집 중</span>
+                  </>
+                ) : (
+                  "RUN"
+                )}
+              </button>
             </div>
 
             {error && <p className="error-message">{error}</p>}
@@ -871,18 +780,6 @@ function TrashIcon() {
       <path d="M9.3335 7.33331V11.3333" stroke="#4A5565" strokeWidth="1.33333" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
-}
-
-function formatHistoryDate(value: string) {
-  const date = new Date(value);
-
-  if (Number.isNaN(date.getTime())) {
-    return value;
-  }
-
-  return `${date.getMonth() + 1}/${date.getDate()} ${date.getHours()}:${String(
-    date.getMinutes(),
-  ).padStart(2, "0")}`;
 }
 
 function downloadBlob(blob: Blob, fileName: string) {
