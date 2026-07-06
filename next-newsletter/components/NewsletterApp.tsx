@@ -25,8 +25,6 @@ type ResolveArticlesResponse = {
   message?: string;
 };
 
-const BIZ_LOGO_URL =
-  "https://res.cloudinary.com/dys1jifiy/image/upload/v1781742425/1-2_hg0esz.png";
 const DEFAULT_QUERY = `(디지털자산 OR 가상자산 OR 코인)
 AND
 (기업 OR 기관 OR 법인)`;
@@ -334,9 +332,6 @@ export function NewsletterApp() {
   return (
     <main className="app-shell">
       <header className="app-header">
-        <button className="brand-button" type="button" onClick={handleReset}>
-          <img src={BIZ_LOGO_URL} alt="빗썸 biz" className="brand-logo" />
-        </button>
         <h1>뉴스레터</h1>
       </header>
 
