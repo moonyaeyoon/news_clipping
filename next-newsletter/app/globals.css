@@ -144,6 +144,24 @@ a {
   letter-spacing: 0;
 }
 
+.logout-button {
+  margin-left: auto;
+  min-width: 92px;
+  height: 36px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.logout-button:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .app-layout {
   display: grid;
   grid-template-columns: 297px minmax(0, 1fr);
